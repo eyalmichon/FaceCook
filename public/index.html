@@ -1,9 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
+
 <head>
     <title>My Recipe App</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="util.js"> </script>
 </head>
+
 <body>
     <div class="container">
         <form method="POST" action="/login">
@@ -12,7 +19,7 @@
             <label for="id">ID:</label><br>
             <input type="text" id="id" name="id"><br><br>
             <input type="submit" value="Submit">
-        </form> 
+        </form>
         <h1>My Recipe App</h1>
 
         <h2>Add a New Recipe</h2>
@@ -21,7 +28,6 @@
                 <label for="recipe-name">Recipe Name:</label>
                 <input type="text" class="form-control" id="recipe-name">
             </div>
-
             <div class="form-group">
                 <label for="ingredients">Ingredients:</label>
                 <textarea class="form-control" id="ingredients"></textarea>
@@ -35,10 +41,71 @@
             <input type="submit" class="btn btn-primary" value="Add Recipe">
         </form>
         <h2>Search a Recipe</h2>
-        <form id="search-form">
-            <input type="text" id="search-input" placeholder="Enter a recipe or ingredient">
-            <button type="submit" id="search-button">Search</button>
-        </form>
+        <div class="container ui-widget">
+            <form method="GET" action="/search">
+                <label for="query">Search:</label>
+                <input id="searchTerm" name="searchTerm">
+                <button type="submit">Go</button>
+            </form>
+        </div>
+        <br>
     </div>
 </body>
+
 </html>
+
+<!-- <!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Autocomplete - Default functionality</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            var availableTags = [
+                "ActionScript",
+                "AppleScript",
+                "Asp",
+                "BASIC",
+                "C",
+                "C++",
+                "Clojure",
+                "COBOL",
+                "ColdFusion",
+                "Erlang",
+                "Fortran",
+                "Groovy",
+                "Haskell",
+                "Java",
+                "JavaScript",
+                "Lisp",
+                "Perl",
+                "PHP",
+                "Python",
+                "Ruby",
+                "Scala",
+                "Scheme"
+            ];
+            $("#tags").autocomplete({
+                source: availableTags
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="ui-widget">
+        <label for="tags">Tags: </label>
+        <input id="tags">
+    </div>
+
+
+</body>
+
+</html> -->
