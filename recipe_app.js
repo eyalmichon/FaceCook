@@ -8,6 +8,13 @@ app.get('/', (req, res) => {
   res.sendFile('public/index.html' , { root : __dirname});
 });
 
+app.post('/login', (req, res) => {
+  // Verify the login request here
+  const name = req.body.name;
+  const id = req.body.id;
+  console.log(name, id);
+});
+
 app.listen("3000", () => {
   console.log("Server is running on port 3000");
 });
