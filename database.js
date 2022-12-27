@@ -124,7 +124,7 @@ async function register(user, password, res) {
     upConnection.query(search_query, async (err, result) => {
         if (err) throw (err)
         console.log("------> Search Results")
-        console.log(result.length)
+        console.log(`Result: ${result}`)
         if (result.length != 0) {
             console.log("------> User already exists")
             res.sendStatus(409)
@@ -133,7 +133,7 @@ async function register(user, password, res) {
             upConnection.query(insert_query, (err, result) => {
                 if (err) throw (err)
                 console.log("--------> Created new User")
-                console.log(result.insertId)
+                console.log(`Created new user with id: ${result.insertId}`)
                 res.sendStatus(201)
             })
         }
