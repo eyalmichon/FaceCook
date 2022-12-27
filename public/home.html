@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>My Recipe App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="util.js"> </script>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>My Recipe App</h1>
+
+        <h2>Add a New Recipe</h2>
+        <form>
+            <div class="form-group">
+                <label for="recipe-name">Recipe Name:</label>
+                <input type="text" class="form-control" id="recipe-name">
+            </div>
+            <div class="form-group">
+                <label for="ingredients">Ingredients:</label>
+                <textarea class="form-control" id="ingredients"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="instructions">Instructions:</label>
+                <textarea class="form-control" id="instructions"></textarea>
+            </div>
+
+            <input type="submit" class="btn btn-primary" value="Add Recipe">
+        </form>
+        <h2>Search a Recipe</h2>
+        <div class="container ui-widget">
+            <form method="GET" action="/search">
+                <label for="query">Search:</label>
+                <input id="searchTerm" name="searchTerm">
+                <button type="submit">Go</button>
+            </form>
+        </div>
+        <br>
+    </div>
+</body>
+
+</html>

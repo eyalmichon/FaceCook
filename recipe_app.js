@@ -9,7 +9,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.get('/', (req, res) => {
-  res.sendFile('public/index.html', { root: __dirname });
+
+  // send login.html with path
+  res.sendFile('login.html', { root: path.join(__dirname, 'public') });
+
+
 });
 
 app.get('/search', (req, res) => {
@@ -19,11 +23,20 @@ app.get('/search', (req, res) => {
   });
 });
 
-
+// login
 app.post('/login', (req, res) => {
-  const username = req.body.name;
-  const id = req.body.id;
-  console.log(username, id);
+  const user = req.body.name;
+  const password = req.body.password;
+
+  db.login(user, password, res);
+});
+
+//CREATE USER
+app.post("/createUser", async (req, res) => {
+  const user = req.body.name;
+  const password = req.body.password;
+
+  db.register(user, password, res);
 });
 
 app.listen("3000", () => {
