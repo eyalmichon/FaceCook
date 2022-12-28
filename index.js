@@ -29,7 +29,6 @@ const ingredients = require('./raw_data/Ingredients.json');
 const recipesToIngredients = require('./raw_data/RecipesToIngredients.json');
 
 
-
 // batchInsert('users', ['user_id', 'username', 'password'], users, false);
 // batchInsert('recipes', ['recipe_id', 'name', 'contributor_id', 'date_submitted', 'minutes', 'kcal', 'fat', 'protein', 'sodium', 'saturated_fat', 'sugar', 'carbohydrates', 'category'], recipes, true);
 // batchInsert('reviews', ['recipe_id', 'user_id', 'date_submitted', 'date_modified', 'rating', 'review'], reviews, true);
@@ -60,6 +59,19 @@ function updatePassword() {
         });
     });
 }
+
+// update the image_url value in recipe_info table for all recipes in the recipeInfo json
+function updateImageUrl() {
+    recipeInfo.forEach((recipe, i) => {
+        connection.query(`UPDATE recipesdb.recipe_info SET image_url = '${recipe.image_url}' WHERE recipe_id = ${recipe.recipe_id}`, (err, result) => {
+            if (err) throw err;
+
+            console.log(`recipe ${i} updated`);
+        });
+    });
+}
+
+
 
 // generate a random password with letters and numbers
 function generateRandomPassword() {
@@ -155,7 +167,13 @@ function combineQuantities(rtis) {
 // });
 
 
-
+function createUserDatabase() {
+    const query = 'CREATE DATABASE IF NOT EXISTS userdb';
+    connection.query(query, (error, results) => {
+        if (error) throw error;
+        // console.log(results);
+    });
+}
 
 
 
@@ -206,7 +224,12 @@ function addStepNumber(json) {
     });
 }
 
-
+function replaceAllSingleQuotes(json, key) {
+    json.forEach((obj) => {
+        if (typeof obj[key] === 'string' && obj[key].includes('\''))
+            obj[key] = obj[key].replace(/\'/g, '\'\'');
+    });
+}
 
 // save to json file
 function saveJsonFile(json, name) {
@@ -219,8 +242,6 @@ function saveJsonFile(json, name) {
 }
 
 function makeDistinctJson(json) {
-
-
     function getFractionFromStr(string) {
 
         // helper function to get fraction from string
@@ -228,7 +249,6 @@ function makeDistinctJson(json) {
             let split = fraction.split('/');
             return parseFloat(split[0]) / parseFloat(split[1]);
         }
-
 
         let split = string.split(' ');
         if (split.length === 1)
