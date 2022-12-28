@@ -82,7 +82,7 @@ app.post('/login', (req, res) => {
         password: password
       };
     }
-    res.redirect('/');
+    res.send(data);
   });
 });
 
@@ -106,7 +106,7 @@ app.post("/createUser", async (req, res) => {
         password: password
       };
     }
-    res.redirect('/');
+    res.send(data);
   });
 });
 
