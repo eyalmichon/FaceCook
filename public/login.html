@@ -21,22 +21,28 @@
         // and delete the signup div
 
         $(document).ready(function () {
-            let showSignUp = true;
+            // if true, show the signin form and hide the signup form and vice versa.
+            let showSignUpText = true;
             const form = $('#signForm');
+            const signInLink = $('#signLink');
 
             function changeShowSignUp() {
-                if (showSignUp) {
+                if (showSignUpText) {
                     form.attr("action", "/createUser");
-                    $('#signLink').html('Have an account? <a href="#">Sign In</a>')
+                    signInLink.html('Have an account? <a href="#">Sign In</a>')
+                    $('#password2').show();
+                    $('#password2Label').show();
                 }
                 else {
                     form.attr("action", "/login");
-                    $('#signLink').html('Don\'t have an account? <a href="#">Sign Up</a>')
+                    signInLink.html('Don\'t have an account? <a href="#">Sign Up</a>')
+                    $('#password2').hide();
+                    $('#password2Label').hide();
                 }
-                showSignUp = !showSignUp;
+                showSignUpText = !showSignUpText;
             }
 
-            $('#signLink').click(function () {
+            signInLink.click(function () {
                 changeShowSignUp();
             });
 
@@ -47,6 +53,7 @@
                 // Select the username and password fields
                 const username = $('#name');
                 const password = $('#password');
+                const password2 = $('#password2');
 
                 if (username.val() === '') {
                     Swal.fire({
@@ -66,7 +73,7 @@
                 }
 
                 // Check that the password is at least 3 characters long
-                if (password.val().length < 3) {
+                if (password.val().length < 3 || password2.val().length < 3) {
                     Swal.fire({
                         icon: 'error',
                         title: 'Error',
@@ -75,17 +82,45 @@
                     return;
                 }
 
+                // Check that the passwords match if the user is signing up
+                if (!showSignUpText && password.val() !== password2.val()) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Passwords do not match'
+                    });
+                    return;
+                }
 
-                // If all checks pass, display a success alert and wait for it to close before submitting the form
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Success',
-                    text: 'Logging in...',
-                    timer: 1000,
-                    showConfirmButton: false
-                }).then(function () {
-                    // Unbind the submit event listener and submit the form
-                    form.unbind('submit').submit();
+                // check that the username exists in the database and the password matches
+                // if it does not, display an error message
+                // if it does, display a success message and wait for it to close before submitting the form
+                $.ajax({
+                    url: form.attr('action'),
+                    type: form.attr('method'),
+                    data: form.serialize(),
+                    success: function (response) {
+                        console.log(response);
+                        if (response.status === 200 || response.status === 201) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: 'Logging in...',
+                                timer: 1000,
+                                showConfirmButton: false
+                            }).then(function () {
+                                // redirect to the home page
+                                window.location.href = '/';
+                            });
+                        }
+                        else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: 'Wrong username or password'
+                            });
+                        }
+                    }
                 });
             });
         });
@@ -108,13 +143,17 @@
                     <input type="text" id="name" name="name" class="form-control"><br>
                     <label for="password" class="col-form-label">Password:</label>
                     <input type="password" id="password" name="password" class="form-control"><br>
+                    <label style="display: none" id="password2Label" for="password2" class="col-form-label">Re-type
+                        Password:</label>
+                    <input style="display: none" type="password" id="password2" name="password2"
+                        class="form-control"><br>
                     <input type="submit" value="Submit" class="btn btn-primary mt-3">
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- Add a text element underneath the card to prompt users to sign up -->
+
     <div class="text-center mt-5">
         <p id="signLink" class="font-weight-bold">Don't have an account? <a href="#">Sign Up</a></p>
     </div>
