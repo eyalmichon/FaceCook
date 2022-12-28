@@ -10,7 +10,7 @@ $(document).ready(function () {
                     searchTerm: request.term
                 },
                 success: function (data) {
-                    response(data.slice(0, 10));
+                    response(data);
                 },
                 error: function (error) {
                     console.log(error);
