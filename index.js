@@ -234,7 +234,7 @@ function batchInsert(table, columns, json, skipDups = false) {
 
 
     connection.query(query, (err, result) => {
-        if (err.code === 'ER_DUP_ENTRY' && skipDups) return;
+        if (err != null && err.code === 'ER_DUP_ENTRY' && skipDups) return;
         if (err) throw err;
         console.log(result);
     });
