@@ -10,6 +10,10 @@ const connection = mysql.createConnection({
 
 
 
+function createSQLDB() {
+    createSchema();
+    createTable();
+}
 
 // create a schema named 'recipesdb' if it doesn't exist
 function createSchema() {
@@ -18,49 +22,27 @@ function createSchema() {
         console.log(result);
     });
 }
-function createTable(){
+function createTable() {
+    var sqlUsers = "CREATE TABLE recipesdb.users (`user_id` int NOT NULL,`username` varchar(100) NOT NULL,`password` varchar(150) NOT NULL,PRIMARY KEY (`user_id`))"
+    connection.query(sqlUsers, (err, result) => { if (err) throw err; console.log(result); });
 
-    var sql7 = "CREATE TABLE recipesdb.users (`user_id` int NOT NULL,`username` varchar(100) NOT NULL,`password` varchar(150) NOT NULL,PRIMARY KEY (`user_id`))"
-    
-    connection.query(sql7, (err, result) => {if (err) throw err;console.log(result);});
+    var sqlRecipes = "CREATE TABLE recipesdb.recipes ( `recipe_id` int NOT NULL, `name` varchar(100) DEFAULT NULL,`contributor_id` int DEFAULT NULL,`date_submitted` date DEFAULT NULL, `minutes` int DEFAULT NULL,`kcal` double DEFAULT NULL, `fat` double DEFAULT NULL,`protein` double DEFAULT NULL,`saturated_fat` double DEFAULT NULL,`sodium` double DEFAULT NULL,`sugar` double DEFAULT NULL,`carbohydrates` double DEFAULT NULL,`category` varchar(50) DEFAULT NULL,PRIMARY KEY (`recipe_id`),KEY `contributer_id_idx` (`contributor_id`),CONSTRAINT `contributer_id` FOREIGN KEY (`contributor_id`) REFERENCES `users` (`user_id`))"
+    connection.query(sqlRecipes, (err, result) => { if (err) throw err; console.log(result); });
 
-    var sql4 = "CREATE TABLE recipesdb.recipes ( `recipe_id` int NOT NULL, `name` varchar(100) DEFAULT NULL,`contributor_id` int DEFAULT NULL,`date_submitted` date DEFAULT NULL, `minutes` int DEFAULT NULL,`kcal` double DEFAULT NULL, `fat` double DEFAULT NULL,`protein` double DEFAULT NULL,`saturated_fat` double DEFAULT NULL,`sodium` double DEFAULT NULL,`sugar` double DEFAULT NULL,`carbohydrates` double DEFAULT NULL,`category` varchar(50) DEFAULT NULL,PRIMARY KEY (`recipe_id`),KEY `contributer_id_idx` (`contributor_id`),CONSTRAINT `contributer_id` FOREIGN KEY (`contributor_id`) REFERENCES `users` (`user_id`))"
-  
-    connection.query(sql4, (err, result) => {if (err) throw err;console.log(result);});
-    
+    var sqlIngredients = "CREATE TABLE recipesdb.ingredients (food_name VARCHAR(500) PRIMARY KEY NOT NULL,calories float DEFAULT NULL, total_fat float DEFAULT NULL, protein float DEFAULT NULL,saturated_fat float DEFAULT NULL, sodium float DEFAULT NULL,sugars float DEFAULT NULL,carbohydrates float DEFAULT NULL)"
+    connection.query(sqlIngredients, (err, result) => { if (err) throw err; console.log(result); });
 
+    var sqlInstructions = "CREATE TABLE recipesdb.instructions (recipe_id int NOT NULL, step int NOT NULL,instruction varchar(5000) DEFAULT NULL, PRIMARY KEY (recipe_id,step),CONSTRAINT inst_recipe_id FOREIGN KEY (recipe_id) REFERENCES recipes (recipe_id) )"
+    connection.query(sqlInstructions, (err, result) => { if (err) throw err; console.log(result); });
 
-    var sql = "CREATE TABLE recipesdb.ingredients (food_name VARCHAR(500) PRIMARY KEY NOT NULL,calories float DEFAULT NULL, total_fat float DEFAULT NULL, protein float DEFAULT NULL,saturated_fat float DEFAULT NULL, sodium float DEFAULT NULL,sugars float DEFAULT NULL,carbohydrates float DEFAULT NULL)"
+    var sqlRecipeInfo = "CREATE TABLE recipesdb.recipe_info (`recipe_id` int NOT NULL,`description` text,`food_standards` json DEFAULT NULL,`image_url` text,`recipe_yield` varchar(5000) DEFAULT NULL,PRIMARY KEY (`recipe_id`), CONSTRAINT `info_recipe_id` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`recipe_id`))"
+    connection.query(sqlRecipeInfo, (err, result) => { if (err) throw err; console.log(result); });
 
-    
-    connection.query(sql, (err, result) => {if (err) throw err;console.log(result);});
+    var sqlRecipestoIngredients = "CREATE TABLE recipesdb.recipestoingredients ( `recipe_id` int NOT NULL, `food_name` varchar(500) NOT NULL, `quantity` float DEFAULT NULL,`unit` varchar(20) NOT NULL, PRIMARY KEY (`recipe_id`,`food_name`,`unit`), KEY `fk_food_name` (`food_name`), CONSTRAINT `fk_food_name` FOREIGN KEY (`food_name`) REFERENCES `ingredients` (`food_name`), CONSTRAINT `mix_recipe_id` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`recipe_id`))"
+    connection.query(sqlRecipestoIngredients, (err, result) => { if (err) throw err; console.log(result); });
 
-    var sql2 =  "CREATE TABLE recipesdb.instructions (recipe_id int NOT NULL, step int NOT NULL,instruction varchar(5000) DEFAULT NULL, PRIMARY KEY (recipe_id,step),CONSTRAINT inst_recipe_id FOREIGN KEY (recipe_id) REFERENCES recipes (recipe_id) )"
-   
-    connection.query(sql2, (err, result) => {if (err) throw err;console.log(result);});
-  
-    var sql3 = "CREATE TABLE recipesdb.recipe_info (`recipe_id` int NOT NULL,`description` text,`food_standards` json DEFAULT NULL,`image_url` text,`recipe_yield` varchar(5000) DEFAULT NULL,PRIMARY KEY (`recipe_id`), CONSTRAINT `info_recipe_id` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`recipe_id`))"
-
-
-    connection.query(sql3, (err, result) => {if (err) throw err;console.log(result);});
-
-
-    var sql5 = "CREATE TABLE recipesdb.recipestoingredients ( `recipe_id` int NOT NULL, `food_name` varchar(500) NOT NULL, `quantity` float DEFAULT NULL,`unit` varchar(20) NOT NULL, PRIMARY KEY (`recipe_id`,`food_name`,`unit`), KEY `fk_food_name` (`food_name`), CONSTRAINT `fk_food_name` FOREIGN KEY (`food_name`) REFERENCES `ingredients` (`food_name`), CONSTRAINT `mix_recipe_id` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`recipe_id`))"
-
-    connection.query(sql5, (err, result) => {if (err) throw err;console.log(result);});
-
-    var sql6 ="CREATE TABLE recipesdb.reviews ( `recipe_id` int NOT NULL,`user_id` int NOT NULL, `date_submitted` datetime DEFAULT NULL,`date_modified` datetime DEFAULT NULL,`rating` tinyint DEFAULT NULL, `review` text, PRIMARY KEY (`recipe_id`,`user_id`), KEY `rev_user_id_idx` (`user_id`) , CONSTRAINT `rev_recipe_id` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`recipe_id`), CONSTRAINT `rev_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`))"
-
-    connection.query(sql6, (err, result) => {if (err) throw err;console.log(result);});
-
-    
-
-  
-
-
-
-
-
+    var sqlReviews = "CREATE TABLE recipesdb.reviews ( `recipe_id` int NOT NULL,`user_id` int NOT NULL, `date_submitted` datetime DEFAULT NULL,`date_modified` datetime DEFAULT NULL,`rating` tinyint DEFAULT NULL, `review` text, PRIMARY KEY (`recipe_id`,`user_id`), KEY `rev_user_id_idx` (`user_id`) , CONSTRAINT `rev_recipe_id` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`recipe_id`), CONSTRAINT `rev_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`))"
+    connection.query(sqlReviews, (err, result) => { if (err) throw err; console.log(result); });
 }
 
 
@@ -329,5 +311,3 @@ function makeDistinctJson(json) {
     return distinctJson;
 
 }
-createSchema();
-createTable();
