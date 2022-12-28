@@ -1,5 +1,6 @@
 const mysql = require('mysql');
 const secrets = require('./secrets.json');
+const bcrypt = require("bcrypt")
 
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -29,15 +30,13 @@ const recipesToIngredients = require('./raw_data/RecipesToIngredients.json');
 
 
 
-// batchInsert('users', ['user_id', 'nick_name'], users, true);
+// batchInsert('users', ['user_id', 'username', 'password'], users, false);
 // batchInsert('recipes', ['recipe_id', 'name', 'contributor_id', 'date_submitted', 'minutes', 'kcal', 'fat', 'protein', 'sodium', 'saturated_fat', 'sugar', 'carbohydrates', 'category'], recipes, true);
 // batchInsert('reviews', ['recipe_id', 'user_id', 'date_submitted', 'date_modified', 'rating', 'review'], reviews, true);
 // batchInsert('instructions', ['recipe_id', 'step', 'instruction'], instructions, true);
 // batchInsert('recipe_info', ['recipe_id', 'description', 'food_standards', 'image_url', 'recipe_yield'], recipeInfo, true);
 // batchInsert('ingredients', ['food_name', 'calories', 'total_fat', 'protein', 'sodium', 'saturated_fat', 'sugars', 'carbohydrates'], ingredients, true);
 // batchInsert('recipestoingredients', ['recipe_id', 'food_name', 'quantity', 'unit'], recipesToIngredients, true);
-
-// deleteAllRows('recipestoingredients');
 
 // function check
 // recipesToIngredients.forEach((rti) => {
@@ -51,7 +50,48 @@ const recipesToIngredients = require('./raw_data/RecipesToIngredients.json');
 //     }
 // });
 
+// update password value in users table for all users in the users json
+function updatePassword() {
+    users.forEach((user, i) => {
+        connection.query(`UPDATE recipesdb.users SET password = '${user.password}' WHERE user_id = ${user.user_id}`, (err, result) => {
+            if (err) throw err;
 
+            console.log(`user ${i} updated`);
+        });
+    });
+}
+
+// generate a random password with letters and numbers
+function generateRandomPassword() {
+    const length = 8;
+    const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let retVal = '';
+    for (let i = 0, n = charset.length; i < length; ++i) {
+        retVal += charset.charAt(Math.floor(Math.random() * n));
+    }
+    return retVal;
+}
+
+async function hashPassword(password) {
+    return await bcrypt.hash(password, 5);
+}
+
+// add a random password using bcrypt to each user in the users json and save it to a new json file
+async function addRandomPassword() {
+    const usersWithPassword = [];
+    users.forEach((user, i) => {
+        usersWithPassword.push(hashPassword(generateRandomPassword()).then((hash) => {
+            console.log(`user ${i} password: ${hash}`);
+            return {
+                ...user,
+                password: hash,
+            }
+        }))
+    });
+    Promise.all(usersWithPassword).then((usersWithPassword) => {
+        saveJsonFile(usersWithPassword, 'UsersWithPassword');
+    });
+}
 
 function combineQuantities(rtis) {
 
@@ -118,8 +158,6 @@ function combineQuantities(rtis) {
 
 
 
-console.log('done');
-connection.end();
 
 
 function deleteAllRows(table) {
@@ -145,6 +183,7 @@ function batchInsert(table, columns, json, skipDups = false) {
     connection.query(query, (err, result) => {
         if (err.code === 'ER_DUP_ENTRY' && skipDups) return;
         if (err) throw err;
+        console.log(result);
     });
     console.log('done');
 }
