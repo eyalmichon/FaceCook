@@ -56,19 +56,14 @@ function getRecipesByTerm(searchTerm, callback) {
     });
 
 }
-// Create a table with the following columns
 
-//userId: INTEGER — Primary Key (PK), Not Null (NN), AutoIncrement (AI)
-//user: VARCHAR(45) — Not Null (NN)
-//password: VARCHAR (100) — Not Null (NN)
-function createUserTable() {
-    const query = 'CREATE TABLE IF NOT EXISTS users (userId INTEGER PRIMARY KEY AUTO_INCREMENT, user VARCHAR(45) NOT NULL, password VARCHAR(100) NOT NULL)';
-    dbConnection.query(query, (error, results) => {
-        if (error) throw error;
-        console.log(results);
-    });
-}
-
+/**
+ * Attempts to log in a user with the given username and password.
+ * @param {string} user - The username of the user.
+ * @param {string} password - The password of the user.
+ * @param {function} callback - The callback function to be executed after the login attempt.
+ * @returns {Object} An object with a message and status property, depending on the result of the login attempt.
+ */
 async function login(user, password, callback) {
 
     const sqlSearch = "Select * from users where username = ?"
@@ -95,12 +90,13 @@ async function login(user, password, callback) {
     })
 }
 
-// create a test async function to test the bcrypt.hash() function
-const b = (async () => {
-
-})
-
-
+/**
+ * Registers a new user with the given username and password.
+ * @param {string} user - The username of the new user.
+ * @param {string} password - The password of the new user.
+ * @param {function} callback - The callback function to be executed after the registration attempt.
+ * @returns {Object} An object with a message and status property, depending on the result of the registration attempt.
+ */
 async function register(user, password, callback) {
     const hashedPassword = await bcrypt.hash(password, 10);
     const sqlSearch = "SELECT * FROM users WHERE username = ?"
