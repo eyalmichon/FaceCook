@@ -54,10 +54,23 @@ app.get('/myRecipes', (req, res) => {
 
 ////////////// API ROUTES //////////////
 app.get('/search', (req, res) => {
+  const type = req.query.type;
   const searchTerm = req.query.searchTerm;
-  db.getRecipesByTerm(searchTerm, (results) => {
-    res.send(results.map((result) => result.name));
-  });
+
+  switch (type) {
+    case 'recipe':
+      db.getRecipesByTerm(searchTerm, (results) => {
+        res.send(results.map((result) => result.name));
+      });
+      break;
+    case 'ingredient':
+      db.getIngredientsByTerm(searchTerm, (results) => {
+        res.send(results.map((result) => result.name));
+      });
+      break;
+    default:
+      res.send([]);
+  }
 });
 
 app.get('/getUserRecipes', (req, res) => {
@@ -69,7 +82,14 @@ app.get('/getUserRecipes', (req, res) => {
 
 
 ////////////// LOGIN, SIGN OUT AND REGISTER ROUTES //////////////
-// Login
+/**
+ * Logs in the user.
+ *
+ * @route   POST /login
+ * @param   {Object} req - Express request object
+ * @param   {Object} res - Express response object
+ * @returns {Object} - An object with a message and status code
+ */
 app.post('/login', (req, res) => {
   const user = req.body.name;
   const password = req.body.password;
@@ -86,13 +106,27 @@ app.post('/login', (req, res) => {
   });
 });
 
-// Logout
+/**
+ * Logs out the user by destroying the session.
+ *
+ * @route   GET /logout
+ * @param   {Object} req - Express request object
+ * @param   {Object} res - Express response object
+ * @returns {undefined} - Sends a redirect to the root route '/'
+ */
 app.get('/logout', (req, res) => {
   req.session.destroy();
   res.redirect('/');
 });
 
-// Register
+/**
+ * Creates a new user in the database and logs in the user.
+ *
+ * @route   POST /createUser
+ * @param   {Object} req - Express request object
+ * @param   {Object} res - Express response object
+ * @returns {Object} - An object with a message and status code
+ */
 app.post("/createUser", async (req, res) => {
   const user = req.body.name;
   const password = req.body.password;
