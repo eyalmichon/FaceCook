@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
     <title>Login</title>
 </head>
 
@@ -20,23 +22,74 @@
 
         $(document).ready(function () {
             let showSignUp = true;
+            const form = $('#signForm');
 
             function changeShowSignUp() {
                 if (showSignUp) {
-                    $("#signform").attr("action", "/createUser");
-                    $("#signLink").html('Have an account? <a href="#">Sign In</a>')
+                    form.attr("action", "/createUser");
+                    $('#signLink').html('Have an account? <a href="#">Sign In</a>')
                 }
                 else {
-                    $("#signform").attr("action", "/login");
-                    $("#signLink").html('Don\'t have an account? <a href="#">Sign Up</a>')
+                    form.attr("action", "/login");
+                    $('#signLink').html('Don\'t have an account? <a href="#">Sign Up</a>')
                 }
                 showSignUp = !showSignUp;
             }
 
-            $("#signLink").click(function () {
+            $('#signLink').click(function () {
                 changeShowSignUp();
             });
+
+            form.submit(function (event) {
+                // Prevent the form from being submitted by default
+                event.preventDefault();
+
+                // Select the username and password fields
+                const username = $('#name');
+                const password = $('#password');
+
+                if (username.val() === '') {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Please enter a username'
+                    });
+                    return;
+                }
+                if (password.val() === '') {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Please enter a password'
+                    });
+                    return;
+                }
+
+                // Check that the password is at least 3 characters long
+                if (password.val().length < 3) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Password must be at least 3 characters long'
+                    });
+                    return;
+                }
+
+
+                // If all checks pass, display a success alert and wait for it to close before submitting the form
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: 'Logging in...',
+                    timer: 1000,
+                    showConfirmButton: false
+                }).then(function () {
+                    // Unbind the submit event listener and submit the form
+                    form.unbind('submit').submit();
+                });
+            });
         });
+
 
     </script>
     <!-- Add a navigation bar using Bootstrap's navbar component -->
@@ -50,11 +103,11 @@
         <div class="card">
             <div class="card-body">
                 <!-- Use Bootstrap's form styling classes to make the form look more visually appealing -->
-                <form id="signform" method="POST" action="/login" class="form-group">
+                <form id="signForm" method="POST" action="/login" class="form-group">
                     <label for="name" class="col-form-label">Username:</label>
                     <input type="text" id="name" name="name" class="form-control"><br>
                     <label for="password" class="col-form-label">Password:</label>
-                    <input type="text" id="password" name="password" class="form-control"><br>
+                    <input type="password" id="password" name="password" class="form-control"><br>
                     <input type="submit" value="Submit" class="btn btn-primary mt-3">
                 </form>
             </div>

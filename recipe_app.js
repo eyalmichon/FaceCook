@@ -20,7 +20,7 @@ app.use(sessions({
 app.use(cookieParser());
 
 
-/////////// Routes ///////////
+////////////// User Routes //////////////
 app.get('/', (req, res) => {
   console.log("req.session.user", req.session.user);
   if (req.session.user)
@@ -31,6 +31,28 @@ app.get('/', (req, res) => {
 
 });
 
+app.get('/addRecipe', (req, res) => {
+  if (req.session.user)
+    res.sendFile('addRecipe.html', { root: path.join(__dirname, 'public') });
+  else
+    res.sendFile('login.html', { root: path.join(__dirname, 'public') });
+});
+
+app.get('/searchRecipes', (req, res) => {
+  if (req.session.user)
+    res.sendFile('searchRecipes.html', { root: path.join(__dirname, 'public') });
+  else
+    res.sendFile('login.html', { root: path.join(__dirname, 'public') });
+});
+
+app.get('/myRecipes', (req, res) => {
+  if (req.session.user)
+    res.sendFile('myRecipes.html', { root: path.join(__dirname, 'public') });
+  else
+    res.sendFile('login.html', { root: path.join(__dirname, 'public') });
+});
+
+////////////// API ROUTES //////////////
 app.get('/search', (req, res) => {
   const searchTerm = req.query.searchTerm;
   db.getRecipesByTerm(searchTerm, (results) => {
@@ -38,7 +60,16 @@ app.get('/search', (req, res) => {
   });
 });
 
-// login
+app.get('/getUserRecipes', (req, res) => {
+  const user = req.session.user.username;
+  db.getUserRecipes(user, (results) => {
+    res.send(results);
+  });
+});
+
+
+////////////// LOGIN, SIGN OUT AND REGISTER ROUTES //////////////
+// Login
 app.post('/login', (req, res) => {
   const user = req.body.name;
   const password = req.body.password;
@@ -55,7 +86,13 @@ app.post('/login', (req, res) => {
   });
 });
 
-//CREATE USER
+// Logout
+app.get('/logout', (req, res) => {
+  req.session.destroy();
+  res.redirect('/');
+});
+
+// Register
 app.post("/createUser", async (req, res) => {
   const user = req.body.name;
   const password = req.body.password;

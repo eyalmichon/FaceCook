@@ -14,7 +14,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">Recipes App</a>
+        <a class="navbar-brand" href="#">Recipes App</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -22,16 +22,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="addRecipe">Add Recipe</a>
+                    <a class="nav-link" href="#">Add Recipe</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/searchRecipe">Search Recipe</a>
+                    <a class="nav-link" href="#">Search Recipe</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/myRecipes">My Recipes</a>
+                    <a class="nav-link" href="#">My Recipes</a>
                 </li>
                 <li class="nav-item">
                     <a style="color: red;" class="nav-link" href="/logout">Logout</a>
@@ -39,6 +39,18 @@
             </ul>
         </div>
     </nav>
+    <div class="container mt-5">
+        <h2 class="mt-5">Search a Recipe</h2>
+        <div class="container ui-widget">
+            <form method="GET" action="/search">
+                <div class="form-group">
+                    <label for="query">Search:</label>
+                    <input class="form-control" id="searchTerm" name="searchTerm">
+                </div>
+                <button type="submit" class="btn btn-primary">Go</button>
+            </form>
+        </div>
+    </div>
 </body>
 
 </html>
