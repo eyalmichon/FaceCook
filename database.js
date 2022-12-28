@@ -9,22 +9,11 @@ const dbConnection = mysql.createConnection({
     password: secrets.DB_PASSWORD,
     database: 'recipesdb'
 });
-// User & Password Database connection.
-const upConnection = mysql.createConnection({
-    host: 'localhost',
-    user: secrets.DB_USERNAME,
-    password: secrets.DB_PASSWORD,
-    database: 'userdb'
-});
+
 
 dbConnection.connect((err) => {
     if (err) throw err;
     console.log('Connected to recipesdb!');
-
-});
-upConnection.connect((err) => {
-    if (err) throw err;
-    console.log('Connected to userdb!');
 
 });
 
@@ -74,33 +63,33 @@ function getRecipesByTerm(searchTerm, callback) {
 //password: VARCHAR (100) — Not Null (NN)
 function createUserTable() {
     const query = 'CREATE TABLE IF NOT EXISTS users (userId INTEGER PRIMARY KEY AUTO_INCREMENT, user VARCHAR(45) NOT NULL, password VARCHAR(100) NOT NULL)';
-    upConnection.query(query, (error, results) => {
+    dbConnection.query(query, (error, results) => {
         if (error) throw error;
         console.log(results);
     });
 }
 
-async function login(user, password, res) {
+async function login(user, password, callback) {
 
-    const sqlSearch = "Select * from users where user = ?"
+    const sqlSearch = "Select * from users where username = ?"
     const search_query = mysql.format(sqlSearch, [user])
-    upConnection.query(search_query, async (err, result) => {
+    dbConnection.query(search_query, async (err, result) => {
 
         if (err) throw (err)
         if (result.length == 0) {
             console.log("--------> User does not exist")
-            res.sendStatus(404)
+            callback({ message: "User does not exist", status: 404 })
         }
         else {
-            const hashedPassword = result[0].password
+            const hashedPassword = result[0].password;
             //get the hashedPassword from result
             if (await bcrypt.compare(password, hashedPassword)) {
                 console.log("---------> Login Successful")
-                res.send(`${user} is logged in!`)
+                callback({ message: `${user} is logged in!`, status: 200 })
             }
             else {
                 console.log("---------> Password Incorrect")
-                res.send("Password incorrect!")
+                callback({ message: `Password incorrect for user: ${user}!`, status: 401 })
             }
         }
     })
@@ -108,33 +97,31 @@ async function login(user, password, res) {
 
 // create a test async function to test the bcrypt.hash() function
 const b = (async () => {
-    login("eyal", "password", () => { })
-    register("moshe", "123", () => { })
+
 })
 
 
-async function register(user, password, res) {
+async function register(user, password, callback) {
     const hashedPassword = await bcrypt.hash(password, 10);
-    const sqlSearch = "SELECT * FROM users WHERE user = ?"
+    const sqlSearch = "SELECT * FROM users WHERE username = ?"
     const search_query = mysql.format(sqlSearch, [user])
     const sqlInsert = "INSERT INTO users VALUES (0,?,?)"
     // ? will be replaced by values
     // ?? will be replaced by string
     const insert_query = mysql.format(sqlInsert, [user, hashedPassword])
-    upConnection.query(search_query, async (err, result) => {
+    dbConnection.query(search_query, async (err, result) => {
         if (err) throw (err)
         console.log("------> Search Results")
         console.log(`Result: ${result}`)
         if (result.length != 0) {
             console.log("------> User already exists")
-            res.sendStatus(409)
+            callback({ message: `User: ${user} already exists!`, status: 409 })
         }
         else {
-            upConnection.query(insert_query, (err, result) => {
+            dbConnection.query(insert_query, (err, result) => {
                 if (err) throw (err)
                 console.log("--------> Created new User")
-                console.log(`Created new user with id: ${result.insertId}`)
-                res.sendStatus(201)
+                callback({ message: `Created new user with id: ${result.insertId}`, status: 201 })
             })
         }
     })
