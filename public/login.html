@@ -17,19 +17,24 @@
     <script>
         // if the signup link is clocked change the url in the post for the form to /createUser
         // and delete the signup div
+
         $(document).ready(function () {
-            let showSignUp = false;
-            $("#signLink").click(function () {
+            let showSignUp = true;
+
+            function changeShowSignUp() {
                 if (showSignUp) {
                     $("#signform").attr("action", "/createUser");
                     $("#signLink").html('Have an account? <a href="#">Sign In</a>')
-                    showSignUp = false;
                 }
                 else {
                     $("#signform").attr("action", "/login");
                     $("#signLink").html('Don\'t have an account? <a href="#">Sign Up</a>')
-                    showSignUp = true;
                 }
+                showSignUp = !showSignUp;
+            }
+
+            $("#signLink").click(function () {
+                changeShowSignUp();
             });
         });
 
@@ -58,7 +63,7 @@
 
     <!-- Add a text element underneath the card to prompt users to sign up -->
     <div class="text-center mt-5">
-        <p id="signLink" class="font-weight-bold">Don't have an account? <a href="#">Sign up</a></p>
+        <p id="signLink" class="font-weight-bold">Don't have an account? <a href="#">Sign Up</a></p>
     </div>
 </body>
 
