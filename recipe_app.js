@@ -1,17 +1,32 @@
 const express = require('express');
+const cookieParser = require("cookie-parser");
+const sessions = require('express-session');
 const bodyParser = require('body-parser');
 const db = require('./database.js');
 const path = require('path');
 
+
+// Set up the express app
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+//session middleware
+app.use(sessions({
+  secret: "thisismysecrctekey",
+  saveUninitialized: true,
+  cookie: { maxAge: 1000 * 60 * 60 * 24 }, // 24 hours
+  resave: false
+}));
+app.use(cookieParser());
 
 
+/////////// Routes ///////////
 app.get('/', (req, res) => {
-
-  // send login.html with path
-  res.sendFile('login.html', { root: path.join(__dirname, 'public') });
+  console.log("req.session.user", req.session.user);
+  if (req.session.user)
+    res.sendFile('home.html', { root: path.join(__dirname, 'public') });
+  else
+    res.sendFile('login.html', { root: path.join(__dirname, 'public') });
 
 
 });
@@ -28,7 +43,16 @@ app.post('/login', (req, res) => {
   const user = req.body.name;
   const password = req.body.password;
 
-  db.login(user, password, res);
+
+  db.login(user, password, (data) => {
+    if (data.status == 200) {
+      req.session.user = {
+        username: user,
+        password: password
+      };
+    }
+    res.redirect('/');
+  });
 });
 
 //CREATE USER
@@ -36,7 +60,17 @@ app.post("/createUser", async (req, res) => {
   const user = req.body.name;
   const password = req.body.password;
 
-  db.register(user, password, res);
+
+
+  db.register(user, password, (data) => {
+    if (data.status == 201) {
+      req.session.user = {
+        username: user,
+        password: password
+      };
+    }
+    res.redirect('/');
+  });
 });
 
 app.listen("3000", () => {
