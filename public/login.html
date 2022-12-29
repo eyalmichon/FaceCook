@@ -73,7 +73,7 @@
                 }
 
                 // Check that the password is at least 3 characters long
-                if (password.val().length < 3 || password2.val().length < 3) {
+                if (!showSignUpText && (password.val().length < 3 || password2.val().length < 3)) {
                     Swal.fire({
                         icon: 'error',
                         title: 'Error',

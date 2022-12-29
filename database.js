@@ -98,13 +98,22 @@ async function login(user, password, callback) {
  * @returns {Object} An object with a message and status property, depending on the result of the registration attempt.
  */
 async function register(user, password, callback) {
+    // user_id is auto incremented
+    let max_id;
+    getMaxId().then((result) => {
+        max_id = result + 1;
+    })
+    .catch((err) => {
+        console.log(err)
+    });
+    // hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
     const sqlSearch = "SELECT * FROM users WHERE username = ?"
     const search_query = mysql.format(sqlSearch, [user])
-    const sqlInsert = "INSERT INTO users VALUES (0,?,?)"
+    const sqlInsert = "INSERT INTO users VALUES (?,?,?)"
     // ? will be replaced by values
     // ?? will be replaced by string
-    const insert_query = mysql.format(sqlInsert, [user, hashedPassword])
+    const insert_query = mysql.format(sqlInsert, [max_id, user, hashedPassword])
     dbConnection.query(search_query, async (err, result) => {
         if (err) throw (err)
         console.log("------> Search Results")
@@ -122,6 +131,20 @@ async function register(user, password, callback) {
         }
     })
 }
+
+// helper function to get the max id
+function getMaxId() {
+    return new Promise((resolve, reject) => {
+      const sqlId = "SELECT MAX(user_id) as max_id FROM users";
+      dbConnection.query(sqlId, (err, result) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(result[0].max_id);
+        }
+      });
+    });
+  }
 
 module.exports = {
     getRecipesResults,
