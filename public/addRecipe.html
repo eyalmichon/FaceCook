@@ -56,6 +56,34 @@
             <input type="submit" class="btn btn-primary" value="Add Recipe">
         </form>
     </div>
+    <script>
+        // handle the submit event of the form
+        $("form").submit(function (event) {
+            // prevent the form from submitting the default way
+            event.preventDefault();
+
+            // get the values of the form fields
+            var recipeName = $("#recipe-name").val();
+            var ingredients = $("#ingredients").val();
+            var instructions = $("#instructions").val();
+
+            // send an HTTP POST request to a server-side script or API endpoint
+            $.ajax({
+                type: "POST",
+                url: "/addRecipe",
+                data: JSON.stringify({
+                    name: recipeName,
+                    ingredients: ingredients,
+                    instructions: instructions
+                }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    // handle the response from the server
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
