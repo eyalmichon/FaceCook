@@ -8,14 +8,31 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <title>Login</title>
+    <style>
+        .my-class {
+            background-image: url('https://images.pexels.com/photos/326279/pexels-photo-326279.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 </head>
 
 <body>
+
     <script>
         // if the signup link is clocked change the url in the post for the form to /createUser
         // and delete the signup div
@@ -127,35 +144,35 @@
 
 
     </script>
-    <!-- Add a navigation bar using Bootstrap's navbar component -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Recipes App</a>
-    </nav>
+    <div class="my-class">
+        <!-- Add a navigation bar using Bootstrap's navbar component -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Recipes App</a>
+        </nav>
 
-    <!-- Add a container element to center the card on the page -->
-    <div class="container mt-5">
-        <!-- Use Bootstrap's card component to create a box for the form elements -->
-        <div class="card">
-            <div class="card-body">
-                <!-- Use Bootstrap's form styling classes to make the form look more visually appealing -->
-                <form id="signForm" method="POST" action="/login" class="form-group">
-                    <label for="name" class="col-form-label">Username:</label>
-                    <input type="text" id="name" name="name" class="form-control"><br>
-                    <label for="password" class="col-form-label">Password:</label>
-                    <input type="password" id="password" name="password" class="form-control"><br>
-                    <label style="display: none" id="password2Label" for="password2" class="col-form-label">Re-type
-                        Password:</label>
-                    <input style="display: none" type="password" id="password2" name="password2"
-                        class="form-control"><br>
-                    <input type="submit" value="Submit" class="btn btn-primary mt-3">
-                </form>
+        <!-- Add a container element to center the card on the page -->
+        <div class="container mt-5">
+            <!-- Use Bootstrap's card component to create a box for the form elements -->
+            <div class="card">
+                <div class="card-body">
+                    <!-- Use Bootstrap's form styling classes to make the form look more visually appealing -->
+                    <form id="signForm" method="POST" action="/login" class="form-group">
+                        <label for="name" class="col-form-label">Username:</label>
+                        <input type="text" id="name" name="name" class="form-control"><br>
+                        <label for="password" class="col-form-label">Password:</label>
+                        <input type="password" id="password" name="password" class="form-control"><br>
+                        <label style="display: none" id="password2Label" for="password2" class="col-form-label">Re-type
+                            Password:</label>
+                        <input style="display: none" type="password" id="password2" name="password2"
+                            class="form-control"><br>
+                        <input type="submit" value="Submit" class="btn btn-primary mt-3">
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-
-
-    <div class="text-center mt-5">
-        <p id="signLink" class="font-weight-bold">Don't have an account? <a href="#">Sign Up</a></p>
+        <div class="text-center mt-5">
+            <p id="signLink" class="font-weight-bold">Don't have an account? <a href="#">Sign Up</a></p>
+        </div>
     </div>
 </body>
 
