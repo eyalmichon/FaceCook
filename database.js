@@ -2,6 +2,7 @@ const mysql = require('mysql');
 const secrets = require('./secrets.json');
 const bcrypt = require("bcrypt")
 
+
 // create a connection to the database
 const dbConnection = mysql.createConnection({
     host: 'localhost',
@@ -17,6 +18,14 @@ dbConnection.connect((err) => {
 
 });
 
+// user_id is auto incremented
+var LAST_USER_ID;
+getMaxId().then((result) => {
+    LAST_USER_ID = result + 1;
+})
+    .catch((err) => {
+        console.log(err)
+    });
 
 function getUsersWithRecipe(callback) {
     const query = 'SELECT nickname, cnt (SELECT users.nickname, count(recipe_id) as cnt \
@@ -98,14 +107,7 @@ async function login(user, password, callback) {
  * @returns {Object} An object with a message and status property, depending on the result of the registration attempt.
  */
 async function register(user, password, callback) {
-    // user_id is auto incremented
-    let max_id;
-    getMaxId().then((result) => {
-        max_id = result + 1;
-    })
-    .catch((err) => {
-        console.log(err)
-    });
+
     // hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
     const sqlSearch = "SELECT * FROM users WHERE username = ?"
@@ -113,7 +115,8 @@ async function register(user, password, callback) {
     const sqlInsert = "INSERT INTO users VALUES (?,?,?)"
     // ? will be replaced by values
     // ?? will be replaced by string
-    const insert_query = mysql.format(sqlInsert, [max_id, user, hashedPassword])
+    const insert_query = mysql.format(sqlInsert, [LAST_USER_ID, user, hashedPassword])
+    LAST_USER_ID++;
     dbConnection.query(search_query, async (err, result) => {
         if (err) throw (err)
         console.log("------> Search Results")
@@ -135,16 +138,16 @@ async function register(user, password, callback) {
 // helper function to get the max id
 function getMaxId() {
     return new Promise((resolve, reject) => {
-      const sqlId = "SELECT MAX(user_id) as max_id FROM users";
-      dbConnection.query(sqlId, (err, result) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(result[0].max_id);
-        }
-      });
+        const sqlId = "SELECT MAX(user_id) as max_id FROM users";
+        dbConnection.query(sqlId, (err, result) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(result[0].max_id);
+            }
+        });
     });
-  }
+}
 
 module.exports = {
     getRecipesResults,
