@@ -4,11 +4,8 @@
 <head>
     <title>My Recipe App</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -33,16 +30,23 @@
         #gallery {
             display: flex;
             flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px;
         }
 
         .picture-container {
             width: 25%;
             /* Adjust this value to control the number of elements per row */
+            margin: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
         }
 
         .picture-container img {
-            width: 100%;
             height: auto;
+            max-width: 100%;
+            object-fit: cover;
         }
     </style>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -75,6 +79,7 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             getUserRecipes();
+
         });
 
         function getUserRecipes() {
@@ -88,7 +93,7 @@
                     results.forEach(recipe => {
                         // create the div that will contain the recipe
                         const recipeDiv = document.createElement('div');
-                        recipeDiv.classList.add('picture-container');
+                        recipeDiv.classList.add('picture-container', 'col-12', 'col-md-6', 'col-lg-4', 'col-xl-3');
 
                         const carouselDiv = document.createElement('div');
                         carouselDiv.classList.add('carousel', 'slide');
@@ -165,9 +170,10 @@
                         // append the recipe div to the recipes div
                         recipesDiv.appendChild(recipeDiv);
                     });
-                });
+                }).then(() => {
+                    $('.carousel').carousel();
+                })
         }
-
     </script>
     <div id="gallery">
 
