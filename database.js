@@ -52,6 +52,39 @@ function getRecipesResults(callback) {
 }
 
 
+function getUserRecipes(user_id, callback) {
+    const query = `
+    SELECT r.*, 
+    JSON_OBJECT(
+        'reviews', JSON_ARRAYAGG(
+            JSON_OBJECT(
+                'user_id', u.user_id, 
+                'date_submitted', rv.date_submitted, 
+                'date_modified', rv.date_modified, 
+                'rating', rv.rating, 
+                'review', rv.review
+            )
+        )
+    ) AS reviews,
+    ri.description, ri.food_standards, ri.image_url, ri.recipe_yield
+    FROM recipesdb.recipes r
+    JOIN recipesdb.users u ON r.contributor_id = u.user_id
+    LEFT JOIN recipesdb.reviews rv ON r.recipe_id = rv.recipe_id
+    LEFT JOIN recipesdb.recipe_info ri ON r.recipe_id = ri.recipe_id
+    WHERE u.user_id = ?
+    GROUP BY r.recipe_id
+    `;
+    const params = ['1533'];
+
+    dbConnection.query(query, params, (error, results) => {
+        console.log(results);
+        if (error) throw error;
+        callback(results);
+    });
+}
+
+
+
 /**
  * Get all recipes from the database that match the given search term or part of a search term.
  * @param {string} searchTerm The search term to match against the recipes.
@@ -153,5 +186,6 @@ module.exports = {
     getRecipesResults,
     getRecipesByTerm,
     login,
-    register
+    register,
+    getUserRecipes
 };
