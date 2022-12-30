@@ -29,8 +29,9 @@ function createSchema() {
         console.log(result);
     });
 }
+
 function createTable() {
-    var sqlUsers = "CREATE TABLE IF NOT EXISTS recipesdb.users (`user_id` int NOT NULL,`username` varchar(100) NOT NULL,`password` varchar(150) NOT NULL,PRIMARY KEY (`user_id`))"
+    var sqlUsers = "CREATE TABLE IF NOT EXISTS recipesdb.users (`user_id` int NOT NULL,`username` varchar(100) NOT NULL,`password` varchar(150) NOT NULL,PRIMARY KEY (`user_id`,`username`))"
     connection.query(sqlUsers, (err, result) => { if (err) throw err; console.log(result); });
 
     var sqlRecipes = "CREATE TABLE IF NOT EXISTS recipesdb.recipes ( `recipe_id` int NOT NULL, `name` varchar(100) DEFAULT NULL,`contributor_id` int DEFAULT NULL,`date_submitted` date DEFAULT NULL, `minutes` int DEFAULT NULL,`kcal` double DEFAULT NULL, `fat` double DEFAULT NULL,`protein` double DEFAULT NULL,`saturated_fat` double DEFAULT NULL,`sodium` double DEFAULT NULL,`sugar` double DEFAULT NULL,`carbohydrates` double DEFAULT NULL,`category` varchar(50) DEFAULT NULL,PRIMARY KEY (`recipe_id`),KEY `contributer_id_idx` (`contributor_id`),CONSTRAINT `contributer_id` FOREIGN KEY (`contributor_id`) REFERENCES `users` (`user_id`))"
@@ -109,8 +110,7 @@ function updateImageUrl() {
 
 
 // generate a random password with letters and numbers
-function generateRandomPassword() {
-    const length = 8;
+function generateRandomPassword(length = 8) {
     const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     let retVal = '';
     for (let i = 0, n = charset.length; i < length; ++i) {
@@ -318,5 +318,17 @@ function makeDistinctJson(json) {
     return distinctJson;
 
 }
+// update users username in users table for all users
+function updateUsernames() {
+    users.forEach((user) => {
+        let query = `UPDATE recipesdb.users SET username = '${user.username}' WHERE user_id = ${user.user_id}`;
+        connection.query(query
+            , (err, result) => {
+                if (err) throw err;
+                console.log(result);
+            });
+    });
 
-createSQLDB();
+}
+
+// createSQLDB();
