@@ -52,7 +52,7 @@ function getRecipesResults(callback) {
 }
 
 
-function getUserRecipes(user_id, callback) {
+function getUserRecipes(username, callback) {
     const query = `
     SELECT r.*, 
     JSON_OBJECT(
@@ -74,10 +74,9 @@ function getUserRecipes(user_id, callback) {
     WHERE u.user_id = ?
     GROUP BY r.recipe_id
     `;
-    const params = ['1533'];
+    const params = [username];
 
     dbConnection.query(query, params, (error, results) => {
-        console.log(results);
         if (error) throw error;
         callback(results);
     });
