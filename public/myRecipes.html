@@ -8,10 +8,43 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
 <body>
+    <!-- Modal HTML -->
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Modal Title</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        #gallery {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .picture-container {
+            width: 25%;
+            /* Adjust this value to control the number of elements per row */
+        }
+
+        .picture-container img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Recipes App</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -39,28 +72,108 @@
         </div>
     </nav>
     <script>
+
         document.addEventListener('DOMContentLoaded', () => {
             getUserRecipes();
         });
+
         function getUserRecipes() {
             fetch('/getUserRecipes')
                 .then(response => response.json())
                 .then(results => {
                     // get the recipes div
-                    const recipesDiv = document.getElementById('recipes');
+                    const recipesDiv = document.getElementById('gallery');
 
                     // loop through the results and create HTML elements for each recipe
                     results.forEach(recipe => {
+                        // create the div that will contain the recipe
                         const recipeDiv = document.createElement('div');
-                        recipeDiv.innerHTML = `<h2>${recipe.name}</h2><p>${recipe.description}</p>`;
+                        recipeDiv.classList.add('picture-container');
+
+                        const carouselDiv = document.createElement('div');
+                        carouselDiv.classList.add('carousel', 'slide');
+                        // data-ride
+                        carouselDiv.setAttribute('data-ride', 'carousel');
+
+                        // create the carousel that will contain the images
+                        const imagesList = document.createElement('div');
+                        imagesList.classList.add('carousel-inner');
+
+                        let images = [];
+                        if (recipe.image_url.startsWith('c'))
+                            images = recipe.image_url.slice(2, -2).split(', ').map(image => image.replace(/"/g, ''));
+                        else
+                            images = [recipe.image_url.slice(1, -1)];
+
+                        // split the images string into an array and create an img element for each image
+                        images.length ? images.forEach((imageUrl, i) => {
+                            const image = document.createElement('img');
+                            image.src = imageUrl || "./images/Recipe_Placeholder_Image.jpg";
+                            image.alt = recipe.name;
+                            image.classList.add('d-block', 'w-100');
+                            const divImage = document.createElement('div');
+                            // add the active class to the first image
+                            if (i === 0)
+                                divImage.classList.add('carousel-item', 'active');
+                            else
+                                divImage.classList.add('carousel-item');
+                            divImage.appendChild(image);
+                            imagesList.appendChild(divImage);
+
+                        }) : imagesList.innerHTML = `<img src="./images/Recipe_Placeholder_Image.jpg" alt="${recipe.name}" class="d-block w-100">`;
+
+                        carouselDiv.appendChild(imagesList);
+
+                        // create the elements for the recipe name and number of reviews
+                        const name = document.createElement('h3');
+                        name.textContent = recipe.name;
+                        const reviews = JSON.parse(recipe.reviews).reviews;
+                        const reviewsElement = document.createElement('p');
+                        reviewsElement.textContent = `${reviews.length} reviews`;
+
+                        // create the button that will open the modal
+                        const button = document.createElement('button');
+                        button.classList.add('btn', 'btn-primary');
+                        button.textContent = 'View Recipe';
+                        button.setAttribute('data-toggle', 'modal');
+                        button.setAttribute('data-target', '#myModal');
+
+                        // add the event listener to the button
+                        button.addEventListener('click', () => {
+                            // get the modal title and body elements
+                            const modalTitle = document.querySelector('.modal-title');
+                            const modalBody = document.querySelector('.modal-body');
+
+                            // set the title and body content
+                            modalTitle.textContent = recipe.name;
+                            modalBody.innerHTML = `
+                                <p><strong>Ingredients:</strong> ${recipe.ingredients}</p>
+                                <p><strong>Instructions:</strong> ${recipe.instructions}</p>
+                                <p><strong>Reviews:</strong></p>
+                                <ul>
+                                    ${recipe.reviews.map(review => `<li>${review}</li>`).join('')}
+                                </ul>
+                            `;
+                        });
+
+                        // append the elements to the recipe div
+                        recipeDiv.appendChild(carouselDiv);
+                        recipeDiv.appendChild(name);
+                        recipeDiv.appendChild(reviewsElement);
+                        recipeDiv.appendChild(button);
+
+                        // append the recipe div to the recipes div
                         recipesDiv.appendChild(recipeDiv);
                     });
                 });
         }
+
     </script>
-    <div id="recipes">
-        <!-- recipes will be loaded here -->
+    <div id="gallery">
+
     </div>
+
+
 </body>
 
 </html>
