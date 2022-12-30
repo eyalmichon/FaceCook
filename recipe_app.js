@@ -80,6 +80,11 @@ app.get('/getUserRecipes', (req, res) => {
   });
 });
 
+app.post('/addRecipe', (req, res) => {
+
+
+});
+
 
 ////////////// LOGIN, SIGN OUT AND REGISTER ROUTES //////////////
 /**
