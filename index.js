@@ -31,11 +31,17 @@ function createSchema() {
 }
 
 function createTable() {
-    var sqlUsers = "CREATE TABLE IF NOT EXISTS recipesdb.users (`user_id` int NOT NULL,`username` varchar(100) NOT NULL,`password` varchar(150) NOT NULL,PRIMARY KEY (`user_id`,`username`))"
+    var sqlUsers = "CREATE TABLE IF NOT EXISTS recipesdb.users (`user_id` int NOT NULL AUTO_INCREMENT,`username` varchar(100) NOT NULL,`password` varchar(150) NOT NULL,PRIMARY KEY (`user_id`,`username`))"
     connection.query(sqlUsers, (err, result) => { if (err) throw err; console.log(result); });
+    // alter auto increment
+    var alter = 'ALTER TABLE recipesdb.users AUTO_INCREMENT=2002901500';
+    connection.query(alter, (err, result) => { if (err) throw err; console.log(result); });
 
-    var sqlRecipes = "CREATE TABLE IF NOT EXISTS recipesdb.recipes ( `recipe_id` int NOT NULL, `name` varchar(100) DEFAULT NULL,`contributor_id` int DEFAULT NULL,`date_submitted` date DEFAULT NULL, `minutes` int DEFAULT NULL,`kcal` double DEFAULT NULL, `fat` double DEFAULT NULL,`protein` double DEFAULT NULL,`saturated_fat` double DEFAULT NULL,`sodium` double DEFAULT NULL,`sugar` double DEFAULT NULL,`carbohydrates` double DEFAULT NULL,`category` varchar(50) DEFAULT NULL,PRIMARY KEY (`recipe_id`),KEY `contributer_id_idx` (`contributor_id`),CONSTRAINT `contributer_id` FOREIGN KEY (`contributor_id`) REFERENCES `users` (`user_id`))"
+    var sqlRecipes = "CREATE TABLE IF NOT EXISTS recipesdb.recipes ( `recipe_id` int NOT NULL AUTO_INCREMENT, `name` varchar(100) DEFAULT NULL,`contributor_id` int DEFAULT NULL,`date_submitted` date DEFAULT NULL, `minutes` int DEFAULT NULL,`kcal` double DEFAULT NULL, `fat` double DEFAULT NULL,`protein` double DEFAULT NULL,`saturated_fat` double DEFAULT NULL,`sodium` double DEFAULT NULL,`sugar` double DEFAULT NULL,`carbohydrates` double DEFAULT NULL,`category` varchar(50) DEFAULT NULL,PRIMARY KEY (`recipe_id`),KEY `contributer_id_idx` (`contributor_id`),CONSTRAINT `contributer_id` FOREIGN KEY (`contributor_id`) REFERENCES `users` (`user_id`))"
     connection.query(sqlRecipes, (err, result) => { if (err) throw err; console.log(result); });
+    // alter auto increment
+    alter = 'ALTER TABLE recipesdb.recipes AUTO_INCREMENT=526000';
+    connection.query(alter, (err, result) => { if (err) throw err; console.log(result); });
 
     var sqlIngredients = "CREATE TABLE IF NOT EXISTS recipesdb.ingredients (food_name VARCHAR(500) PRIMARY KEY NOT NULL,calories float DEFAULT NULL, total_fat float DEFAULT NULL, protein float DEFAULT NULL,saturated_fat float DEFAULT NULL, sodium float DEFAULT NULL,sugars float DEFAULT NULL,carbohydrates float DEFAULT NULL)"
     connection.query(sqlIngredients, (err, result) => { if (err) throw err; console.log(result); });
@@ -331,4 +337,4 @@ function updateUsernames() {
 
 }
 
-// createSQLDB();
+createSQLDB();
