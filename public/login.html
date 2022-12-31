@@ -8,141 +8,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/styles/login.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="/js/login.js"></script>
 
     <title>Login</title>
-    <style>
-        .my-class {
-            background-image: url('https://images.pexels.com/photos/326279/pexels-photo-326279.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
 </head>
 
 <body>
-
-    <script>
-        // if the signup link is clocked change the url in the post for the form to /createUser
-        // and delete the signup div
-
-        $(document).ready(function () {
-            // if true, show the signin form and hide the signup form and vice versa.
-            let showSignUpText = true;
-            const form = $('#signForm');
-            const signInLink = $('#signLink');
-
-            function changeShowSignUp() {
-                if (showSignUpText) {
-                    form.attr("action", "/createUser");
-                    signInLink.html('Have an account? <a href="#">Sign In</a>')
-                    $('#password2').show();
-                    $('#password2Label').show();
-                }
-                else {
-                    form.attr("action", "/login");
-                    signInLink.html('Don\'t have an account? <a href="#">Sign Up</a>')
-                    $('#password2').hide();
-                    $('#password2Label').hide();
-                }
-                showSignUpText = !showSignUpText;
-            }
-
-            signInLink.click(function () {
-                changeShowSignUp();
-            });
-
-            form.submit(function (event) {
-                // Prevent the form from being submitted by default
-                event.preventDefault();
-
-                // Select the username and password fields
-                const username = $('#name');
-                const password = $('#password');
-                const password2 = $('#password2');
-
-                if (username.val() === '') {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error',
-                        text: 'Please enter a username'
-                    });
-                    return;
-                }
-                if (password.val() === '') {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error',
-                        text: 'Please enter a password'
-                    });
-                    return;
-                }
-
-                // Check that the password is at least 3 characters long
-                if (!showSignUpText && (password.val().length < 3 || password2.val().length < 3)) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error',
-                        text: 'Password must be at least 3 characters long'
-                    });
-                    return;
-                }
-
-                // Check that the passwords match if the user is signing up
-                if (!showSignUpText && password.val() !== password2.val()) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error',
-                        text: 'Passwords do not match'
-                    });
-                    return;
-                }
-
-                // check that the username exists in the database and the password matches
-                // if it does not, display an error message
-                // if it does, display a success message and wait for it to close before submitting the form
-                $.ajax({
-                    url: form.attr('action'),
-                    type: form.attr('method'),
-                    data: form.serialize(),
-                    success: function (response) {
-                        console.log(response);
-                        if (response.status === 200 || response.status === 201) {
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Success',
-                                text: 'Logging in...',
-                                timer: 1500,
-                                showConfirmButton: false
-                            }).then(function () {
-                                // redirect to the home page
-                                window.location.href = '/';
-                            });
-                        }
-                        else {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Error',
-                                text: 'Wrong username or password'
-                            });
-                        }
-                    }
-                });
-            });
-        });
-
-
-    </script>
     <div class="my-class">
         <!-- Add a navigation bar using Bootstrap's navbar component -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">

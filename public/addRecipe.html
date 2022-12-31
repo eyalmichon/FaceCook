@@ -5,10 +5,12 @@
     <title>My Recipe App</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/styles/addRecipe.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="/js/addRecipe.js"></script>
 </head>
 
 <body>
@@ -42,105 +44,63 @@
         <h2>Add a New Recipe</h2>
         <form>
             <div class="form-group">
-              <label for="recipe-name">Recipe Name:</label>
-              <input type="text" class="form-control" id="recipe-name">
+                <label for="image-uploader" class="custom-file-upload">
+                    Select Images
+                </label>
+                <input type="file" id="image-uploader" accept="image/*" multiple>
+            </div>
+            <!-- Add the recipe name -->
+            <div class="form-group">
+                <label for="recipe-name">Recipe Name:</label>
+                <input type="text" class="form-control" id="recipe-name" name="recipeName">
             </div>
             <!-- Add the ingredient list -->
             <table id="ingredients-table">
                 <tr>
-                  <th>Ingredient</th>
-                  <th>Count</th>
-                  <th>Unit</th>
+                    <th>Ingredient</th>
+                    <th>Count</th>
+                    <th>Unit</th>
+                    <th></th>
                 </tr>
-              
+
                 <!-- Add a row for each ingredient -->
                 <tr>
-                  <td><input type="text" class="form-control" id="ingredient-name"></td>
-                  <td>
-                    <div class="input-group">
-                      <input type="number" class="form-control" id="ingredient-count">
-                    </div>
-                  </td>
-                  <td>
-                    <div class="input-group">
-                      <input type="text" class="form-control" id="ingredient-unit">
-                    </div>
-                  </td>
-                  <td>
-                    <div class="input-group-append">
-                      <button id="add-ingredient-button" class="btn btn-primary">+</button>
-                    </div>
-                  </td>
+                    <td><input type="text" class="form-control" id="ingredient-name"></td>
+                    <td>
+                        <div class="input-group-append">
+                            <input type="number" class="form-control" id="ingredient-count">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="input-group-append">
+                            <input type="text" class="form-control" id="ingredient-unit">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="input-group-append">
+                            <button type="button" id="add-ingredient-button" class="btn btn-primary">+</button>
+                        </div>
+                    </td>
                 </tr>
             </table>
-          
+
             <!-- Add the instructions -->
             <div class="form-group">
-              <label for="instructions">Instructions:</label>
-              <div class="input-group">
-                <textarea class="form-control" id="instructions"></textarea>
-                <div class="input-group-append">
-                  <button id="add-instruction-button" class="btn btn-primary">+</button>
+                <label for="instructions">Instructions:</label>
+                <div id="instructions">
+                    <div id="instructionsToDup" class="input-group">
+                        <textarea class="form-control"></textarea>
+                        <div class="input-group-append">
+                            <button type="button" id="add-instruction-button" class="btn btn-primary">+</button>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          
+
             <!-- Add a submit button for the form -->
             <input type="submit" class="btn btn-primary" value="Add Recipe">
-          </form>          
+        </form>
     </div>
-    <script>
-        $(document).ready(function() {
-            $("#add-instruction-button").change(function() {
-                // Clone the last element of the instructions list
-                var newInstruction = $("#instructions li:last").clone();
-                
-                // Clear the value of the input in the new instruction
-                newInstruction.find("input").val("");
-                
-                // Append the new instruction to the end of the list
-                $("#instructions").append(newInstruction);
-            });
-            $("#add-ingredient-button").click(function() {
-                // Clone the last row of the table
-                var newRow = $("#ingredients-table tr:last").clone();
-                
-                // Clear the values of the inputs in the new row
-                newRow.find("input").val("");
-                
-                // Append the new row to the end of the table
-                $("#ingredients-table").append(newRow);
-            });
-            });
-    </script>
-    <script>
-        // handle the submit event of the form
-        $("form").submit(function (event) {
-            // prevent the form from submitting the default way
-            event.preventDefault();
-
-            // get the values of the form fields
-            var recipeName = $("#recipe-name").val();
-            var ingredients = $("#ingredients").val();
-            var instructions = $("#instructions").val();
-
-            // send an HTTP POST request to a server-side script or API endpoint
-            $.ajax({
-                type: "POST",
-                url: "/addRecipe",
-                data: JSON.stringify({
-                    name: recipeName,
-                    ingredients: ingredients,
-                    instructions: instructions
-                }),
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (response) {
-                    // handle the response from the server
-                }
-            });
-        });
-    </script>
 </body>
 
 </html>

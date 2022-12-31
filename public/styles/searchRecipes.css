@@ -80,7 +80,7 @@
     background: #0056b3;
 }
 
-.form-control + output {
+.form-control+output {
     font-size: 1.2rem;
     margin-left: 1rem;
 }
@@ -102,12 +102,12 @@ button[type="submit"]:hover {
     border-color: #0056b3;
 }
 
-  /* Hide the filters form elements by default */
+/* Hide the filters form elements by default */
 .filters {
     display: none;
-  }
+}
 
-  /* Show the filters form elements when the toggle button is checked */
-#toggle-filters:checked ~ .filters {
+/* Show the filters form elements when the toggle button is checked */
+#toggle-filters:checked~.filters {
     display: block;
-  }
+}
