@@ -15,7 +15,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Recipes App</a>
+        <a class="navbar-brand" href="/">Recipes App</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -54,8 +54,13 @@
                 <label for="recipe-name">Recipe Name:</label>
                 <input type="text" class="form-control" id="recipe-name" name="recipeName">
             </div>
+            <!-- Add the description -->
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea class="form-control" id="description" name="description"></textarea>
+            </div>
             <!-- Add the ingredient list -->
-            <table id="ingredients-table">
+            <table id="ingredients-table" name="ingredients">
                 <tr>
                     <th>Ingredient</th>
                     <th>Count</th>
@@ -68,12 +73,33 @@
                     <td><input type="text" class="form-control" id="ingredient-name"></td>
                     <td>
                         <div class="input-group-append">
-                            <input type="number" class="form-control" id="ingredient-count">
+                            <input type="number" class="form-control" id="ingredient-count" min="0" step="any">
                         </div>
                     </td>
                     <td>
                         <div class="input-group-append">
-                            <input type="text" class="form-control" id="ingredient-unit">
+                            <select class="form-control" id="ingredient-unit">
+                                <option value="tablespoon">tablespoon</option>
+                                <option value="teaspoon">teaspoon</option>
+                                <option value="cup">cup</option>
+                                <option value="ounce">ounce</option>
+                                <option value="ml">ml</option>
+                                <option value="pint">pint</option>
+                                <option value="pound">pound</option>
+                                <option value="g">g</option>
+                                <option value="fl.oz">fl.oz</option>
+                                <option value="drop">drop</option>
+                                <option value="liter">liter</option>
+                                <option value="quart">quart</option>
+                                <option value="shot">shot</option>
+                                <option value="gallon">gallon</option>
+                                <option value="kg">kg</option>
+                                <option value="dash">dash</option>
+                                <option value="scoop">scoop</option>
+                                <option value="pinch">pinch</option>
+                                <option value="glass">glass</option>
+                                <option value="bushel">bushel</option>
+                            </select>
                         </div>
                     </td>
                     <td>
@@ -90,9 +116,7 @@
                 <div id="instructions">
                     <div id="instructionsToDup" class="input-group">
                         <textarea class="form-control"></textarea>
-                        <div class="input-group-append">
-                            <button type="button" id="add-instruction-button" class="btn btn-primary">+</button>
-                        </div>
+                        <button type="button" id="add-instruction-button" class="btn btn-primary">+</button>
                     </div>
                 </div>
             </div>

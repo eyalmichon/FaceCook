@@ -9,6 +9,7 @@ const path = require('path');
 // Set up the express app
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json({ limit: '100mb' }));
 app.use(express.static(path.join(__dirname, 'public')));
 //session middleware
 app.use(sessions({
@@ -80,14 +81,18 @@ app.get('/getUserRecipes', (req, res) => {
   });
 });
 
+// FINISH THIS
 app.post('/addRecipe', (req, res) => {
   const user = req.session.user.username;
-  const recipe = req.body.recipe;
-  const ingredients = req.body.ingredients;
+  if (!user)
+    res.send({ status: 401, message: "You must be logged in to add a recipe." });
 
-  db.addRecipe(user, recipe, ingredients, (data) => {
-    res.send(data);
-  });
+  // get the json object from the request body and parse it
+  const recipe = req.body;
+
+  // db.addRecipe(user, recipe, ingredients, (data) => {
+  //   res.send(data);
+  // });
 });
 
 
