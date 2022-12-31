@@ -18,14 +18,6 @@ dbConnection.connect((err) => {
 
 });
 
-// user_id is auto incremented
-var LAST_USER_ID;
-getMaxId().then((result) => {
-    LAST_USER_ID = result + 1;
-})
-    .catch((err) => {
-        console.log(err)
-    });
 
 function getUsersWithRecipe(callback) {
     const query = 'SELECT nickname, cnt (SELECT users.nickname, count(recipe_id) as cnt \
@@ -165,11 +157,10 @@ async function register(user, password, callback) {
     const hashedPassword = await bcrypt.hash(password, 10);
     const sqlSearch = "SELECT * FROM users WHERE username = ?"
     const search_query = mysql.format(sqlSearch, [user])
-    const sqlInsert = "INSERT INTO users VALUES (?,?,?)"
+    const sqlInsert = "INSERT INTO users (username, password) VALUES (?,?)"
     // ? will be replaced by values
     // ?? will be replaced by string
-    const insert_query = mysql.format(sqlInsert, [LAST_USER_ID, user, hashedPassword])
-    LAST_USER_ID++;
+    const insert_query = mysql.format(sqlInsert, [user, hashedPassword])
     dbConnection.query(search_query, async (err, result) => {
         if (err) throw (err)
         console.log("------> Search Results")
