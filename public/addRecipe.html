@@ -42,20 +42,77 @@
         <h2>Add a New Recipe</h2>
         <form>
             <div class="form-group">
-                <label for="recipe-name">Recipe Name:</label>
-                <input type="text" class="form-control" id="recipe-name">
+              <label for="recipe-name">Recipe Name:</label>
+              <input type="text" class="form-control" id="recipe-name">
             </div>
+            <!-- Add the ingredient list -->
+            <table id="ingredients-table">
+                <tr>
+                  <th>Ingredient</th>
+                  <th>Count</th>
+                  <th>Unit</th>
+                </tr>
+              
+                <!-- Add a row for each ingredient -->
+                <tr>
+                  <td><input type="text" class="form-control" id="ingredient-name"></td>
+                  <td>
+                    <div class="input-group">
+                      <input type="number" class="form-control" id="ingredient-count">
+                    </div>
+                  </td>
+                  <td>
+                    <div class="input-group">
+                      <input type="text" class="form-control" id="ingredient-unit">
+                    </div>
+                  </td>
+                  <td>
+                    <div class="input-group-append">
+                      <button id="add-ingredient-button" class="btn btn-primary">+</button>
+                    </div>
+                  </td>
+                </tr>
+            </table>
+          
+            <!-- Add the instructions -->
             <div class="form-group">
-                <label for="ingredients">Ingredients:</label>
-                <textarea class="form-control" id="ingredients"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="instructions">Instructions:</label>
+              <label for="instructions">Instructions:</label>
+              <div class="input-group">
                 <textarea class="form-control" id="instructions"></textarea>
+                <div class="input-group-append">
+                  <button id="add-instruction-button" class="btn btn-primary">+</button>
+                </div>
+              </div>
             </div>
+          
+            <!-- Add a submit button for the form -->
             <input type="submit" class="btn btn-primary" value="Add Recipe">
-        </form>
+          </form>          
     </div>
+    <script>
+        $(document).ready(function() {
+            $("#add-instruction-button").change(function() {
+                // Clone the last element of the instructions list
+                var newInstruction = $("#instructions li:last").clone();
+                
+                // Clear the value of the input in the new instruction
+                newInstruction.find("input").val("");
+                
+                // Append the new instruction to the end of the list
+                $("#instructions").append(newInstruction);
+            });
+            $("#add-ingredient-button").click(function() {
+                // Clone the last row of the table
+                var newRow = $("#ingredients-table tr:last").clone();
+                
+                // Clear the values of the inputs in the new row
+                newRow.find("input").val("");
+                
+                // Append the new row to the end of the table
+                $("#ingredients-table").append(newRow);
+            });
+            });
+    </script>
     <script>
         // handle the submit event of the form
         $("form").submit(function (event) {
