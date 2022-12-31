@@ -95,6 +95,35 @@ function getUserRecipes(username, callback) {
 }
 
 
+/**
+ * Get all recipes from the database that match the given search term or part of a search term.
+ * @param {string} searchTerm The search term to match against the recipes.
+ * @returns {Array} An array of recipes that match the search term.
+*/
+function getRecipesByTermWithFilter(filter, searchTerm, callback) {
+    let query = `SELECT * FROM recipesdb.recipes WHERE name LIKE '%${searchTerm}%'`;
+    if (filter.rating) {
+        query += ` AND recipe_id IN (SELECT recipe_id 
+                                     FROM (SELECT recipe_id, AVG(rating) as avg_rating FROM recipesdb.reviews GROUP BY recipe_id) as ratings 
+                                     WHERE avg_rating >= ${filter.rating})`;
+    }
+    // if (filter.maxCalories) {
+    //     query += ` AND kcal <= ${filter.maxCalories}`;
+    // }
+    // if (filter.maxInstructions) {
+    //     query += ` AND id IN (SELECT recipe_id FROM instructions WHERE step <= ${filter.maxInstructions})`;
+    // }
+    // if (filter.ingredient !== "") {
+    //     query += ` AND id IN (SELECT recipe_id FROM recipestoingredients WHERE ingredient LIKE '%${filter.ingredient}%')`;
+    // }
+    console.log(query);
+    dbConnection.query(query, (error, results) => {
+      if (error) throw error;
+      callback(results);
+    });
+  }
+  
+
 
 /**
  * Get all recipes from the database that match the given search term or part of a search term.
@@ -102,7 +131,7 @@ function getUserRecipes(username, callback) {
  * @returns {Array} An array of recipes that match the search term.
 */
 function getRecipesByTerm(searchTerm, callback) {
-    const query = `SELECT * FROM recipes WHERE name LIKE '%${searchTerm}%'`;
+    const query = `SELECT * FROM recipes WHERE name LIKE '${searchTerm}'`;
     dbConnection.query(query, (error, results) => {
         if (error) throw error;
         callback(results);
@@ -214,6 +243,7 @@ function getMaxId() {
 module.exports = {
     getRecipesResults,
     getRecipesByTerm,
+    getRecipesByTermWithFilter,
     getIngredientsByTerm,
     login,
     register,
