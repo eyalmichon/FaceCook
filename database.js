@@ -107,8 +107,22 @@ function getRecipesByTerm(searchTerm, callback) {
         if (error) throw error;
         callback(results);
     });
-
 }
+
+/**
+ * Get all ingredients from the database that match the given search term or part of a search term.
+ * @param {string} searchTerm The search term to match against the ingredients.
+ * @returns {Array} An array of ingredients that match the search term.
+*/
+function getIngredientsByTerm(searchTerm, callback) {
+    const query = `SELECT * FROM ingredients WHERE food_name LIKE '%${searchTerm}%'`;
+    dbConnection.query(query, (error, results) => {
+        if (error) throw error;
+        callback(results);
+    });
+}
+
+
 
 /**
  * Attempts to log in a user with the given username and password.
@@ -178,7 +192,11 @@ async function register(user, password, callback) {
     })
 }
 
-// helper function to get the max id
+/**
+ * Helper function to get the maximum user id from the 'users' table in the database.
+ *
+ * @returns {Promise<number>} - A promise that resolves to the maximum user id.
+ */
 function getMaxId() {
     return new Promise((resolve, reject) => {
         const sqlId = "SELECT MAX(user_id) as max_id FROM users";
@@ -192,9 +210,11 @@ function getMaxId() {
     });
 }
 
+
 module.exports = {
     getRecipesResults,
     getRecipesByTerm,
+    getIngredientsByTerm,
     login,
     register,
     getUserRecipes,
