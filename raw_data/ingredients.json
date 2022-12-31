@@ -1,3542 +1,3542 @@
 [
     {
         "food_name": "cornstarch",
-        "calories": 381,
         "total_fat": 0.1,
         "protein": 0.26,
         "saturated_fat": 0,
         "sodium": 9,
         "sugars": 0,
-        "carbohydrates": 91.27
+        "carbohydrates": 91.27,
+        "kcal": 381
     },
     {
         "food_name": "nuts pecans",
-        "calories": 691,
         "total_fat": 72,
         "protein": 9.17,
         "saturated_fat": 6.2,
         "sodium": 0,
         "sugars": 3.97,
-        "carbohydrates": 13.86
+        "carbohydrates": 13.86,
+        "kcal": 691
     },
     {
         "food_name": "sherbet orange",
-        "calories": 144,
         "total_fat": 2,
         "protein": 1.1,
         "saturated_fat": 1.2,
         "sodium": 46,
         "sugars": 24.32,
-        "carbohydrates": 30.4
+        "carbohydrates": 30.4,
+        "kcal": 144
     },
     {
         "food_name": "cauliflower raw",
-        "calories": 25,
         "total_fat": 0.3,
         "protein": 1.92,
         "saturated_fat": 0.1,
         "sodium": 30,
         "sugars": 1.91,
-        "carbohydrates": 4.97
+        "carbohydrates": 4.97,
+        "kcal": 25
     },
     {
         "food_name": "goji berries dried",
-        "calories": 349,
         "total_fat": 0.4,
         "protein": 14.26,
         "saturated_fat": 0,
         "sodium": 298,
         "sugars": 45.61,
-        "carbohydrates": 77.06
+        "carbohydrates": 77.06,
+        "kcal": 349
     },
     {
         "food_name": "mango nectar canned",
-        "calories": 51,
         "total_fat": 0.1,
         "protein": 0.11,
         "saturated_fat": 0,
         "sodium": 5,
         "sugars": 12.45,
-        "carbohydrates": 13.12
+        "carbohydrates": 13.12,
+        "kcal": 51
     },
     {
         "food_name": "peppers jalapeno raw",
-        "calories": 29,
         "total_fat": 0.4,
         "protein": 0.91,
         "saturated_fat": 0.1,
         "sodium": 3,
         "sugars": 4.12,
-        "carbohydrates": 6.5
+        "carbohydrates": 6.5,
+        "kcal": 29
     },
     {
         "food_name": "nuts pine nuts dried",
-        "calories": 673,
         "total_fat": 68,
         "protein": 13.69,
         "saturated_fat": 4.9,
         "sodium": 2,
         "sugars": 3.59,
-        "carbohydrates": 13.08
+        "carbohydrates": 13.08,
+        "kcal": 673
     },
     {
         "food_name": "currants zante dried",
-        "calories": 283,
         "total_fat": 0.3,
         "protein": 4.08,
         "saturated_fat": 0,
         "sodium": 8,
         "sugars": 67.28,
-        "carbohydrates": 74.08
+        "carbohydrates": 74.08,
+        "kcal": 283
     },
     {
         "food_name": "brussels sprouts raw",
-        "calories": 43,
         "total_fat": 0.3,
         "protein": 3.38,
         "saturated_fat": 0.1,
         "sodium": 25,
         "sugars": 2.2,
-        "carbohydrates": 8.95
+        "carbohydrates": 8.95,
+        "kcal": 43
     },
     {
         "food_name": "spices garlic powder",
-        "calories": 331,
         "total_fat": 0.7,
         "protein": 16.55,
         "saturated_fat": 0.2,
         "sodium": 60,
         "sugars": 2.43,
-        "carbohydrates": 72.73
+        "carbohydrates": 72.73,
+        "kcal": 331
     },
     {
         "food_name": "ice creams chocolate",
-        "calories": 216,
         "total_fat": 11,
         "protein": 3.8,
         "saturated_fat": 6.8,
         "sodium": 76,
         "sugars": 25.36,
-        "carbohydrates": 28.2
+        "carbohydrates": 28.2,
+        "kcal": 216
     },
     {
         "food_name": "cream sour cultured",
-        "calories": 198,
         "total_fat": 19,
         "protein": 2.44,
         "saturated_fat": 10,
         "sodium": 31,
         "sugars": 3.41,
-        "carbohydrates": 4.63
+        "carbohydrates": 4.63,
+        "kcal": 198
     },
     {
         "food_name": "horseradish prepared",
-        "calories": 48,
         "total_fat": 0.7,
         "protein": 1.18,
         "saturated_fat": 0.1,
         "sodium": 420,
         "sugars": 7.99,
-        "carbohydrates": 11.29
+        "carbohydrates": 11.29,
+        "kcal": 48
     },
     {
         "food_name": "sauce worcestershire",
-        "calories": 78,
         "total_fat": 0,
         "protein": 0,
         "saturated_fat": 0,
         "sodium": 980,
         "sugars": 10.03,
-        "carbohydrates": 19.46
+        "carbohydrates": 19.46,
+        "kcal": 78
     },
     {
         "food_name": "candies marshmallows",
-        "calories": 318,
         "total_fat": 0.2,
         "protein": 1.8,
         "saturated_fat": 0.1,
         "sodium": 80,
         "sugars": 57.56,
-        "carbohydrates": 81.3
+        "carbohydrates": 81.3,
+        "kcal": 318
     },
     {
         "food_name": "spices pepper black",
-        "calories": 251,
         "total_fat": 3.3,
         "protein": 10.39,
         "saturated_fat": 1.4,
         "sodium": 20,
         "sugars": 0.64,
-        "carbohydrates": 63.95
+        "carbohydrates": 63.95,
+        "kcal": 251
     },
     {
         "food_name": "melons honeydew raw",
-        "calories": 36,
         "total_fat": 0.1,
         "protein": 0.54,
         "saturated_fat": 0,
         "sodium": 18,
         "sugars": 8.12,
-        "carbohydrates": 9.09
+        "carbohydrates": 9.09,
+        "kcal": 36
     },
     {
         "food_name": "mushrooms white raw",
-        "calories": 22,
         "total_fat": 0.3,
         "protein": 3.09,
         "saturated_fat": 0.1,
         "sodium": 5,
         "sugars": 1.98,
-        "carbohydrates": 3.26
+        "carbohydrates": 3.26,
+        "kcal": 22
     },
     {
         "food_name": "spices thyme dried",
-        "calories": 276,
         "total_fat": 7.4,
         "protein": 9.11,
         "saturated_fat": 2.7,
         "sodium": 55,
         "sugars": 1.71,
-        "carbohydrates": 63.94
+        "carbohydrates": 63.94,
+        "kcal": 276
     },
     {
         "food_name": "fast foods coleslaw",
-        "calories": 153,
         "total_fat": 9.9,
         "protein": 0.95,
         "saturated_fat": 1.6,
         "sodium": 203,
         "sugars": 12.19,
-        "carbohydrates": 14.89
+        "carbohydrates": 14.89,
+        "kcal": 153
     },
     {
         "food_name": "spices chili powder",
-        "calories": 282,
         "total_fat": 14,
         "protein": 13.46,
         "saturated_fat": 2.5,
         "sodium": 2867,
         "sugars": 7.19,
-        "carbohydrates": 49.7
+        "carbohydrates": 49.7,
+        "kcal": 282
     },
     {
         "food_name": "spices caraway seed",
-        "calories": 333,
         "total_fat": 15,
         "protein": 19.77,
         "saturated_fat": 0.6,
         "sodium": 17,
         "sugars": 0.64,
-        "carbohydrates": 49.9
+        "carbohydrates": 49.9,
+        "kcal": 333
     },
     {
         "food_name": "pickle relish sweet",
-        "calories": 130,
         "total_fat": 0.5,
         "protein": 0.37,
         "saturated_fat": 0.1,
         "sodium": 811,
         "sugars": 29.13,
-        "carbohydrates": 35.06
+        "carbohydrates": 35.06,
+        "kcal": 130
     },
     {
         "food_name": "spices cloves ground",
-        "calories": 475,
         "total_fat": 32,
         "protein": 6.71,
         "saturated_fat": 9.5,
         "sodium": 80,
         "sugars": 0,
-        "carbohydrates": 50.5
+        "carbohydrates": 50.5,
+        "kcal": 475
     },
     {
         "food_name": "spices nutmeg ground",
-        "calories": 475,
         "total_fat": 32,
         "protein": 6.71,
         "saturated_fat": 9.5,
         "sodium": 80,
         "sugars": 0,
-        "carbohydrates": 50.5
+        "carbohydrates": 50.5,
+        "kcal": 475
     },
     {
         "food_name": "spices ginger ground",
-        "calories": 475,
         "total_fat": 32,
         "protein": 6.71,
         "saturated_fat": 9.5,
         "sodium": 80,
         "sugars": 0,
-        "carbohydrates": 50.5
+        "carbohydrates": 50.5,
+        "kcal": 475
     },
     {
         "food_name": "spices onion powder",
-        "calories": 341,
         "total_fat": 1,
         "protein": 10.41,
         "saturated_fat": 0.2,
         "sodium": 73,
         "sugars": 6.63,
-        "carbohydrates": 79.12
+        "carbohydrates": 79.12,
+        "kcal": 341
     },
     {
         "food_name": "butter without salt",
-        "calories": 717,
         "total_fat": 81,
         "protein": 0.85,
         "saturated_fat": 50,
         "sodium": 11,
         "sugars": 0.06,
-        "carbohydrates": 0.06
+        "carbohydrates": 0.06,
+        "kcal": 717
     },
     {
         "food_name": "corn sweet white raw",
-        "calories": 321,
         "total_fat": 7.4,
         "protein": 10.04,
         "saturated_fat": 3.5,
         "sodium": 253,
         "sugars": 15.38,
-        "carbohydrates": 53.58
+        "carbohydrates": 53.58,
+        "kcal": 321
     },
     {
         "food_name": "cherries sweet raw",
-        "calories": 63,
         "total_fat": 0.2,
         "protein": 1.06,
         "saturated_fat": 0,
         "sodium": 0,
         "sugars": 12.82,
-        "carbohydrates": 16.01
+        "carbohydrates": 16.01,
+        "kcal": 63
     },
     {
         "food_name": "peaches yellow raw",
-        "calories": 39,
         "total_fat": 0.3,
         "protein": 0.91,
         "saturated_fat": 0,
         "sodium": 0,
         "sugars": 8.39,
-        "carbohydrates": 9.54
+        "carbohydrates": 9.54,
+        "kcal": 39
     },
     {
         "food_name": "spices curry powder",
-        "calories": 325,
         "total_fat": 14,
         "protein": 14.29,
         "saturated_fat": 1.6,
         "sodium": 52,
         "sugars": 2.76,
-        "carbohydrates": 55.83
+        "carbohydrates": 55.83,
+        "kcal": 325
     },
     {
         "food_name": "semolina unenriched",
-        "calories": 360,
         "total_fat": 1.1,
         "protein": 12.68,
         "saturated_fat": 0.2,
         "sodium": 1,
         "sugars": 0,
-        "carbohydrates": 72.83
+        "carbohydrates": 72.83,
+        "kcal": 360
     },
     {
         "food_name": "dennys hash browns",
-        "calories": 197,
         "total_fat": 9,
         "protein": 2.49,
         "saturated_fat": 1.7,
         "sodium": 468,
         "sugars": 1.38,
-        "carbohydrates": 26.59
+        "carbohydrates": 26.59,
+        "kcal": 197
     },
     {
         "food_name": "oil corn peanut and olive",
-        "calories": 884,
         "total_fat": 100,
         "protein": 0,
         "saturated_fat": 8,
         "sodium": 0,
         "sugars": 0,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "kcal": 884
     },
     {
         "food_name": "meatballs meatless",
-        "calories": 197,
         "total_fat": 9,
         "protein": 21,
         "saturated_fat": 1.4,
         "sodium": 550,
         "sugars": 1.25,
-        "carbohydrates": 8
+        "carbohydrates": 8,
+        "kcal": 197
     },
     {
         "food_name": "spices fennel seed",
-        "calories": 345,
         "total_fat": 15,
         "protein": 15.8,
         "saturated_fat": 0.5,
         "sodium": 88,
         "sugars": 0,
-        "carbohydrates": 52.29
+        "carbohydrates": 52.29,
+        "kcal": 345
     },
     {
         "food_name": "tomatoes sun-dried",
-        "calories": 258,
         "total_fat": 3,
         "protein": 14.11,
         "saturated_fat": 0.4,
         "sodium": 107,
         "sugars": 37.59,
-        "carbohydrates": 55.76
+        "carbohydrates": 55.76,
+        "kcal": 258
     },
     {
         "food_name": "ice creams vanilla",
-        "calories": 207,
         "total_fat": 11,
         "protein": 3.5,
         "saturated_fat": 6.8,
         "sodium": 80,
         "sugars": 21.22,
-        "carbohydrates": 23.6
+        "carbohydrates": 23.6,
+        "kcal": 207
     },
     {
         "food_name": "fish tilapia raw",
-        "calories": 96,
         "total_fat": 1.7,
         "protein": 20.08,
         "saturated_fat": 0.6,
         "sodium": 52,
         "sugars": 0,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "kcal": 96
     },
     {
         "food_name": "ground turkey raw",
-        "calories": 148,
         "total_fat": 7.7,
         "protein": 19.66,
         "saturated_fat": 2,
         "sodium": 58,
         "sugars": 0,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "kcal": 148
     },
     {
         "food_name": "spices parsley dried",
-        "calories": 337,
         "total_fat": 16,
         "protein": 17.6,
         "saturated_fat": 0.6,
         "sodium": 16,
         "sugars": 0,
-        "carbohydrates": 50.02
+        "carbohydrates": 50.02,
+        "kcal": 337
     },
     {
         "food_name": "spices anise seed",
-        "calories": 337,
         "total_fat": 16,
         "protein": 17.6,
         "saturated_fat": 0.6,
         "sodium": 16,
         "sugars": 0,
-        "carbohydrates": 50.02
+        "carbohydrates": 50.02,
+        "kcal": 337
     },
     {
         "food_name": "cheese neufchatel",
-        "calories": 253,
         "total_fat": 23,
         "protein": 9.15,
         "saturated_fat": 13,
         "sodium": 334,
         "sugars": 3.19,
-        "carbohydrates": 3.59
+        "carbohydrates": 3.59,
+        "kcal": 253
     },
     {
         "food_name": "vinegar distilled",
-        "calories": 18,
         "total_fat": 0,
         "protein": 0,
         "saturated_fat": 0,
         "sodium": 2,
         "sugars": 0.04,
-        "carbohydrates": 0.04
+        "carbohydrates": 0.04,
+        "kcal": 18
     },
     {
         "food_name": "syrups sugar free",
-        "calories": 52,
         "total_fat": 0,
         "protein": 0.8,
         "saturated_fat": 0,
         "sodium": 210,
         "sugars": 0.01,
-        "carbohydrates": 12.13
+        "carbohydrates": 12.13,
+        "kcal": 52
     },
     {
         "food_name": "spices cumin seed",
-        "calories": 375,
         "total_fat": 22,
         "protein": 17.81,
         "saturated_fat": 1.5,
         "sodium": 168,
         "sugars": 2.25,
-        "carbohydrates": 44.24
+        "carbohydrates": 44.24,
+        "kcal": 375
     },
     {
         "food_name": "spices poppy seed",
-        "calories": 525,
         "total_fat": 42,
         "protein": 17.99,
         "saturated_fat": 4.5,
         "sodium": 26,
         "sugars": 2.99,
-        "carbohydrates": 28.13
+        "carbohydrates": 28.13,
+        "kcal": 525
     },
     {
         "food_name": "dates deglet noor",
-        "calories": 282,
         "total_fat": 0.4,
         "protein": 2.45,
         "saturated_fat": 0,
         "sodium": 2,
         "sugars": 63.35,
-        "carbohydrates": 75.03
+        "carbohydrates": 75.03,
+        "kcal": 282
     },
     {
         "food_name": "vital wheat gluten",
-        "calories": 370,
         "total_fat": 1.9,
         "protein": 75.16,
         "saturated_fat": 0.3,
         "sodium": 29,
         "sugars": 0,
-        "carbohydrates": 13.79
+        "carbohydrates": 13.79,
+        "kcal": 370
     },
     {
         "food_name": "sugars granulated",
-        "calories": 387,
         "total_fat": 0,
         "protein": 0,
         "saturated_fat": 0,
         "sodium": 1,
         "sugars": 99.8,
-        "carbohydrates": 99.98
+        "carbohydrates": 99.98,
+        "kcal": 387
     },
     {
         "food_name": "peppermint fresh",
-        "calories": 70,
         "total_fat": 0.9,
         "protein": 3.75,
         "saturated_fat": 0.2,
         "sodium": 31,
         "sugars": 0,
-        "carbohydrates": 14.89
+        "carbohydrates": 14.89,
+        "kcal": 70
     },
     {
         "food_name": "vinegar red wine",
-        "calories": 19,
         "total_fat": 0,
         "protein": 0.04,
         "saturated_fat": 0,
         "sodium": 8,
         "sugars": 0,
-        "carbohydrates": 0.27
+        "carbohydrates": 0.27,
+        "kcal": 19
     },
     {
         "food_name": "vinegar balsamic",
-        "calories": 88,
         "total_fat": 0,
         "protein": 0.49,
         "saturated_fat": 0,
         "sodium": 23,
         "sugars": 14.95,
-        "carbohydrates": 17.03
+        "carbohydrates": 17.03,
+        "kcal": 88
     },
     {
         "food_name": "cheese provolone",
-        "calories": 351,
         "total_fat": 27,
         "protein": 25.58,
         "saturated_fat": 17,
         "sodium": 876,
         "sugars": 0.56,
-        "carbohydrates": 2.14
+        "carbohydrates": 2.14,
+        "kcal": 351
     },
     {
         "food_name": "cheese roquefort",
-        "calories": 369,
         "total_fat": 31,
         "protein": 21.54,
         "saturated_fat": 19,
         "sodium": 1809,
         "sugars": 0,
-        "carbohydrates": 2
+        "carbohydrates": 2,
+        "kcal": 369
     },
     {
         "food_name": "syrups grenadine",
-        "calories": 268,
         "total_fat": 0,
         "protein": 0,
         "saturated_fat": 0,
         "sodium": 27,
         "sugars": 46.55,
-        "carbohydrates": 66.91
+        "carbohydrates": 66.91,
+        "kcal": 268
     },
     {
         "food_name": "strawberries raw",
-        "calories": 32,
         "total_fat": 0.3,
         "protein": 0.67,
         "saturated_fat": 0,
         "sodium": 1,
         "sugars": 4.89,
-        "carbohydrates": 7.68
+        "carbohydrates": 7.68,
+        "kcal": 32
     },
     {
         "food_name": "wheat germ crude",
-        "calories": 360,
         "total_fat": 9.7,
         "protein": 23.15,
         "saturated_fat": 1.7,
         "sodium": 12,
         "sugars": 0,
-        "carbohydrates": 51.8
+        "carbohydrates": 51.8,
+        "kcal": 360
     },
     {
         "food_name": "spices basil dried",
-        "calories": 305,
         "total_fat": 15,
         "protein": 15.98,
         "saturated_fat": 0.7,
         "sodium": 20,
         "sugars": 0,
-        "carbohydrates": 55.17
+        "carbohydrates": 55.17,
+        "kcal": 305
     },
     {
         "food_name": "marmalade orange",
-        "calories": 246,
         "total_fat": 0,
         "protein": 0.3,
         "saturated_fat": 0,
         "sodium": 56,
         "sugars": 60,
-        "carbohydrates": 66.3
+        "carbohydrates": 66.3,
+        "kcal": 246
     },
     {
         "food_name": "fennel bulb raw",
-        "calories": 31,
         "total_fat": 0.2,
         "protein": 1.24,
         "saturated_fat": 0.1,
         "sodium": 52,
         "sugars": 3.93,
-        "carbohydrates": 7.3
+        "carbohydrates": 7.3,
+        "kcal": 31
     },
     {
         "food_name": "candies caramels",
-        "calories": 382,
         "total_fat": 8.1,
         "protein": 4.6,
         "saturated_fat": 2.5,
         "sodium": 245,
         "sugars": 65.5,
-        "carbohydrates": 77
+        "carbohydrates": 77,
+        "kcal": 382
     },
     {
         "food_name": "figs dried uncooked",
-        "calories": 101,
         "total_fat": 0.3,
         "protein": 3.99,
         "saturated_fat": 0,
         "sodium": 3,
         "sugars": 0.73,
-        "carbohydrates": 21.34
+        "carbohydrates": 21.34,
+        "kcal": 101
     },
     {
         "food_name": "orange juice raw",
-        "calories": 45,
         "total_fat": 0.2,
         "protein": 0.7,
         "saturated_fat": 0,
         "sodium": 1,
         "sugars": 8.4,
-        "carbohydrates": 10.4
+        "carbohydrates": 10.4,
+        "kcal": 45
     },
     {
         "food_name": "blackberries raw",
-        "calories": 43,
         "total_fat": 0.5,
         "protein": 1.39,
         "saturated_fat": 0,
         "sodium": 1,
         "sugars": 4.88,
-        "carbohydrates": 9.61
+        "carbohydrates": 9.61,
+        "kcal": 43
     },
     {
         "food_name": "raspberries raw",
-        "calories": 52,
         "total_fat": 0.7,
         "protein": 1.2,
         "saturated_fat": 0,
         "sodium": 1,
         "sugars": 4.42,
-        "carbohydrates": 11.94
+        "carbohydrates": 11.94,
+        "kcal": 52
     },
     {
         "food_name": "sugars powdered",
-        "calories": 389,
         "total_fat": 0,
         "protein": 0,
         "saturated_fat": 0,
         "sodium": 2,
         "sugars": 97.81,
-        "carbohydrates": 99.77
+        "carbohydrates": 99.77,
+        "kcal": 389
     },
     {
         "food_name": "dill weed fresh",
-        "calories": 43,
         "total_fat": 1.1,
         "protein": 3.46,
         "saturated_fat": 0.1,
         "sodium": 61,
         "sugars": 0,
-        "carbohydrates": 7.02
+        "carbohydrates": 7.02,
+        "kcal": 43
     },
     {
         "food_name": "spices bay leaf",
-        "calories": 313,
         "total_fat": 8.4,
         "protein": 7.61,
         "saturated_fat": 2.3,
         "sodium": 23,
         "sugars": 0,
-        "carbohydrates": 74.97
+        "carbohydrates": 74.97,
+        "kcal": 313
     },
     {
         "food_name": "spices cardamom",
-        "calories": 311,
         "total_fat": 6.7,
         "protein": 10.76,
         "saturated_fat": 0.7,
         "sodium": 18,
         "sugars": 0,
-        "carbohydrates": 68.47
+        "carbohydrates": 68.47,
+        "kcal": 311
     },
     {
         "food_name": "lemon juice raw",
-        "calories": 22,
         "total_fat": 0.2,
         "protein": 0.35,
         "saturated_fat": 0,
         "sodium": 1,
         "sugars": 2.52,
-        "carbohydrates": 6.9
+        "carbohydrates": 6.9,
+        "kcal": 22
     },
     {
         "food_name": "ginger root raw",
-        "calories": 80,
         "total_fat": 0.8,
         "protein": 1.82,
         "saturated_fat": 0.2,
         "sodium": 13,
         "sugars": 1.7,
-        "carbohydrates": 17.77
+        "carbohydrates": 17.77,
+        "kcal": 80
     },
     {
         "food_name": "blueberries raw",
-        "calories": 57,
         "total_fat": 0.3,
         "protein": 0.74,
         "saturated_fat": 0,
         "sodium": 1,
         "sugars": 9.96,
-        "carbohydrates": 14.49
+        "carbohydrates": 14.49,
+        "kcal": 57
     },
     {
         "food_name": "peppers sweet green raw",
-        "calories": 22,
         "total_fat": 0.1,
         "protein": 2.2,
         "saturated_fat": 0,
         "sodium": 226,
         "sugars": 0.5,
-        "carbohydrates": 4.33
+        "carbohydrates": 4.33,
+        "kcal": 22
     },
     {
         "food_name": "quinoa uncooked",
-        "calories": 368,
         "total_fat": 6.1,
         "protein": 14.12,
         "saturated_fat": 0.7,
         "sodium": 5,
         "sugars": 0,
-        "carbohydrates": 64.16
+        "carbohydrates": 64.16,
+        "kcal": 368
     },
     {
         "food_name": "cheese cheddar",
-        "calories": 404,
         "total_fat": 33,
         "protein": 22.87,
         "saturated_fat": 19,
         "sodium": 653,
         "sugars": 0.48,
-        "carbohydrates": 3.09
+        "carbohydrates": 3.09,
+        "kcal": 404
     },
     {
         "food_name": "watermelon raw",
-        "calories": 30,
         "total_fat": 0.2,
         "protein": 0.61,
         "saturated_fat": 0,
         "sodium": 1,
         "sugars": 6.2,
-        "carbohydrates": 7.55
+        "carbohydrates": 7.55,
+        "kcal": 30
     },
     {
         "food_name": "bacon meatless",
-        "calories": 309,
         "total_fat": 30,
         "protein": 11.69,
         "saturated_fat": 4.6,
         "sodium": 1465,
         "sugars": 0,
-        "carbohydrates": 5.31
+        "carbohydrates": 5.31,
+        "kcal": 309
     },
     {
         "food_name": "syrups corn light",
-        "calories": 290,
         "total_fat": 0,
         "protein": 0,
         "saturated_fat": 0,
         "sodium": 8,
         "sugars": 74.9,
-        "carbohydrates": 74.9
+        "carbohydrates": 74.9,
+        "kcal": 290
     },
     {
         "food_name": "croutons plain",
-        "calories": 407,
         "total_fat": 6.6,
         "protein": 11.9,
         "saturated_fat": 1.5,
         "sodium": 698,
         "sugars": 0,
-        "carbohydrates": 73.5
+        "carbohydrates": 73.5,
+        "kcal": 407
     },
     {
         "food_name": "spices paprika",
-        "calories": 282,
         "total_fat": 13,
         "protein": 14.14,
         "saturated_fat": 2.1,
         "sodium": 68,
         "sugars": 10.34,
-        "carbohydrates": 53.99
+        "carbohydrates": 53.99,
+        "kcal": 282
     },
     {
         "food_name": "nectarines raw",
-        "calories": 44,
         "total_fat": 0.3,
         "protein": 1.06,
         "saturated_fat": 0,
         "sodium": 0,
         "sugars": 7.89,
-        "carbohydrates": 10.55
+        "carbohydrates": 10.55,
+        "kcal": 44
     },
     {
         "food_name": "wasabi root raw",
-        "calories": 74,
         "total_fat": 0.1,
         "protein": 2.6,
         "saturated_fat": 0,
         "sodium": 40,
         "sugars": 0,
-        "carbohydrates": 17.23
+        "carbohydrates": 17.23,
+        "kcal": 74
     },
     {
         "food_name": "sauce barbecue",
-        "calories": 172,
         "total_fat": 0.6,
         "protein": 0.82,
         "saturated_fat": 0,
         "sodium": 1027,
         "sugars": 33.24,
-        "carbohydrates": 40.77
+        "carbohydrates": 40.77,
+        "kcal": 172
     },
     {
         "food_name": "raisins seeded",
-        "calories": 296,
         "total_fat": 0.5,
         "protein": 2.52,
         "saturated_fat": 0.2,
         "sodium": 28,
         "sugars": 0,
-        "carbohydrates": 78.47
+        "carbohydrates": 78.47,
+        "kcal": 296
     },
     {
         "food_name": "vanilla extract",
-        "calories": 288,
         "total_fat": 0.1,
         "protein": 0.06,
         "saturated_fat": 0,
         "sodium": 9,
         "sugars": 12.65,
-        "carbohydrates": 12.65
+        "carbohydrates": 12.65,
+        "kcal": 288
     },
     {
         "food_name": "spices saffron",
-        "calories": 310,
         "total_fat": 5.9,
         "protein": 11.43,
         "saturated_fat": 1.6,
         "sodium": 148,
         "sugars": 0,
-        "carbohydrates": 65.37
+        "carbohydrates": 65.37,
+        "kcal": 310
     },
     {
         "food_name": "lime juice raw",
-        "calories": 25,
         "total_fat": 0.1,
         "protein": 0.42,
         "saturated_fat": 0,
         "sodium": 2,
         "sugars": 1.69,
-        "carbohydrates": 8.42
+        "carbohydrates": 8.42,
+        "kcal": 25
     },
     {
         "food_name": "seeds flaxseed",
-        "calories": 534,
         "total_fat": 42,
         "protein": 18.29,
         "saturated_fat": 3.7,
         "sodium": 30,
         "sugars": 1.55,
-        "carbohydrates": 28.88
+        "carbohydrates": 28.88,
+        "kcal": 534
     },
     {
         "food_name": "cheese gruyere",
-        "calories": 413,
         "total_fat": 32,
         "protein": 29.81,
         "saturated_fat": 19,
         "sodium": 714,
         "sugars": 0.36,
-        "carbohydrates": 0.36
+        "carbohydrates": 0.36,
+        "kcal": 413
     },
     {
         "food_name": "cheese fontina",
-        "calories": 389,
         "total_fat": 31,
         "protein": 25.6,
         "saturated_fat": 19,
         "sodium": 800,
         "sugars": 1.55,
-        "carbohydrates": 1.55
+        "carbohydrates": 1.55,
+        "kcal": 389
     },
     {
         "food_name": "butter salted",
-        "calories": 717,
         "total_fat": 81,
         "protein": 0.85,
         "saturated_fat": 51,
         "sodium": 643,
         "sugars": 0.06,
-        "carbohydrates": 0.06
+        "carbohydrates": 0.06,
+        "kcal": 717
     },
     {
         "food_name": "tamarinds raw",
-        "calories": 239,
         "total_fat": 0.6,
         "protein": 2.8,
         "saturated_fat": 0.3,
         "sodium": 28,
         "sugars": 38.8,
-        "carbohydrates": 62.5
+        "carbohydrates": 62.5,
+        "kcal": 239
     },
     {
         "food_name": "vinegar cider",
-        "calories": 21,
         "total_fat": 0,
         "protein": 0,
         "saturated_fat": 0,
         "sodium": 5,
         "sugars": 0.4,
-        "carbohydrates": 0.93
+        "carbohydrates": 0.93,
+        "kcal": 21
     },
     {
         "food_name": "parsley fresh",
-        "calories": 36,
         "total_fat": 0.8,
         "protein": 2.97,
         "saturated_fat": 0.1,
         "sodium": 56,
         "sugars": 0.85,
-        "carbohydrates": 6.33
+        "carbohydrates": 6.33,
+        "kcal": 36
     },
     {
         "food_name": "barley hulled",
-        "calories": 354,
         "total_fat": 2.3,
         "protein": 12.48,
         "saturated_fat": 0.5,
         "sodium": 12,
         "sugars": 0.8,
-        "carbohydrates": 73.48
+        "carbohydrates": 73.48,
+        "kcal": 354
     },
     {
         "food_name": "dulce de leche",
-        "calories": 315,
         "total_fat": 7.4,
         "protein": 6.84,
         "saturated_fat": 4.5,
         "sodium": 129,
         "sugars": 49.74,
-        "carbohydrates": 55.35
+        "carbohydrates": 55.35,
+        "kcal": 315
     },
     {
         "food_name": "radicchio raw",
-        "calories": 23,
         "total_fat": 0.3,
         "protein": 1.43,
         "saturated_fat": 0.1,
         "sodium": 22,
         "sugars": 0.6,
-        "carbohydrates": 4.48
+        "carbohydrates": 4.48,
+        "kcal": 23
     },
     {
         "food_name": "capers canned",
-        "calories": 23,
         "total_fat": 0.9,
         "protein": 2.36,
         "saturated_fat": 0.2,
         "sodium": 2348,
         "sugars": 0.41,
-        "carbohydrates": 4.89
+        "carbohydrates": 4.89,
+        "kcal": 23
     },
     {
         "food_name": "wild rice raw",
-        "calories": 357,
         "total_fat": 1.1,
         "protein": 14.73,
         "saturated_fat": 0.2,
         "sodium": 7,
         "sugars": 2.5,
-        "carbohydrates": 74.9
+        "carbohydrates": 74.9,
+        "kcal": 357
     },
     {
         "food_name": "asparagus raw",
-        "calories": 20,
         "total_fat": 0.1,
         "protein": 2.2,
         "saturated_fat": 0,
         "sodium": 2,
         "sugars": 1.88,
-        "carbohydrates": 3.88
+        "carbohydrates": 3.88,
+        "kcal": 20
     },
     {
         "food_name": "broccoli raw",
-        "calories": 34,
         "total_fat": 0.4,
         "protein": 2.82,
         "saturated_fat": 0,
         "sodium": 33,
         "sugars": 1.7,
-        "carbohydrates": 6.64
+        "carbohydrates": 6.64,
+        "kcal": 34
     },
     {
         "food_name": "sugars brown",
-        "calories": 380,
         "total_fat": 0,
         "protein": 0.12,
         "saturated_fat": 0,
         "sodium": 28,
         "sugars": 97.02,
-        "carbohydrates": 98.09
+        "carbohydrates": 98.09,
+        "kcal": 380
     },
     {
         "food_name": "nuts almonds",
-        "calories": 579,
         "total_fat": 50,
         "protein": 21.15,
         "saturated_fat": 3.8,
         "sodium": 1,
         "sugars": 4.35,
-        "carbohydrates": 21.55
+        "carbohydrates": 21.55,
+        "kcal": 579
     },
     {
         "food_name": "shallots raw",
-        "calories": 72,
         "total_fat": 0.1,
         "protein": 2.5,
         "saturated_fat": 0,
         "sodium": 12,
         "sugars": 7.87,
-        "carbohydrates": 16.8
+        "carbohydrates": 16.8,
+        "kcal": 72
     },
     {
         "food_name": "couscous dry",
-        "calories": 376,
         "total_fat": 0.6,
         "protein": 12.76,
         "saturated_fat": 0.1,
         "sodium": 10,
         "sugars": 0,
-        "carbohydrates": 77.43
+        "carbohydrates": 77.43,
+        "kcal": 376
     },
     {
         "food_name": "syrup maple canadian",
-        "calories": 260,
         "total_fat": 0.1,
         "protein": 0.04,
         "saturated_fat": 0,
         "sodium": 12,
         "sugars": 60.46,
-        "carbohydrates": 67.04
+        "carbohydrates": 67.04,
+        "kcal": 260
     },
     {
         "food_name": "radishes raw",
-        "calories": 16,
         "total_fat": 0.1,
         "protein": 0.68,
         "saturated_fat": 0,
         "sodium": 39,
         "sugars": 1.86,
-        "carbohydrates": 3.4
+        "carbohydrates": 3.4,
+        "kcal": 16
     },
     {
         "food_name": "parsnips raw",
-        "calories": 75,
         "total_fat": 0.3,
         "protein": 1.2,
         "saturated_fat": 0.1,
         "sodium": 10,
         "sugars": 4.8,
-        "carbohydrates": 17.99
+        "carbohydrates": 17.99,
+        "kcal": 75
     },
     {
         "food_name": "kumquats raw",
-        "calories": 71,
         "total_fat": 0.9,
         "protein": 1.88,
         "saturated_fat": 0.1,
         "sodium": 10,
         "sugars": 9.36,
-        "carbohydrates": 15.9
+        "carbohydrates": 15.9,
+        "kcal": 71
     },
     {
         "food_name": "oat bran raw",
-        "calories": 246,
         "total_fat": 7,
         "protein": 17.3,
         "saturated_fat": 1.3,
         "sodium": 4,
         "sugars": 1.45,
-        "carbohydrates": 66.22
+        "carbohydrates": 66.22,
+        "kcal": 246
     },
     {
         "food_name": "cheese gouda",
-        "calories": 356,
         "total_fat": 27,
         "protein": 24.94,
         "saturated_fat": 18,
         "sodium": 819,
         "sugars": 2.22,
-        "carbohydrates": 2.22
+        "carbohydrates": 2.22,
+        "kcal": 356
     },
     {
         "food_name": "cheese blue",
-        "calories": 353,
         "total_fat": 29,
         "protein": 21.4,
         "saturated_fat": 19,
         "sodium": 1146,
         "sugars": 0.5,
-        "carbohydrates": 2.34
+        "carbohydrates": 2.34,
+        "kcal": 353
     },
     {
         "food_name": "cheese brie",
-        "calories": 334,
         "total_fat": 28,
         "protein": 20.75,
         "saturated_fat": 17,
         "sodium": 629,
         "sugars": 0.45,
-        "carbohydrates": 0.45
+        "carbohydrates": 0.45,
+        "kcal": 334
     },
     {
         "food_name": "pumpkin raw",
-        "calories": 26,
         "total_fat": 0.1,
         "protein": 1,
         "saturated_fat": 0.1,
         "sodium": 1,
         "sugars": 2.76,
-        "carbohydrates": 6.5
+        "carbohydrates": 6.5,
+        "kcal": 26
     },
     {
         "food_name": "carrots raw",
-        "calories": 41,
         "total_fat": 0.2,
         "protein": 0.93,
         "saturated_fat": 0,
         "sodium": 69,
         "sugars": 4.74,
-        "carbohydrates": 9.58
+        "carbohydrates": 9.58,
+        "kcal": 41
     },
     {
         "food_name": "cabbage raw",
-        "calories": 25,
         "total_fat": 0.1,
         "protein": 1.28,
         "saturated_fat": 0,
         "sodium": 18,
         "sugars": 3.2,
-        "carbohydrates": 5.8
+        "carbohydrates": 5.8,
+        "kcal": 25
     },
     {
         "food_name": "cheese feta",
-        "calories": 264,
         "total_fat": 21,
         "protein": 14.21,
         "saturated_fat": 15,
         "sodium": 917,
         "sugars": 4.09,
-        "carbohydrates": 4.09
+        "carbohydrates": 4.09,
+        "kcal": 264
     },
     {
         "food_name": "wheat durum",
-        "calories": 339,
         "total_fat": 2.5,
         "protein": 13.68,
         "saturated_fat": 0.5,
         "sodium": 2,
         "sugars": 0,
-        "carbohydrates": 71.13
+        "carbohydrates": 71.13,
+        "kcal": 339
     },
     {
         "food_name": "arugula raw",
-        "calories": 25,
         "total_fat": 0.7,
         "protein": 2.58,
         "saturated_fat": 0.1,
         "sodium": 27,
         "sugars": 2.05,
-        "carbohydrates": 3.65
+        "carbohydrates": 3.65,
+        "kcal": 25
     },
     {
         "food_name": "spinach raw",
-        "calories": 23,
         "total_fat": 0.4,
         "protein": 2.86,
         "saturated_fat": 0.1,
         "sodium": 79,
         "sugars": 0.42,
-        "carbohydrates": 3.63
+        "carbohydrates": 3.63,
+        "kcal": 23
     },
     {
         "food_name": "phyllo dough",
-        "calories": 299,
         "total_fat": 6,
         "protein": 7.1,
         "saturated_fat": 1.5,
         "sodium": 483,
         "sugars": 0.18,
-        "carbohydrates": 52.6
+        "carbohydrates": 52.6,
+        "kcal": 299
     },
     {
         "food_name": "lentils raw",
-        "calories": 352,
         "total_fat": 1.1,
         "protein": 24.63,
         "saturated_fat": 0.2,
         "sodium": 6,
         "sugars": 2.03,
-        "carbohydrates": 63.35
+        "carbohydrates": 63.35,
+        "kcal": 352
     },
     {
         "food_name": "turnips raw",
-        "calories": 28,
         "total_fat": 0.1,
         "protein": 0.9,
         "saturated_fat": 0,
         "sodium": 67,
         "sugars": 3.8,
-        "carbohydrates": 6.43
+        "carbohydrates": 6.43,
+        "kcal": 28
     },
     {
         "food_name": "bananas raw",
-        "calories": 89,
         "total_fat": 0.3,
         "protein": 1.09,
         "saturated_fat": 0.1,
         "sodium": 1,
         "sugars": 12.23,
-        "carbohydrates": 22.84
+        "carbohydrates": 22.84,
+        "kcal": 89
     },
     {
         "food_name": "papayas raw",
-        "calories": 43,
         "total_fat": 0.3,
         "protein": 0.47,
         "saturated_fat": 0.1,
         "sodium": 8,
         "sugars": 7.82,
-        "carbohydrates": 10.82
+        "carbohydrates": 10.82,
+        "kcal": 43
     },
     {
         "food_name": "chives raw",
-        "calories": 30,
         "total_fat": 0.7,
         "protein": 3.27,
         "saturated_fat": 0.1,
         "sodium": 3,
         "sugars": 1.85,
-        "carbohydrates": 4.35
+        "carbohydrates": 4.35,
+        "kcal": 30
     },
     {
         "food_name": "carob flour",
-        "calories": 222,
         "total_fat": 0.7,
         "protein": 4.62,
         "saturated_fat": 0.1,
         "sodium": 35,
         "sugars": 49.08,
-        "carbohydrates": 88.88
+        "carbohydrates": 88.88,
+        "kcal": 222
     },
     {
         "food_name": "salt table",
-        "calories": 0,
         "total_fat": 0,
         "protein": 0,
         "saturated_fat": 0,
         "sodium": 38758,
         "sugars": 0,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "kcal": 0
     },
     {
         "food_name": "celery raw",
-        "calories": 16,
         "total_fat": 0.2,
         "protein": 0.69,
         "saturated_fat": 0,
         "sodium": 80,
         "sugars": 1.34,
-        "carbohydrates": 2.97
+        "carbohydrates": 2.97,
+        "kcal": 16
     },
     {
         "food_name": "bulgur dry",
-        "calories": 342,
         "total_fat": 1.3,
         "protein": 12.29,
         "saturated_fat": 0.2,
         "sodium": 17,
         "sugars": 0.41,
-        "carbohydrates": 75.87
+        "carbohydrates": 75.87,
+        "kcal": 342
     },
     {
         "food_name": "oil canola",
-        "calories": 884,
         "total_fat": 100,
         "protein": 0,
         "saturated_fat": 7.4,
         "sodium": 0,
         "sugars": 0,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "kcal": 884
     },
     {
         "food_name": "syrup cane",
-        "calories": 269,
         "total_fat": 0,
         "protein": 0,
         "saturated_fat": 0,
         "sodium": 58,
         "sugars": 73.2,
-        "carbohydrates": 73.14
+        "carbohydrates": 73.14,
+        "kcal": 269
     },
     {
         "food_name": "onions raw",
-        "calories": 40,
         "total_fat": 0.1,
         "protein": 1.1,
         "saturated_fat": 0,
         "sodium": 4,
         "sugars": 4.24,
-        "carbohydrates": 9.34
+        "carbohydrates": 9.34,
+        "kcal": 40
     },
     {
         "food_name": "fat goose",
-        "calories": 900,
         "total_fat": 100,
         "protein": 0,
         "saturated_fat": 28,
         "sodium": 0,
         "sugars": 0,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "kcal": 900
     },
     {
         "food_name": "pears raw",
-        "calories": 57,
         "total_fat": 0.1,
         "protein": 0.36,
         "saturated_fat": 0,
         "sodium": 1,
         "sugars": 9.75,
-        "carbohydrates": 15.23
+        "carbohydrates": 15.23,
+        "kcal": 57
     },
     {
         "food_name": "plums raw",
-        "calories": 46,
         "total_fat": 0.3,
         "protein": 0.7,
         "saturated_fat": 0,
         "sodium": 0,
         "sugars": 9.92,
-        "carbohydrates": 11.42
+        "carbohydrates": 11.42,
+        "kcal": 46
     },
     {
         "food_name": "beets raw",
-        "calories": 43,
         "total_fat": 0.2,
         "protein": 1.61,
         "saturated_fat": 0,
         "sodium": 78,
         "sugars": 6.76,
-        "carbohydrates": 9.56
+        "carbohydrates": 9.56,
+        "kcal": 43
     },
     {
         "food_name": "kale raw",
-        "calories": 49,
         "total_fat": 0.9,
         "protein": 4.28,
         "saturated_fat": 0.1,
         "sodium": 38,
         "sugars": 2.26,
-        "carbohydrates": 8.75
+        "carbohydrates": 8.75,
+        "kcal": 49
     },
     {
         "food_name": "okra raw",
-        "calories": 33,
         "total_fat": 0.2,
         "protein": 1.93,
         "saturated_fat": 0,
         "sodium": 7,
         "sugars": 1.48,
-        "carbohydrates": 7.45
+        "carbohydrates": 7.45,
+        "kcal": 33
     },
     {
         "food_name": "molasses",
-        "calories": 290,
         "total_fat": 0.1,
         "protein": 0,
         "saturated_fat": 0,
         "sodium": 37,
         "sugars": 74.72,
-        "carbohydrates": 74.73
+        "carbohydrates": 74.73,
+        "kcal": 290
     },
     {
         "food_name": "eggnog",
-        "calories": 88,
         "total_fat": 4.2,
         "protein": 4.55,
         "saturated_fat": 2.6,
         "sodium": 54,
         "sugars": 8.05,
-        "carbohydrates": 8.05
+        "carbohydrates": 8.05,
+        "kcal": 88
     },
     {
         "food_name": "catsup",
-        "calories": 101,
         "total_fat": 0.1,
         "protein": 1.04,
         "saturated_fat": 0,
         "sodium": 907,
         "sugars": 21.27,
-        "carbohydrates": 27.4
+        "carbohydrates": 27.4,
+        "kcal": 101
     },
     {
         "food_name": "honey",
-        "calories": 304,
         "total_fat": 0,
         "protein": 0.3,
         "saturated_fat": 0,
         "sodium": 4,
         "sugars": 82.12,
-        "carbohydrates": 82.4
+        "carbohydrates": 82.4,
+        "kcal": 304
     },
     {
         "food_name": "okara",
-        "calories": 76,
         "total_fat": 1.7,
         "protein": 3.52,
         "saturated_fat": 0.2,
         "sodium": 9,
         "sugars": 0,
-        "carbohydrates": 12.23
+        "carbohydrates": 12.23,
+        "kcal": 76
     },
     {
         "food_name": "lard",
-        "calories": 902,
         "total_fat": 100,
         "protein": 0,
         "saturated_fat": 39,
         "sodium": 0,
         "sugars": 0,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "kcal": 902
     },
     {
         "food_name": "oats",
-        "calories": 389,
         "total_fat": 6.9,
         "protein": 16.89,
         "saturated_fat": 1.2,
         "sodium": 2,
         "sugars": 0,
-        "carbohydrates": 66.27
+        "carbohydrates": 66.27,
+        "kcal": 389
     },
     {
         "food_name": "miso",
-        "calories": 198,
         "total_fat": 6,
         "protein": 12.79,
         "saturated_fat": 1,
         "sodium": 3728,
         "sugars": 6.2,
-        "carbohydrates": 25.37
+        "carbohydrates": 25.37,
+        "kcal": 198
     },
     {
         "food_name": "spices oregano dried",
-        "calories": 265,
         "total_fat": 4.3,
         "protein": 9,
         "saturated_fat": 1.6,
         "sodium": 25,
         "sugars": 4.09,
-        "carbohydrates": 68.92
+        "carbohydrates": 68.92,
+        "kcal": 265
     },
     {
         "food_name": "mushrooms portabella raw",
-        "calories": 22,
         "total_fat": 0.4,
         "protein": 2.11,
         "saturated_fat": 0.1,
         "sodium": 9,
         "sugars": 2.5,
-        "carbohydrates": 3.87
+        "carbohydrates": 3.87,
+        "kcal": 22
     },
     {
         "food_name": "beverages carbonated ginger ale",
-        "calories": 48,
         "total_fat": 0,
         "protein": 0,
         "saturated_fat": 0,
         "sodium": 12,
         "sugars": 0,
-        "carbohydrates": 12.3
+        "carbohydrates": 12.3,
+        "kcal": 48
     },
     {
         "food_name": "beverages carbonated cola regular",
-        "calories": 48,
         "total_fat": 0,
         "protein": 0,
         "saturated_fat": 0,
         "sodium": 12,
         "sugars": 0,
-        "carbohydrates": 12.3
+        "carbohydrates": 12.3,
+        "kcal": 48
     },
     {
         "food_name": "beverages carbonated root beer",
-        "calories": 48,
         "total_fat": 0,
         "protein": 0,
         "saturated_fat": 0,
         "sodium": 12,
         "sugars": 0,
-        "carbohydrates": 12.3
+        "carbohydrates": 12.3,
+        "kcal": 48
     },
     {
         "food_name": "cranberries dried sweetened",
-        "calories": 308,
         "total_fat": 1.1,
         "protein": 0.17,
         "saturated_fat": 0.1,
         "sodium": 5,
         "sugars": 72.56,
-        "carbohydrates": 82.8
+        "carbohydrates": 82.8,
+        "kcal": 308
     },
     {
         "food_name": "sauce ready-to-serve pepper tabasco",
-        "calories": 174,
         "total_fat": 13,
         "protein": 6.71,
         "saturated_fat": 6,
         "sodium": 828,
         "sugars": 0.42,
-        "carbohydrates": 6.83
+        "carbohydrates": 6.83,
+        "kcal": 174
     },
     {
         "food_name": "noodles egg dry unenriched",
-        "calories": 384,
         "total_fat": 4.4,
         "protein": 14.16,
         "saturated_fat": 1.2,
         "sodium": 21,
         "sugars": 1.88,
-        "carbohydrates": 71.27
+        "carbohydrates": 71.27,
+        "kcal": 384
     },
     {
         "food_name": "pineapple raw all varieties",
-        "calories": 50,
         "total_fat": 0.1,
         "protein": 0.54,
         "saturated_fat": 0,
         "sodium": 1,
         "sugars": 9.85,
-        "carbohydrates": 13.12
+        "carbohydrates": 13.12,
+        "kcal": 50
     },
     {
         "food_name": "leavening agents baking soda",
-        "calories": 0,
         "total_fat": 0,
         "protein": 0,
         "saturated_fat": 0,
         "sodium": 27360,
         "sugars": 0,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "kcal": 0
     },
     {
         "food_name": "oil olive salad or cooking",
-        "calories": 884,
         "total_fat": 100,
         "protein": 0,
         "saturated_fat": 14,
         "sodium": 2,
         "sugars": 0,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "kcal": 884
     },
     {
         "food_name": "oil sesame salad or cooking",
-        "calories": 884,
         "total_fat": 100,
         "protein": 0,
         "saturated_fat": 14,
         "sodium": 2,
         "sugars": 0,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "kcal": 884
     },
     {
         "food_name": "lettuce cos or romaine raw",
-        "calories": 17,
         "total_fat": 0.3,
         "protein": 1.23,
         "saturated_fat": 0,
         "sodium": 8,
         "sugars": 1.19,
-        "carbohydrates": 3.29
+        "carbohydrates": 3.29,
+        "kcal": 17
     },
     {
         "food_name": "noodles japanese soba dry",
-        "calories": 336,
         "total_fat": 0.7,
         "protein": 14.38,
         "saturated_fat": 0.1,
         "sodium": 792,
         "sugars": 0,
-        "carbohydrates": 74.62
+        "carbohydrates": 74.62,
+        "kcal": 336
     },
     {
         "food_name": "cream fluid heavy whipping",
-        "calories": 340,
         "total_fat": 36,
         "protein": 2.84,
         "saturated_fat": 23,
         "sodium": 27,
         "sugars": 2.92,
-        "carbohydrates": 2.74
+        "carbohydrates": 2.74,
+        "kcal": 340
     },
     {
         "food_name": "candies semisweet chocolate",
-        "calories": 480,
         "total_fat": 30,
         "protein": 4.2,
         "saturated_fat": 18,
         "sodium": 11,
         "sugars": 54.5,
-        "carbohydrates": 63.9
+        "carbohydrates": 63.9,
+        "kcal": 480
     },
     {
         "food_name": "spartan real semi-sweet chocolate baking chips upc: 011213162966",
-        "calories": 480,
         "total_fat": 30,
         "protein": 4.2,
         "saturated_fat": 18,
         "sodium": 11,
         "sugars": 54.5,
-        "carbohydrates": 63.9
+        "carbohydrates": 63.9,
+        "kcal": 480
     },
     {
         "food_name": "mini semi-sweet chocolate baking chips upc: 719283140692",
-        "calories": 480,
         "total_fat": 30,
         "protein": 4.2,
         "saturated_fat": 18,
         "sodium": 11,
         "sugars": 54.5,
-        "carbohydrates": 63.9
+        "carbohydrates": 63.9,
+        "kcal": 480
     },
     {
         "food_name": "garlic chili sauce upc: 041224872707",
-        "calories": 438,
         "total_fat": 18,
         "protein": 7.68,
         "saturated_fat": 8.4,
         "sodium": 3202,
         "sugars": 10.26,
-        "carbohydrates": 60.52
+        "carbohydrates": 60.52,
+        "kcal": 438
     },
     {
         "food_name": "cranberry juice unsweetened",
-        "calories": 46,
         "total_fat": 0.1,
         "protein": 0.39,
         "saturated_fat": 0,
         "sodium": 2,
         "sugars": 12.1,
-        "carbohydrates": 12.2
+        "carbohydrates": 12.2,
+        "kcal": 46
     },
     {
         "food_name": "cranberry sauce canned sweetened",
-        "calories": 46,
         "total_fat": 0.1,
         "protein": 0.39,
         "saturated_fat": 0,
         "sodium": 2,
         "sugars": 12.1,
-        "carbohydrates": 12.2
+        "carbohydrates": 12.2,
+        "kcal": 46
     },
     {
         "food_name": "fish cod atlantic raw",
-        "calories": 104,
         "total_fat": 3.2,
         "protein": 17.78,
         "saturated_fat": 1.1,
         "sodium": 56,
         "sugars": 0,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "kcal": 104
     },
     {
         "food_name": "grapefruit juice white raw",
-        "calories": 39,
         "total_fat": 0.1,
         "protein": 0.5,
         "saturated_fat": 0,
         "sodium": 1,
         "sugars": 9.1,
-        "carbohydrates": 9.2
+        "carbohydrates": 9.2,
+        "kcal": 39
     },
     {
         "food_name": "puddings tapioca ready-to-eat",
-        "calories": 108,
         "total_fat": 2.2,
         "protein": 3.23,
         "saturated_fat": 1.2,
         "sodium": 97,
         "sugars": 11.59,
-        "carbohydrates": 18.39
+        "carbohydrates": 18.39,
+        "kcal": 108
     },
     {
         "food_name": "cocoa dry powder unsweetened",
-        "calories": 325,
         "total_fat": 0.3,
         "protein": 0.3,
         "saturated_fat": 0.1,
         "sodium": 200,
         "sugars": 0,
-        "carbohydrates": 90.4
+        "carbohydrates": 90.4,
+        "kcal": 325
     },
     {
         "food_name": "beans adzuki mature seeds raw",
-        "calories": 446,
         "total_fat": 20,
         "protein": 36.49,
         "saturated_fat": 2.9,
         "sodium": 2,
         "sugars": 7.33,
-        "carbohydrates": 30.16
+        "carbohydrates": 30.16,
+        "kcal": 446
     },
     {
         "food_name": "edamame frozen prepared",
-        "calories": 109,
         "total_fat": 4.7,
         "protein": 11.22,
         "saturated_fat": 0,
         "sodium": 6,
         "sugars": 2.48,
-        "carbohydrates": 7.61
+        "carbohydrates": 7.61,
+        "kcal": 109
     },
     {
         "food_name": "sauce salsa ready-to-serve",
-        "calories": 35,
         "total_fat": 0,
         "protein": 5.06,
         "saturated_fat": 0,
         "sodium": 7851,
         "sugars": 3.64,
-        "carbohydrates": 3.64
+        "carbohydrates": 3.64,
+        "kcal": 35
     },
     {
         "food_name": "sauce hoisin ready-to-serve",
-        "calories": 35,
         "total_fat": 0,
         "protein": 5.06,
         "saturated_fat": 0,
         "sodium": 7851,
         "sugars": 3.64,
-        "carbohydrates": 3.64
+        "carbohydrates": 3.64,
+        "kcal": 35
     },
     {
         "food_name": "sauce oyster ready-to-serve",
-        "calories": 35,
         "total_fat": 0,
         "protein": 5.06,
         "saturated_fat": 0,
         "sodium": 7851,
         "sugars": 3.64,
-        "carbohydrates": 3.64
+        "carbohydrates": 3.64,
+        "kcal": 35
     },
     {
         "food_name": "sauce fish ready-to-serve",
-        "calories": 35,
         "total_fat": 0,
         "protein": 5.06,
         "saturated_fat": 0,
         "sodium": 7851,
         "sugars": 3.64,
-        "carbohydrates": 3.64
+        "carbohydrates": 3.64,
+        "kcal": 35
     },
     {
         "food_name": "sauce teriyaki ready-to-serve",
-        "calories": 35,
         "total_fat": 0,
         "protein": 5.06,
         "saturated_fat": 0,
         "sodium": 7851,
         "sugars": 3.64,
-        "carbohydrates": 3.64
+        "carbohydrates": 3.64,
+        "kcal": 35
     },
     {
         "food_name": "cheese ricotta whole milk",
-        "calories": 174,
         "total_fat": 13,
         "protein": 11.26,
         "saturated_fat": 8.3,
         "sodium": 84,
         "sugars": 0.27,
-        "carbohydrates": 3.04
+        "carbohydrates": 3.04,
+        "kcal": 174
     },
     {
         "food_name": "nuts walnuts english",
-        "calories": 628,
         "total_fat": 61,
         "protein": 14.95,
         "saturated_fat": 4.5,
         "sodium": 0,
         "sugars": 4.34,
-        "carbohydrates": 16.7
+        "carbohydrates": 16.7,
+        "kcal": 628
     },
     {
         "food_name": "nuts hazelnuts or filberts",
-        "calories": 628,
         "total_fat": 61,
         "protein": 14.95,
         "saturated_fat": 4.5,
         "sodium": 0,
         "sugars": 4.34,
-        "carbohydrates": 16.7
+        "carbohydrates": 16.7,
+        "kcal": 628
     },
     {
         "food_name": "jams and preserves apricot",
-        "calories": 242,
         "total_fat": 0.2,
         "protein": 0.7,
         "saturated_fat": 0,
         "sodium": 40,
         "sugars": 43.4,
-        "carbohydrates": 64.4
+        "carbohydrates": 64.4,
+        "kcal": 242
     },
     {
         "food_name": "egg white raw fresh",
-        "calories": 155,
         "total_fat": 8.1,
         "protein": 18.79,
         "saturated_fat": 2,
         "sodium": 593,
         "sugars": 0,
-        "carbohydrates": 0.47
+        "carbohydrates": 0.47,
+        "kcal": 155
     },
     {
         "food_name": "pomegranate juice bottled",
-        "calories": 54,
         "total_fat": 0.3,
         "protein": 0.15,
         "saturated_fat": 0.1,
         "sodium": 9,
         "sugars": 12.65,
-        "carbohydrates": 13.13
+        "carbohydrates": 13.13,
+        "kcal": 54
     },
     {
         "food_name": "sauce hot chile sriracha",
-        "calories": 93,
         "total_fat": 0.9,
         "protein": 1.93,
         "saturated_fat": 0,
         "sodium": 2124,
         "sugars": 15.11,
-        "carbohydrates": 19.16
+        "carbohydrates": 19.16,
+        "kcal": 93
     },
     {
         "food_name": "milk buttermilk fluid cultured lowfat",
-        "calories": 70,
         "total_fat": 4.4,
         "protein": 1.03,
         "saturated_fat": 2,
         "sodium": 17,
         "sugars": 6.89,
-        "carbohydrates": 6.89
+        "carbohydrates": 6.89,
+        "kcal": 70
     },
     {
         "food_name": "cheese mozzarella low sodium",
-        "calories": 374,
         "total_fat": 27,
         "protein": 28.4,
         "saturated_fat": 18,
         "sodium": 14,
         "sugars": 1.31,
-        "carbohydrates": 3.4
+        "carbohydrates": 3.4,
+        "kcal": 374
     },
     {
         "food_name": "mustard prepared yellow",
-        "calories": 60,
         "total_fat": 3.3,
         "protein": 3.74,
         "saturated_fat": 0.2,
         "sodium": 1104,
         "sugars": 0.92,
-        "carbohydrates": 5.83
+        "carbohydrates": 5.83,
+        "kcal": 60
     },
     {
         "food_name": "nuts macadamia nuts raw",
-        "calories": 718,
         "total_fat": 76,
         "protein": 7.91,
         "saturated_fat": 12,
         "sodium": 5,
         "sugars": 4.57,
-        "carbohydrates": 13.82
+        "carbohydrates": 13.82,
+        "kcal": 718
     },
     {
         "food_name": "nuts pistachio nuts raw",
-        "calories": 560,
         "total_fat": 45,
         "protein": 20.16,
         "saturated_fat": 5.9,
         "sodium": 1,
         "sugars": 7.66,
-        "carbohydrates": 27.17
+        "carbohydrates": 27.17,
+        "kcal": 560
     },
     {
         "food_name": "rice vinegar upc: 4979435030332",
-        "calories": 489,
         "total_fat": 23,
         "protein": 10.93,
         "saturated_fat": 5.3,
         "sodium": 973,
         "sugars": 4.53,
-        "carbohydrates": 59.42
+        "carbohydrates": 59.42,
+        "kcal": 489
     },
     {
         "food_name": "spices pumpkin pie spice",
-        "calories": 342,
         "total_fat": 13,
         "protein": 5.76,
         "saturated_fat": 6.5,
         "sodium": 52,
         "sugars": 7.76,
-        "carbohydrates": 69.28
+        "carbohydrates": 69.28,
+        "kcal": 342
     },
     {
         "food_name": "a cajun life all purpose cajun seasoning upc: 095225879272",
-        "calories": 307,
         "total_fat": 7.5,
         "protein": 9.59,
         "saturated_fat": 3.3,
         "sodium": 27,
         "sugars": 1.8,
-        "carbohydrates": 65.59
+        "carbohydrates": 65.59,
+        "kcal": 307
     },
     {
         "food_name": "creole seasoning upc: 071998120018",
-        "calories": 307,
         "total_fat": 7.5,
         "protein": 9.59,
         "saturated_fat": 3.3,
         "sodium": 27,
         "sugars": 1.8,
-        "carbohydrates": 65.59
+        "carbohydrates": 65.59,
+        "kcal": 307
     },
     {
         "food_name": "pretzels soft unsalted",
-        "calories": 345,
         "total_fat": 3.1,
         "protein": 8.2,
         "saturated_fat": 0.7,
         "sodium": 252,
         "sugars": 0.25,
-        "carbohydrates": 71.04
+        "carbohydrates": 71.04,
+        "kcal": 345
     },
     {
         "food_name": "fish salmon atlantic wild raw",
-        "calories": 82,
         "total_fat": 0.7,
         "protein": 17.81,
         "saturated_fat": 0.1,
         "sodium": 54,
         "sugars": 0,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "kcal": 82
     },
     {
         "food_name": "spices turmeric ground",
-        "calories": 312,
         "total_fat": 3.3,
         "protein": 9.68,
         "saturated_fat": 1.8,
         "sodium": 27,
         "sugars": 3.21,
-        "carbohydrates": 67.14
+        "carbohydrates": 67.14,
+        "kcal": 312
     },
     {
         "food_name": "candies white chocolate",
-        "calories": 539,
         "total_fat": 32,
         "protein": 5.87,
         "saturated_fat": 19,
         "sodium": 90,
         "sugars": 59,
-        "carbohydrates": 59.24
+        "carbohydrates": 59.24,
+        "kcal": 539
     },
     {
         "food_name": "mushrooms shiitake raw",
-        "calories": 34,
         "total_fat": 0.5,
         "protein": 2.24,
         "saturated_fat": 0,
         "sodium": 9,
         "sugars": 2.38,
-        "carbohydrates": 6.79
+        "carbohydrates": 6.79,
+        "kcal": 34
     },
     {
         "food_name": "seeds chia seeds dried",
-        "calories": 486,
         "total_fat": 31,
         "protein": 16.54,
         "saturated_fat": 3.3,
         "sodium": 16,
         "sugars": 0,
-        "carbohydrates": 42.12
+        "carbohydrates": 42.12,
+        "kcal": 486
     },
     {
         "food_name": "animal fat bacon grease",
-        "calories": 897,
         "total_fat": 100,
         "protein": 0,
         "saturated_fat": 39,
         "sodium": 150,
         "sugars": 0,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "kcal": 897
     },
     {
         "food_name": "xanthan gum upc: 071518021764",
-        "calories": 371,
         "total_fat": 7,
         "protein": 13.56,
         "saturated_fat": 1.5,
         "sodium": 4,
         "sugars": 1.69,
-        "carbohydrates": 65.25
+        "carbohydrates": 65.25,
+        "kcal": 371
     },
     {
         "food_name": "spices cinnamon ground",
-        "calories": 247,
         "total_fat": 1.2,
         "protein": 3.99,
         "saturated_fat": 0.3,
         "sodium": 10,
         "sugars": 2.17,
-        "carbohydrates": 80.59
+        "carbohydrates": 80.59,
+        "kcal": 247
     },
     {
         "food_name": "seeds hemp seed hulled",
-        "calories": 553,
         "total_fat": 49,
         "protein": 31.56,
         "saturated_fat": 4.6,
         "sodium": 5,
         "sugars": 1.5,
-        "carbohydrates": 8.67
+        "carbohydrates": 8.67,
+        "kcal": 553
     },
     {
         "food_name": "beans snap green raw",
-        "calories": 31,
         "total_fat": 0.2,
         "protein": 1.83,
         "saturated_fat": 0.1,
         "sodium": 6,
         "sugars": 3.26,
-        "carbohydrates": 6.97
+        "carbohydrates": 6.97,
+        "kcal": 31
     },
     {
         "food_name": "water bottled generic",
-        "calories": 0,
         "total_fat": 0,
         "protein": 0,
         "saturated_fat": 0,
         "sodium": 2,
         "sugars": 0,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "kcal": 0
     },
     {
         "food_name": "spices marjoram dried",
-        "calories": 271,
         "total_fat": 7,
         "protein": 12.66,
         "saturated_fat": 0.5,
         "sodium": 77,
         "sugars": 4.09,
-        "carbohydrates": 60.56
+        "carbohydrates": 60.56,
+        "kcal": 271
     },
     {
         "food_name": "pickles cucumber sour",
-        "calories": 11,
         "total_fat": 0.2,
         "protein": 0.33,
         "saturated_fat": 0.1,
         "sodium": 1208,
         "sugars": 1.06,
-        "carbohydrates": 2.26
+        "carbohydrates": 2.26,
+        "kcal": 11
     },
     {
         "food_name": "spices rosemary dried",
-        "calories": 331,
         "total_fat": 15,
         "protein": 4.88,
         "saturated_fat": 7.4,
         "sodium": 50,
         "sugars": 0,
-        "carbohydrates": 64.06
+        "carbohydrates": 64.06,
+        "kcal": 331
     },
     {
         "food_name": "cheese goat soft type",
-        "calories": 264,
         "total_fat": 21,
         "protein": 18.52,
         "saturated_fat": 15,
         "sodium": 459,
         "sugars": 0,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "kcal": 264
     },
     {
         "food_name": "melons cantaloupe raw",
-        "calories": 34,
         "total_fat": 0.2,
         "protein": 0.84,
         "saturated_fat": 0.1,
         "sodium": 16,
         "sugars": 7.86,
-        "carbohydrates": 8.16
+        "carbohydrates": 8.16,
+        "kcal": 34
     },
     {
         "food_name": "spices tarragon dried",
-        "calories": 295,
         "total_fat": 7.2,
         "protein": 22.77,
         "saturated_fat": 1.9,
         "sodium": 62,
         "sugars": 0,
-        "carbohydrates": 50.22
+        "carbohydrates": 50.22,
+        "kcal": 295
     },
     {
         "food_name": "sweetener syrup agave",
-        "calories": 310,
         "total_fat": 0.5,
         "protein": 0.09,
         "saturated_fat": 0,
         "sodium": 4,
         "sugars": 68.03,
-        "carbohydrates": 76.37
+        "carbohydrates": 76.37,
+        "kcal": 310
     },
     {
         "food_name": "apples raw with skin",
-        "calories": 52,
         "total_fat": 0.2,
         "protein": 0.26,
         "saturated_fat": 0,
         "sodium": 1,
         "sugars": 10.39,
-        "carbohydrates": 13.81
+        "carbohydrates": 13.81,
+        "kcal": 52
     },
     {
         "food_name": "egg substitute powder",
-        "calories": 444,
         "total_fat": 13,
         "protein": 55.5,
         "saturated_fat": 3.8,
         "sodium": 800,
         "sugars": 21.8,
-        "carbohydrates": 21.8
+        "carbohydrates": 21.8,
+        "kcal": 444
     },
     {
         "food_name": "ice creams strawberry",
-        "calories": 192,
         "total_fat": 8.4,
         "protein": 3.2,
         "saturated_fat": 5.2,
         "sodium": 60,
         "sugars": 0,
-        "carbohydrates": 27.6
+        "carbohydrates": 27.6,
+        "kcal": 192
     },
     {
         "food_name": "cheese parmesan hard",
-        "calories": 392,
         "total_fat": 26,
         "protein": 35.75,
         "saturated_fat": 16,
         "sodium": 1376,
         "sugars": 0.8,
-        "carbohydrates": 3.22
+        "carbohydrates": 3.22,
+        "kcal": 392
     },
     {
         "food_name": "chickpea flour (besan)",
-        "calories": 387,
         "total_fat": 6.7,
         "protein": 22.39,
         "saturated_fat": 0.7,
         "sodium": 64,
         "sugars": 10.85,
-        "carbohydrates": 57.82
+        "carbohydrates": 57.82,
+        "kcal": 387
     },
     {
         "food_name": "nuts cashew nuts raw",
-        "calories": 553,
         "total_fat": 44,
         "protein": 18.22,
         "saturated_fat": 7.8,
         "sodium": 12,
         "sugars": 5.91,
-        "carbohydrates": 30.19
+        "carbohydrates": 30.19,
+        "kcal": 553
     },
     {
         "food_name": "spices coriander seed",
-        "calories": 298,
         "total_fat": 18,
         "protein": 12.37,
         "saturated_fat": 1,
         "sodium": 35,
         "sugars": 0,
-        "carbohydrates": 54.99
+        "carbohydrates": 54.99,
+        "kcal": 298
     },
     {
         "food_name": "spices fenugreek seed",
-        "calories": 323,
         "total_fat": 6.4,
         "protein": 23,
         "saturated_fat": 1.5,
         "sodium": 67,
         "sugars": 0,
-        "carbohydrates": 58.35
+        "carbohydrates": 58.35,
+        "kcal": 323
     },
     {
         "food_name": "soup vegetable broth ready to serve",
-        "calories": 6,
         "total_fat": 0.1,
         "protein": 0.23,
         "saturated_fat": 0,
         "sodium": 303,
         "sugars": 0.57,
-        "carbohydrates": 1.02
+        "carbohydrates": 1.02,
+        "kcal": 6
     },
     {
         "food_name": "soy sauce made from soy (tamari)",
-        "calories": 60,
         "total_fat": 0.1,
         "protein": 10.51,
         "saturated_fat": 0,
         "sodium": 5586,
         "sugars": 1.7,
-        "carbohydrates": 5.57
+        "carbohydrates": 5.57,
+        "kcal": 60
     },
     {
         "food_name": "crustaceans crab alaska king imitation made from surimi",
-        "calories": 84,
         "total_fat": 0.6,
         "protein": 18.29,
         "saturated_fat": 0.1,
         "sodium": 836,
         "sugars": 0,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "kcal": 84
     },
     {
         "food_name": "house of pasta pizza dough upc: 074708983316",
-        "calories": 436,
         "total_fat": 19,
         "protein": 4,
         "saturated_fat": 5,
         "sodium": 328,
         "sugars": 36.51,
-        "carbohydrates": 61.22
+        "carbohydrates": 61.22,
+        "kcal": 436
     },
     {
         "food_name": "sorghum flour refined unenriched",
-        "calories": 357,
         "total_fat": 1.2,
         "protein": 9.53,
         "saturated_fat": 0.3,
         "sodium": 1,
         "sugars": 0,
-        "carbohydrates": 76.85
+        "carbohydrates": 76.85,
+        "kcal": 357
     },
     {
         "food_name": "cookies vanilla wafers lower fat",
-        "calories": 441,
         "total_fat": 15,
         "protein": 5,
         "saturated_fat": 3.8,
         "sodium": 388,
         "sugars": 37.5,
-        "carbohydrates": 73.6
+        "carbohydrates": 73.6,
+        "kcal": 441
     },
     {
         "food_name": "seasoning mix dry taco original",
-        "calories": 322,
         "total_fat": 0,
         "protein": 4.5,
         "saturated_fat": 0,
         "sodium": 7203,
         "sugars": 10.83,
-        "carbohydrates": 58
+        "carbohydrates": 58,
+        "kcal": 322
     },
     {
         "food_name": "artichokes (globe or french) raw",
-        "calories": 47,
         "total_fat": 0.2,
         "protein": 3.27,
         "saturated_fat": 0,
         "sodium": 94,
         "sugars": 0.99,
-        "carbohydrates": 10.51
+        "carbohydrates": 10.51,
+        "kcal": 47
     },
     {
         "food_name": "milk canned condensed sweetened",
-        "calories": 321,
         "total_fat": 8.7,
         "protein": 7.91,
         "saturated_fat": 5.5,
         "sodium": 127,
         "sugars": 54.4,
-        "carbohydrates": 54.4
+        "carbohydrates": 54.4,
+        "kcal": 321
     },
     {
         "food_name": "cheese pasteurized process american without added vitamin d",
-        "calories": 334,
         "total_fat": 25,
         "protein": 24.73,
         "saturated_fat": 16,
         "sodium": 1370,
         "sugars": 1.23,
-        "carbohydrates": 2.1
+        "carbohydrates": 2.1,
+        "kcal": 334
     },
     {
         "food_name": "cornmeal degermed unenriched yellow",
-        "calories": 432,
         "total_fat": 12,
         "protein": 4.4,
         "saturated_fat": 1.7,
         "sodium": 657,
         "sugars": 0,
-        "carbohydrates": 78.1
+        "carbohydrates": 78.1,
+        "kcal": 432
     },
     {
         "food_name": "seeds sesame seeds whole dried",
-        "calories": 573,
         "total_fat": 50,
         "protein": 17.73,
         "saturated_fat": 7,
         "sodium": 11,
         "sugars": 0.3,
-        "carbohydrates": 23.45
+        "carbohydrates": 23.45,
+        "kcal": 573
     },
     {
         "food_name": "salad dressing mayonnaise regular",
-        "calories": 238,
         "total_fat": 22,
         "protein": 0.37,
         "saturated_fat": 3.4,
         "sodium": 827,
         "sugars": 3.56,
-        "carbohydrates": 9.23
+        "carbohydrates": 9.23,
+        "kcal": 238
     },
     {
         "food_name": "wheat flour white cake enriched",
-        "calories": 363,
         "total_fat": 3.7,
         "protein": 8.46,
         "saturated_fat": 0.5,
         "sodium": 5,
         "sugars": 1.61,
-        "carbohydrates": 76.59
+        "carbohydrates": 76.59,
+        "kcal": 363
     },
     {
         "food_name": "pectin unsweetened dry mix",
-        "calories": 335,
         "total_fat": 0.1,
         "protein": 85.6,
         "saturated_fat": 0.1,
         "sodium": 196,
         "sugars": 0,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "kcal": 335
     },
     {
         "food_name": "leavening agents yeast bakers active dry",
-        "calories": 258,
         "total_fat": 0,
         "protein": 0,
         "saturated_fat": 0,
         "sodium": 52,
         "sugars": 0,
-        "carbohydrates": 61.5
+        "carbohydrates": 61.5,
+        "kcal": 258
     },
     {
         "food_name": "salad dressing ranch dressing regular",
-        "calories": 355,
         "total_fat": 26,
         "protein": 0.69,
         "saturated_fat": 2.4,
         "sodium": 1133,
         "sugars": 17.68,
-        "carbohydrates": 31.9
+        "carbohydrates": 31.9,
+        "kcal": 355
     },
     {
         "food_name": "alcoholic beverage distilled vodka 80 proof",
-        "calories": 149,
         "total_fat": 0,
         "protein": 0,
         "saturated_fat": 0,
         "sodium": 20,
         "sugars": 0,
-        "carbohydrates": 13.17
+        "carbohydrates": 13.17,
+        "kcal": 149
     },
     {
         "food_name": "chicken liver all classes raw",
-        "calories": 119,
         "total_fat": 4.8,
         "protein": 16.92,
         "saturated_fat": 1.6,
         "sodium": 71,
         "sugars": 0,
-        "carbohydrates": 0.73
+        "carbohydrates": 0.73,
+        "kcal": 119
     },
     {
         "food_name": "pepperoni beef and pork sliced",
-        "calories": 504,
         "total_fat": 46,
         "protein": 19.25,
         "saturated_fat": 18,
         "sodium": 1582,
         "sugars": 0,
-        "carbohydrates": 1.18
+        "carbohydrates": 1.18,
+        "kcal": 504
     },
     {
         "food_name": "passion-fruit juice yellow raw",
-        "calories": 60,
         "total_fat": 0.2,
         "protein": 0.67,
         "saturated_fat": 0,
         "sodium": 6,
         "sugars": 14.25,
-        "carbohydrates": 14.45
+        "carbohydrates": 14.45,
+        "kcal": 60
     },
     {
         "food_name": "yogurt greek plain nonfat",
-        "calories": 97,
         "total_fat": 5,
         "protein": 9,
         "saturated_fat": 2.4,
         "sodium": 35,
         "sugars": 4,
-        "carbohydrates": 3.98
+        "carbohydrates": 3.98,
+        "kcal": 97
     },
     {
         "food_name": "beef grass-fed ground raw",
-        "calories": 179,
         "total_fat": 8.6,
         "protein": 25.45,
         "saturated_fat": 3.5,
         "sodium": 76,
         "sugars": 0,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "kcal": 179
     },
     {
         "food_name": "sauce pesto ready-to-serve refrigerated",
-        "calories": 89,
         "total_fat": 0,
         "protein": 5.93,
         "saturated_fat": 0,
         "sodium": 3833,
         "sugars": 14.1,
-        "carbohydrates": 15.56
+        "carbohydrates": 15.56,
+        "kcal": 89
     },
     {
         "food_name": "alcoholic beverage liqueur coffee 53 proof",
-        "calories": 29,
         "total_fat": 0,
         "protein": 0.24,
         "saturated_fat": 0,
         "sodium": 4,
         "sugars": 0.09,
-        "carbohydrates": 1.64
+        "carbohydrates": 1.64,
+        "kcal": 29
     },
     {
         "food_name": "mcdonalds spicy buffalo sauce",
-        "calories": 142,
         "total_fat": 15,
         "protein": 0.54,
         "saturated_fat": 2.3,
         "sodium": 2140,
         "sugars": 0,
-        "carbohydrates": 1.81
+        "carbohydrates": 1.81,
+        "kcal": 142
     },
     {
         "food_name": "wheat flours bread unenriched",
-        "calories": 361,
         "total_fat": 1.7,
         "protein": 11.98,
         "saturated_fat": 0.2,
         "sodium": 2,
         "sugars": 0.31,
-        "carbohydrates": 72.53
+        "carbohydrates": 72.53,
+        "kcal": 361
     },
     {
         "food_name": "fish catfish channel wild raw",
-        "calories": 119,
         "total_fat": 3.5,
         "protein": 20.48,
         "saturated_fat": 0.7,
         "sodium": 31,
         "sugars": 0,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "kcal": 119
     },
     {
         "food_name": "il villaggio mascarpone cheese upc: 037982981300",
-        "calories": 77,
         "total_fat": 1.5,
         "protein": 2.48,
         "saturated_fat": 0.7,
         "sodium": 306,
         "sugars": 3.72,
-        "carbohydrates": 13.64
+        "carbohydrates": 13.64,
+        "kcal": 77
     },
     {
         "food_name": "squash winter butternut raw",
-        "calories": 45,
         "total_fat": 0.1,
         "protein": 1,
         "saturated_fat": 0,
         "sodium": 4,
         "sugars": 2.2,
-        "carbohydrates": 11.69
+        "carbohydrates": 11.69,
+        "kcal": 45
     },
     {
         "food_name": "smart soup indian bean masala",
-        "calories": 57,
         "total_fat": 0.9,
         "protein": 3.3,
         "saturated_fat": 0.2,
         "sodium": 92,
         "sugars": 2.3,
-        "carbohydrates": 10.5
+        "carbohydrates": 10.5,
+        "kcal": 57
     },
     {
         "food_name": "spices pepper red or cayenne",
-        "calories": 318,
         "total_fat": 17,
         "protein": 12.01,
         "saturated_fat": 3.3,
         "sodium": 30,
         "sugars": 10.34,
-        "carbohydrates": 56.63
+        "carbohydrates": 56.63,
+        "kcal": 318
     },
     {
         "food_name": "sweet potato raw unprepared",
-        "calories": 86,
         "total_fat": 0.1,
         "protein": 1.57,
         "saturated_fat": 0,
         "sodium": 55,
         "sugars": 4.18,
-        "carbohydrates": 20.12
+        "carbohydrates": 20.12,
+        "kcal": 86
     },
     {
         "food_name": "potatoes raw skin",
-        "calories": 77,
         "total_fat": 0.1,
         "protein": 2.05,
         "saturated_fat": 0,
         "sodium": 6,
         "sugars": 0.82,
-        "carbohydrates": 17.49
+        "carbohydrates": 17.49,
+        "kcal": 77
     },
     {
         "food_name": "kashi steam meal chicken fettuccine frozen entree",
-        "calories": 90,
         "total_fat": 1,
         "protein": 5.05,
         "saturated_fat": 0.4,
         "sodium": 238,
         "sugars": 2.6,
-        "carbohydrates": 15.24
+        "carbohydrates": 15.24,
+        "kcal": 90
     },
     {
         "food_name": "beverages ovaltine classic malt powder",
-        "calories": 372,
         "total_fat": 0,
         "protein": 0,
         "saturated_fat": 0,
         "sodium": 636,
         "sugars": 63.64,
-        "carbohydrates": 93.33
+        "carbohydrates": 93.33,
+        "kcal": 372
     },
     {
         "food_name": "cereals ready-to-eat granola homemade",
-        "calories": 489,
         "total_fat": 24,
         "protein": 13.67,
         "saturated_fat": 4,
         "sodium": 26,
         "sugars": 19.8,
-        "carbohydrates": 53.88
+        "carbohydrates": 53.88,
+        "kcal": 489
     },
     {
         "food_name": "margarine regular 80% fat composite stick without salt",
-        "calories": 487,
         "total_fat": 21,
         "protein": 7.1,
         "saturated_fat": 4.2,
         "sodium": 8,
         "sugars": 0.22,
-        "carbohydrates": 67.8
+        "carbohydrates": 67.8,
+        "kcal": 487
     },
     {
         "food_name": "avocados raw all commercial varieties",
-        "calories": 160,
         "total_fat": 15,
         "protein": 2,
         "saturated_fat": 2.1,
         "sodium": 7,
         "sugars": 0.66,
-        "carbohydrates": 8.53
+        "carbohydrates": 8.53,
+        "kcal": 160
     },
     {
         "food_name": "candies nestle after eight mints",
-        "calories": 366,
         "total_fat": 9.3,
         "protein": 2.2,
         "saturated_fat": 5.5,
         "sodium": 26,
         "sugars": 71.42,
-        "carbohydrates": 80.4
+        "carbohydrates": 80.4,
+        "kcal": 366
     },
     {
         "food_name": "yogurt vanilla non-fat",
-        "calories": 71,
         "total_fat": 0.2,
         "protein": 9.07,
         "saturated_fat": 0.2,
         "sodium": 36,
         "sugars": 7.61,
-        "carbohydrates": 8.09
+        "carbohydrates": 8.09,
+        "kcal": 71
     },
     {
         "food_name": "alcoholic beverage beer regular all",
-        "calories": 43,
         "total_fat": 0,
         "protein": 0.46,
         "saturated_fat": 0,
         "sodium": 4,
         "sugars": 0,
-        "carbohydrates": 3.55
+        "carbohydrates": 3.55,
+        "kcal": 43
     },
     {
         "food_name": "peanut butter smooth style without salt",
-        "calories": 598,
         "total_fat": 51,
         "protein": 22.21,
         "saturated_fat": 10,
         "sodium": 426,
         "sugars": 10.49,
-        "carbohydrates": 22.31
+        "carbohydrates": 22.31,
+        "kcal": 598
     },
     {
         "food_name": "snacks popcorn air-popped (unsalted)",
-        "calories": 382,
         "total_fat": 4.2,
         "protein": 12,
         "saturated_fat": 0.6,
         "sodium": 4,
         "sugars": 0,
-        "carbohydrates": 77.9
+        "carbohydrates": 77.9,
+        "kcal": 382
     },
     {
         "food_name": "sauerkraut canned solids and liquids",
-        "calories": 19,
         "total_fat": 0.1,
         "protein": 0.91,
         "saturated_fat": 0,
         "sodium": 661,
         "sugars": 1.78,
-        "carbohydrates": 4.28
+        "carbohydrates": 4.28,
+        "kcal": 19
     },
     {
         "food_name": "wei-chuan five spice powder upc: 072869234643",
-        "calories": 389,
         "total_fat": 0.2,
         "protein": 0.1,
         "saturated_fat": 0,
         "sodium": 38,
         "sugars": 95.45,
-        "carbohydrates": 99.1
+        "carbohydrates": 99.1,
+        "kcal": 389
     },
     {
         "food_name": "lemonade frozen concentrate white prepared with water",
-        "calories": 14,
         "total_fat": 0,
         "protein": 0,
         "saturated_fat": 0,
         "sodium": 6,
         "sugars": 3.5,
-        "carbohydrates": 3.59
+        "carbohydrates": 3.59,
+        "kcal": 14
     },
     {
         "food_name": "beverages protein powder whey based",
-        "calories": 352,
         "total_fat": 1.6,
         "protein": 78.13,
         "saturated_fat": 0.8,
         "sodium": 156,
         "sugars": 0,
-        "carbohydrates": 6.25
+        "carbohydrates": 6.25,
+        "kcal": 352
     },
     {
         "food_name": "soup chicken broth or bouillon dry",
-        "calories": 267,
         "total_fat": 14,
         "protein": 16.66,
         "saturated_fat": 3.4,
         "sodium": 23875,
         "sugars": 17.36,
-        "carbohydrates": 18.01
+        "carbohydrates": 18.01,
+        "kcal": 267
     },
     {
         "food_name": "pork sausage link/patty unprepared",
-        "calories": 288,
         "total_fat": 25,
         "protein": 15.39,
         "saturated_fat": 7.6,
         "sodium": 739,
         "sugars": 0.93,
-        "carbohydrates": 0.93
+        "carbohydrates": 0.93,
+        "kcal": 288
     },
     {
         "food_name": "alcoholic beverage distilled gin 90 proof",
-        "calories": 85,
         "total_fat": 0,
         "protein": 0.07,
         "saturated_fat": 0,
         "sodium": 4,
         "sugars": 0.62,
-        "carbohydrates": 2.61
+        "carbohydrates": 2.61,
+        "kcal": 85
     },
     {
         "food_name": "chocolate dark 70-85% cacao solids",
-        "calories": 598,
         "total_fat": 43,
         "protein": 7.79,
         "saturated_fat": 24,
         "sodium": 20,
         "sugars": 23.99,
-        "carbohydrates": 45.9
+        "carbohydrates": 45.9,
+        "kcal": 598
     },
     {
         "food_name": "candies toffee prepared-from-recipe",
-        "calories": 397,
         "total_fat": 3.3,
         "protein": 0.03,
         "saturated_fat": 2,
         "sodium": 52,
         "sugars": 68.48,
-        "carbohydrates": 91.56
+        "carbohydrates": 91.56,
+        "kcal": 397
     },
     {
         "food_name": "sauce peppers hot chili mature red canned",
-        "calories": 11,
         "total_fat": 0.4,
         "protein": 0.51,
         "saturated_fat": 0.1,
         "sodium": 2643,
         "sugars": 1.26,
-        "carbohydrates": 1.75
+        "carbohydrates": 1.75,
+        "kcal": 11
     },
     {
         "food_name": "sauce pesto classico basil pesto ready-to-serve",
-        "calories": 11,
         "total_fat": 0.4,
         "protein": 0.51,
         "saturated_fat": 0.1,
         "sodium": 2643,
         "sugars": 1.26,
-        "carbohydrates": 1.75
+        "carbohydrates": 1.75,
+        "kcal": 11
     },
     {
         "food_name": "seeds sunflower seed kernels dried",
-        "calories": 584,
         "total_fat": 51,
         "protein": 20.78,
         "saturated_fat": 4.5,
         "sodium": 9,
         "sugars": 2.62,
-        "carbohydrates": 20
+        "carbohydrates": 20,
+        "kcal": 584
     },
     {
         "food_name": "pork fresh loin country-style ribs separable lean only raw",
-        "calories": 120,
         "total_fat": 3.9,
         "protein": 19.97,
         "saturated_fat": 1.2,
         "sodium": 95,
         "sugars": 0,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "kcal": 120
     },
     {
         "food_name": "tangerines (mandarin oranges) raw",
-        "calories": 53,
         "total_fat": 0.3,
         "protein": 0.81,
         "saturated_fat": 0,
         "sodium": 2,
         "sugars": 10.58,
-        "carbohydrates": 13.34
+        "carbohydrates": 13.34,
+        "kcal": 53
     },
     {
         "food_name": "apricots dried sulfured uncooked",
-        "calories": 241,
         "total_fat": 0.5,
         "protein": 3.39,
         "saturated_fat": 0,
         "sodium": 10,
         "sugars": 53.44,
-        "carbohydrates": 62.64
+        "carbohydrates": 62.64,
+        "kcal": 241
     },
     {
         "food_name": "rice flour white unenriched",
-        "calories": 363,
         "total_fat": 3.7,
         "protein": 8.46,
         "saturated_fat": 0.5,
         "sodium": 5,
         "sugars": 1.61,
-        "carbohydrates": 76.59
+        "carbohydrates": 76.59,
+        "kcal": 363
     },
     {
         "food_name": "bread crumbs dry grated plain",
-        "calories": 383,
         "total_fat": 5.5,
         "protein": 14.13,
         "saturated_fat": 1.4,
         "sodium": 1336,
         "sugars": 5.74,
-        "carbohydrates": 68.49
+        "carbohydrates": 68.49,
+        "kcal": 383
     },
     {
         "food_name": "peas green frozen unprepared",
-        "calories": 70,
         "total_fat": 0.3,
         "protein": 3.98,
         "saturated_fat": 0.1,
         "sodium": 61,
         "sugars": 0,
-        "carbohydrates": 13.51
+        "carbohydrates": 13.51,
+        "kcal": 70
     },
     {
         "food_name": "fresh red onions upc: 888670013229",
-        "calories": 70,
         "total_fat": 0.3,
         "protein": 3.98,
         "saturated_fat": 0.1,
         "sodium": 61,
         "sugars": 0,
-        "carbohydrates": 13.51
+        "carbohydrates": 13.51,
+        "kcal": 70
     },
     {
         "food_name": "beans kidney all types mature seeds raw",
-        "calories": 449,
         "total_fat": 22,
         "protein": 43.32,
         "saturated_fat": 3.1,
         "sodium": 2,
         "sugars": 0,
-        "carbohydrates": 28.98
+        "carbohydrates": 28.98,
+        "kcal": 449
     },
     {
         "food_name": "tomato sauce canned no salt added",
-        "calories": 24,
         "total_fat": 0.3,
         "protein": 1.2,
         "saturated_fat": 0,
         "sodium": 11,
         "sugars": 3.56,
-        "carbohydrates": 5.31
+        "carbohydrates": 5.31,
+        "kcal": 24
     },
     {
         "food_name": "alcoholic beverage distilled rum 80 proof",
-        "calories": 231,
         "total_fat": 0,
         "protein": 0,
         "saturated_fat": 0,
         "sodium": 1,
         "sugars": 0,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "kcal": 231
     },
     {
         "food_name": "soup cream of chicken canned condensed",
-        "calories": 230,
         "total_fat": 19,
         "protein": 10.5,
         "saturated_fat": 7.1,
         "sodium": 879,
         "sugars": 0,
-        "carbohydrates": 2.6
+        "carbohydrates": 2.6,
+        "kcal": 230
     },
     {
         "food_name": "cock brand palm sugar upc: 084909007285",
-        "calories": 70,
         "total_fat": 0.1,
         "protein": 0.47,
         "saturated_fat": 0,
         "sodium": 6,
         "sugars": 17.14,
-        "carbohydrates": 18.8
+        "carbohydrates": 18.8,
+        "kcal": 70
     },
     {
         "food_name": "beverages almond milk unsweetened shelf stable",
-        "calories": 315,
         "total_fat": 0,
         "protein": 20.21,
         "saturated_fat": 0,
         "sodium": 72,
         "sugars": 5.53,
-        "carbohydrates": 58.66
+        "carbohydrates": 58.66,
+        "kcal": 315
     },
     {
         "food_name": "alcoholic beverage tequila sunrise canned",
-        "calories": 110,
         "total_fat": 0.1,
         "protein": 0.3,
         "saturated_fat": 0,
         "sodium": 57,
         "sugars": 0,
-        "carbohydrates": 11.3
+        "carbohydrates": 11.3,
+        "kcal": 110
     },
     {
         "food_name": "wheat flour white all-purpose unenriched",
-        "calories": 364,
         "total_fat": 1,
         "protein": 10.33,
         "saturated_fat": 0.2,
         "sodium": 2,
         "sugars": 0.27,
-        "carbohydrates": 76.31
+        "carbohydrates": 76.31,
+        "kcal": 364
     },
     {
         "food_name": "candies dark chocolate coated coffee beans",
-        "calories": 540,
         "total_fat": 30,
         "protein": 7.5,
         "saturated_fat": 15,
         "sodium": 25,
         "sugars": 42.5,
-        "carbohydrates": 59.95
+        "carbohydrates": 59.95,
+        "kcal": 540
     },
     {
         "food_name": "salad dressing italian dressing commercial regular",
-        "calories": 47,
         "total_fat": 0.9,
         "protein": 0.97,
         "saturated_fat": 0.3,
         "sodium": 1129,
         "sugars": 8.85,
-        "carbohydrates": 8.75
+        "carbohydrates": 8.75,
+        "kcal": 47
     },
     {
         "food_name": "fish halibut greenland raw",
-        "calories": 239,
         "total_fat": 18,
         "protein": 18.42,
         "saturated_fat": 3.1,
         "sodium": 103,
         "sugars": 0,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "kcal": 239
     },
     {
         "food_name": "soymilk original and vanilla unfortified",
-        "calories": 54,
         "total_fat": 1.8,
         "protein": 3.27,
         "saturated_fat": 0.2,
         "sodium": 51,
         "sugars": 3.99,
-        "carbohydrates": 6.28
+        "carbohydrates": 6.28,
+        "kcal": 54
     },
     {
         "food_name": "cream whipped cream topping pressurized",
-        "calories": 257,
         "total_fat": 22,
         "protein": 3.2,
         "saturated_fat": 14,
         "sodium": 8,
         "sugars": 8,
-        "carbohydrates": 12.49
+        "carbohydrates": 12.49,
+        "kcal": 257
     },
     {
         "food_name": "tofu raw regular prepared with calcium sulfate",
-        "calories": 270,
         "total_fat": 20,
         "protein": 18.82,
         "saturated_fat": 2.9,
         "sodium": 16,
         "sugars": 0,
-        "carbohydrates": 8.86
+        "carbohydrates": 8.86,
+        "kcal": 270
     },
     {
         "food_name": "kielbasa polish turkey and beef smoked",
-        "calories": 226,
         "total_fat": 18,
         "protein": 13.1,
         "saturated_fat": 6.2,
         "sodium": 1200,
         "sugars": 0,
-        "carbohydrates": 3.9
+        "carbohydrates": 3.9,
+        "kcal": 226
     },
     {
         "food_name": "leeks (bulb and lower leaf-portion) raw",
-        "calories": 61,
         "total_fat": 0.3,
         "protein": 1.5,
         "saturated_fat": 0,
         "sodium": 20,
         "sugars": 3.9,
-        "carbohydrates": 14.15
+        "carbohydrates": 14.15,
+        "kcal": 61
     },
     {
         "food_name": "soup swanson chicken broth 99% fat free",
-        "calories": 4,
         "total_fat": 0.2,
         "protein": 0.54,
         "saturated_fat": 0,
         "sodium": 409,
         "sugars": 0.15,
-        "carbohydrates": 0.14
+        "carbohydrates": 0.14,
+        "kcal": 4
     },
     {
         "food_name": "salad dressing caesar dressing regular",
-        "calories": 542,
         "total_fat": 58,
         "protein": 2.17,
         "saturated_fat": 8.8,
         "sodium": 1209,
         "sugars": 2.81,
-        "carbohydrates": 3.3
+        "carbohydrates": 3.3,
+        "kcal": 542
     },
     {
         "food_name": "olives ripe canned (small-extra large)",
-        "calories": 115,
         "total_fat": 11,
         "protein": 0.84,
         "saturated_fat": 1.4,
         "sodium": 735,
         "sugars": 0,
-        "carbohydrates": 6.26
+        "carbohydrates": 6.26,
+        "kcal": 115
     },
     {
         "food_name": "alcoholic beverage distilled whiskey 86 proof",
-        "calories": 119,
         "total_fat": 0,
         "protein": 0,
         "saturated_fat": 0,
         "sodium": 44,
         "sugars": 0,
-        "carbohydrates": 13.4
+        "carbohydrates": 13.4,
+        "kcal": 119
     },
     {
         "food_name": "margarine regular hard soybean (hydrogenated)",
-        "calories": 719,
         "total_fat": 81,
         "protein": 0.9,
         "saturated_fat": 17,
         "sodium": 943,
         "sugars": 0,
-        "carbohydrates": 0.9
+        "carbohydrates": 0.9,
+        "kcal": 719
     },
     {
         "food_name": "crustaceans shrimp raw (not previously frozen)",
-        "calories": 85,
         "total_fat": 0.5,
         "protein": 20.1,
         "saturated_fat": 0.1,
         "sodium": 0,
         "sugars": 0,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "kcal": 85
     },
     {
         "food_name": "sauce pasta spaghetti/marinara ready-to-serve",
-        "calories": 50,
         "total_fat": 1.6,
         "protein": 1.39,
         "saturated_fat": 0.2,
         "sodium": 437,
         "sugars": 4.91,
-        "carbohydrates": 7.43
+        "carbohydrates": 7.43,
+        "kcal": 50
     },
     {
         "food_name": "roland seasoned rice wine vinegar upc: 041224705142",
-        "calories": 60,
         "total_fat": 0,
         "protein": 0.3,
         "saturated_fat": 0,
         "sodium": 0,
         "sugars": 1.41,
-        "carbohydrates": 16.3
+        "carbohydrates": 16.3,
+        "kcal": 60
     },
     {
         "food_name": "terra dolce organic chipotle dried chile peppers upc: 700360007144",
-        "calories": 21,
         "total_fat": 0.6,
         "protein": 0.9,
         "saturated_fat": 0.1,
         "sodium": 25,
         "sugars": 2.55,
-        "carbohydrates": 3.9
+        "carbohydrates": 3.9,
+        "kcal": 21
     },
     {
         "food_name": "limeade frozen concentrate prepared with water",
-        "calories": 328,
         "total_fat": 0.5,
         "protein": 63.63,
         "saturated_fat": 0.1,
         "sodium": 900,
         "sugars": 20,
-        "carbohydrates": 25.41
+        "carbohydrates": 25.41,
+        "kcal": 328
     },
     {
         "food_name": "chicken broiler or fryers breast skinless boneless meat only raw",
-        "calories": 167,
         "total_fat": 6.6,
         "protein": 25.01,
         "saturated_fat": 1.8,
         "sodium": 75,
         "sugars": 0,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "kcal": 167
     },
     {
         "food_name": "cheese cottage creamed large or small curd",
-        "calories": 98,
         "total_fat": 4.3,
         "protein": 11.12,
         "saturated_fat": 1.7,
         "sodium": 364,
         "sugars": 2.67,
-        "carbohydrates": 3.38
+        "carbohydrates": 3.38,
+        "kcal": 98
     },
     {
         "food_name": "shortening vegetable household composite",
-        "calories": 900,
         "total_fat": 100,
         "protein": 0,
         "saturated_fat": 40,
         "sodium": 0,
         "sugars": 0,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "kcal": 900
     },
     {
         "food_name": "amazonas rainforest product tapioca starch upc: 742987126365",
-        "calories": 33,
         "total_fat": 0.3,
         "protein": 1.44,
         "saturated_fat": 0,
         "sodium": 472,
         "sugars": 0,
-        "carbohydrates": 7.24
+        "carbohydrates": 7.24,
+        "kcal": 33
     },
     {
         "food_name": "seeds pumpkin and squash seeds whole roasted without salt",
-        "calories": 559,
         "total_fat": 49,
         "protein": 30.23,
         "saturated_fat": 8.7,
         "sodium": 7,
         "sugars": 1.4,
-        "carbohydrates": 10.71
+        "carbohydrates": 10.71,
+        "kcal": 559
     },
     {
         "food_name": "tomatoes red ripe raw year round average",
-        "calories": 18,
         "total_fat": 0.2,
         "protein": 0.88,
         "saturated_fat": 0,
         "sodium": 5,
         "sugars": 2.63,
-        "carbohydrates": 3.89
+        "carbohydrates": 3.89,
+        "kcal": 18
     },
     {
         "food_name": "snacks tortilla chips light (baked with less oil)",
-        "calories": 465,
         "total_fat": 15,
         "protein": 8.7,
         "saturated_fat": 2.8,
         "sodium": 564,
         "sugars": 0.53,
-        "carbohydrates": 73.4
+        "carbohydrates": 73.4,
+        "kcal": 465
     },
     {
         "food_name": "soup beef broth or bouillon canned ready-to-serve",
-        "calories": 7,
         "total_fat": 0.2,
         "protein": 1.14,
         "saturated_fat": 0.1,
         "sodium": 372,
         "sugars": 0,
-        "carbohydrates": 0.04
+        "carbohydrates": 0.04,
+        "kcal": 7
     },
     {
         "food_name": "apple juice canned or bottled unsweetened without added ascorbic acid",
-        "calories": 56,
         "total_fat": 0.1,
         "protein": 0.37,
         "saturated_fat": 0,
         "sodium": 3,
         "sugars": 13.79,
-        "carbohydrates": 14.39
+        "carbohydrates": 14.39,
+        "kcal": 56
     },
     {
         "food_name": "nuts chestnuts european dried peeled",
-        "calories": 50,
         "total_fat": 0.1,
         "protein": 0.88,
         "saturated_fat": 0,
         "sodium": 8,
         "sugars": 2.46,
-        "carbohydrates": 12.3
+        "carbohydrates": 12.3,
+        "kcal": 50
     },
     {
         "food_name": "tomato products canned puree without salt added",
-        "calories": 38,
         "total_fat": 0.2,
         "protein": 1.65,
         "saturated_fat": 0,
         "sodium": 28,
         "sugars": 4.83,
-        "carbohydrates": 8.98
+        "carbohydrates": 8.98,
+        "kcal": 38
     },
     {
         "food_name": "rice white long-grain regular unenriched cooked without salt",
-        "calories": 138,
         "total_fat": 2.1,
         "protein": 4.54,
         "saturated_fat": 0.4,
         "sodium": 165,
         "sugars": 0.4,
-        "carbohydrates": 25.16
+        "carbohydrates": 25.16,
+        "kcal": 138
     },
     {
         "food_name": "chicken broilers or fryers wing meat and skin raw",
-        "calories": 223,
         "total_fat": 13,
         "protein": 23.97,
         "saturated_fat": 3.7,
         "sodium": 73,
         "sugars": 0,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "kcal": 223
     },
     {
         "food_name": "mollusks scallop (bay and sea) cooked steamed",
-        "calories": 111,
         "total_fat": 0.8,
         "protein": 20.54,
         "saturated_fat": 0.2,
         "sodium": 667,
         "sugars": 0,
-        "carbohydrates": 5.41
+        "carbohydrates": 5.41,
+        "kcal": 111
     },
     {
         "food_name": "sweetener herbal extract powder from stevia leaf",
-        "calories": 0,
         "total_fat": 0,
         "protein": 0,
         "saturated_fat": 0,
         "sodium": 0,
         "sugars": 0,
-        "carbohydrates": 100
+        "carbohydrates": 100,
+        "kcal": 0
     },
     {
         "food_name": "milk fluid 1% fat without added vitamin a and vitamin d",
-        "calories": 42,
         "total_fat": 1,
         "protein": 3.37,
         "saturated_fat": 0.6,
         "sodium": 44,
         "sugars": 5.2,
-        "carbohydrates": 4.99
+        "carbohydrates": 4.99,
+        "kcal": 42
     },
     {
         "food_name": "onions spring or scallions (includes tops and bulb) raw",
-        "calories": 32,
         "total_fat": 0.2,
         "protein": 1.83,
         "saturated_fat": 0,
         "sodium": 16,
         "sugars": 2.33,
-        "carbohydrates": 7.34
+        "carbohydrates": 7.34,
+        "kcal": 32
     },
     {
         "food_name": "pascha organic bitter-sweet dark chocolate chips upc: 842638005022",
-        "calories": 536,
         "total_fat": 31,
         "protein": 9.6,
         "saturated_fat": 17,
         "sodium": 193,
         "sugars": 23.63,
-        "carbohydrates": 54.1
+        "carbohydrates": 54.1,
+        "kcal": 536
     },
     {
         "food_name": "la flor steak seasoning upc: 077636022157",
-        "calories": 343,
         "total_fat": 1.8,
         "protein": 7.02,
         "saturated_fat": 0,
         "sodium": 1316,
         "sugars": 1.75,
-        "carbohydrates": 74.68
+        "carbohydrates": 74.68,
+        "kcal": 343
     },
     {
         "food_name": "pork fresh loin tenderloin separable lean only raw",
-        "calories": 157,
         "total_fat": 5.5,
         "protein": 25.05,
         "saturated_fat": 1.8,
         "sodium": 1327,
         "sugars": 0,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "kcal": 157
     },
     {
         "food_name": "marketside balsamic vinaigrette dressing upc: 681131070317",
-        "calories": 86,
         "total_fat": 5.9,
         "protein": 0.19,
         "saturated_fat": 0.9,
         "sodium": 1562,
         "sugars": 6.74,
-        "carbohydrates": 24.65
+        "carbohydrates": 24.65,
+        "kcal": 86
     },
     {
         "food_name": "martha white foods martha whites buttermilk biscuit mix dry",
-        "calories": 388,
         "total_fat": 13,
         "protein": 7.81,
         "saturated_fat": 4.1,
         "sodium": 1295,
         "sugars": 4.46,
-        "carbohydrates": 59.41
+        "carbohydrates": 59.41,
+        "kcal": 388
     },
     {
         "food_name": "margarine-like margarine-butter blend soybean oil and butter",
-        "calories": 727,
         "total_fat": 80,
         "protein": 0.31,
         "saturated_fat": 14,
         "sodium": 719,
         "sugars": 0,
-        "carbohydrates": 0.77
+        "carbohydrates": 0.77,
+        "kcal": 727
     },
     {
         "food_name": "cereals ready-to-eat quaker mothers toasted oat bran cereal",
-        "calories": 372,
         "total_fat": 5,
         "protein": 11.45,
         "saturated_fat": 0.9,
         "sodium": 653,
         "sugars": 15.57,
-        "carbohydrates": 75.41
+        "carbohydrates": 75.41,
+        "kcal": 372
     },
     {
         "food_name": "cookies graham crackers plain or honey lowfat",
-        "calories": 446,
         "total_fat": 14,
         "protein": 6.9,
         "saturated_fat": 3.5,
         "sodium": 407,
         "sugars": 23.3,
-        "carbohydrates": 74.1
+        "carbohydrates": 74.1,
+        "kcal": 446
     },
     {
         "food_name": "pancakes plain dry mix complete (includes buttermilk)",
-        "calories": 233,
         "total_fat": 6.8,
         "protein": 5.23,
         "saturated_fat": 1.2,
         "sodium": 461,
         "sugars": 8.32,
-        "carbohydrates": 37.75
+        "carbohydrates": 37.75,
+        "kcal": 233
     },
     {
         "food_name": "squash summer zucchini includes skin raw",
-        "calories": 17,
         "total_fat": 0.1,
         "protein": 1.16,
         "saturated_fat": 0,
         "sodium": 2,
         "sugars": 1.71,
-        "carbohydrates": 3.58
+        "carbohydrates": 3.58,
+        "kcal": 17
     },
     {
         "food_name": "chickpeas (garbanzo beans bengal gram) mature seeds raw",
-        "calories": 378,
         "total_fat": 6,
         "protein": 20.47,
         "saturated_fat": 0.6,
         "sodium": 24,
         "sugars": 10.7,
-        "carbohydrates": 62.95
+        "carbohydrates": 62.95,
+        "kcal": 378
     },
     {
         "food_name": "leavening agents baking powder double-acting sodium aluminum sulfate",
-        "calories": 53,
         "total_fat": 0,
         "protein": 0,
         "saturated_fat": 0,
         "sodium": 10600,
         "sugars": 0,
-        "carbohydrates": 27.7
+        "carbohydrates": 27.7,
+        "kcal": 53
     },
     {
         "food_name": "grapes red or green (european type such as thompson seedless) raw",
-        "calories": 69,
         "total_fat": 0.2,
         "protein": 0.72,
         "saturated_fat": 0.1,
         "sodium": 2,
         "sugars": 15.48,
-        "carbohydrates": 18.1
+        "carbohydrates": 18.1,
+        "kcal": 69
     },
     {
         "food_name": "delallo italian seasoned breadcrumbs upc: 072368104621",
-        "calories": 266,
         "total_fat": 3.3,
         "protein": 8.85,
         "saturated_fat": 0.7,
         "sodium": 490,
         "sugars": 5.67,
-        "carbohydrates": 49.42
+        "carbohydrates": 49.42,
+        "kcal": 266
     },
     {
         "food_name": "shortening confectionery coconut (hydrogenated) and or palm kernel (hydrogenated)",
-        "calories": 884,
         "total_fat": 100,
         "protein": 0,
         "saturated_fat": 91,
         "sodium": 0,
         "sugars": 0,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "kcal": 884
     },
     {
         "food_name": "seeds sesame butter tahini from roasted and toasted kernels (most common type)",
-        "calories": 595,
         "total_fat": 54,
         "protein": 17,
         "saturated_fat": 7.5,
         "sodium": 115,
         "sugars": 0.49,
-        "carbohydrates": 21.19
+        "carbohydrates": 21.19,
+        "kcal": 595
     },
     {
         "food_name": "oil safflower salad or cooking high oleic (primary safflower oil of commerce)",
-        "calories": 884,
         "total_fat": 100,
         "protein": 0,
         "saturated_fat": 7.5,
         "sodium": 0,
         "sugars": 0,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "kcal": 884
     },
     {
         "food_name": "pineapple juice canned or bottled unsweetened without added ascorbic acid",
-        "calories": 53,
         "total_fat": 0.1,
         "protein": 0.36,
         "saturated_fat": 0,
         "sodium": 2,
         "sugars": 9.98,
-        "carbohydrates": 12.87
+        "carbohydrates": 12.87,
+        "kcal": 53
     },
     {
         "food_name": "baking chocolate mars snackfood us m&ms milk chocolate mini baking bits",
-        "calories": 502,
         "total_fat": 23,
         "protein": 4.78,
         "saturated_fat": 14,
         "sodium": 68,
         "sugars": 62.54,
-        "carbohydrates": 68.4
+        "carbohydrates": 68.4,
+        "kcal": 502
     },
     {
         "food_name": "beef rib eye steak boneless lip off separable lean and fat trimmed to 0 fat all grades cooked grilled",
-        "calories": 205,
         "total_fat": 6.8,
         "protein": 33.59,
         "saturated_fat": 2.7,
         "sodium": 57,
         "sugars": 0,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "kcal": 205
     },
     {
         "food_name": "beef flank steak separable lean and fat trimmed to 0 fat all grades cooked broiled",
-        "calories": 228,
         "total_fat": 11,
         "protein": 31.3,
         "saturated_fat": 4.1,
         "sodium": 33,
         "sugars": 0,
-        "carbohydrates": 0
+        "carbohydrates": 0,
+        "kcal": 228
     },
     {
         "food_name": "applesauce canned unsweetened without added ascorbic acid (includes usda commodity)",
-        "calories": 42,
         "total_fat": 0.1,
         "protein": 0.17,
         "saturated_fat": 0,
         "sodium": 2,
         "sugars": 9.39,
-        "carbohydrates": 11.27
+        "carbohydrates": 11.27,
+        "kcal": 42
     },
     {
         "food_name": "cereals oats regular and quick unenriched cooked with water (includes boiling and microwaving) without salt",
-        "calories": 71,
         "total_fat": 1.5,
         "protein": 2.54,
         "saturated_fat": 0.3,
         "sodium": 4,
         "sugars": 0.27,
-        "carbohydrates": 12
+        "carbohydrates": 12,
+        "kcal": 71
     }
 ]
