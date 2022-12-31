@@ -51,6 +51,26 @@ function getRecipesResults(callback) {
     });
 }
 
+async function addRecipe(user, recipe, ingredients, callback) {
+    const sqlSearch = "Select * from users where username = ?"
+    const search_query = mysql.format(sqlSearch, [user])
+    dbConnection.query(search_query, async (err, result) => {
+        if (err) throw (err)
+        if (result.length == 0) {
+            console.log("--------> User does not exist")
+            callback({ message: "User does not exist", status: 404 })
+        }
+        else {
+            const sqlInsert = "INSERT INTO recipes (name, contributor_id) VALUES (?, ?)"
+            const insert_query = mysql.format(sqlInsert, [recipe, result[0].user_id])
+            dbConnection.query(insert_query, async (err, result) => {
+                    if (err) throw (err)
+                    console.log("---------> Recipe added")
+                    callback({ message: "Recipe added", status: 200 })
+                })
+        }
+    })
+}
 
 function getUserRecipes(username, callback) {
     const query = `
@@ -74,10 +94,11 @@ function getUserRecipes(username, callback) {
     WHERE u.user_id = ?
     GROUP BY r.recipe_id
     `;
-    const params = [username];
+    const params = [1533];
 
     dbConnection.query(query, params, (error, results) => {
         if (error) throw error;
+        console.log(results);
         callback(results);
     });
 }
@@ -186,5 +207,6 @@ module.exports = {
     getRecipesByTerm,
     login,
     register,
-    getUserRecipes
+    getUserRecipes,
+    addRecipe
 };
