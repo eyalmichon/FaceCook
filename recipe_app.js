@@ -65,7 +65,7 @@ app.get('/search', (req, res) => {
       break;
     case 'ingredient':
       db.getIngredientsByTerm(searchTerm, (results) => {
-        res.send(results.map((result) => result.name));
+        res.send(results.map((result) => result.food_name));
       });
       break;
     default:
