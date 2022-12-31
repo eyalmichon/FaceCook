@@ -81,8 +81,13 @@ app.get('/getUserRecipes', (req, res) => {
 });
 
 app.post('/addRecipe', (req, res) => {
+  const user = req.session.user.username;
+  const recipe = req.body.recipe;
+  const ingredients = req.body.ingredients;
 
-
+  db.addRecipe(user, recipe, ingredients, (data) => {
+    res.send(data);
+  });
 });
 
 
