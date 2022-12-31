@@ -6,7 +6,14 @@ $(document).ready(function () {
                 type: "GET",
                 data: {
                     type: "recipe",
-                    searchTerm: request.term
+                    searchTerm: request.term,
+                    isFilter: $('#toggle-filters').prop('checked'),
+                    filter: {
+                        rating: $('#rating-filter').val(), // get the value of the rating filter
+                        maxCalories: $('#calories-filter').val(), // get the value of the calories filter
+                        maxInstructions: $('#instructions-filter').val(), // get the value of the instructions filter
+                        ingredient: $('#ingredient-filter').val() // get the value of the ingredient filter
+                    }
                 },
                 success: function (data) {
                     response(data.slice(0, 100));

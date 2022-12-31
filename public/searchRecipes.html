@@ -52,29 +52,29 @@
                 <div class="filters">
                     <div class="form-group">
                         <label for="ratings">Ratings:</label>
-                        <select name="ratings" id="ratings" class="form-control">
-                            <option value="1">1 star</option>
-                            <option value="2">2 stars</option>
-                            <option value="3">3 stars</option>
-                            <option value="4">4 stars</option>
-                            <option value="5">5 stars</option>
+                        <select id="rating-filter" class="form-control">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="calories">Maximum Calories:</label>
                         <input type="range" min="0" max="1000" step="100" class="form-control" name="calories"
-                            id="calories" oninput="caloriesOutput.value = calories.value">
+                            id="calories-filter" oninput="caloriesOutput.value = calories.value">
                         <output name="caloriesOutput" id="caloriesOutput" for="calories"></output>
                     </div>
                     <div class="form-group">
                         <label for="instructions">Maximum Instructions:</label>
                         <input type="range" min="0" max="100" step="1" class="form-control" name="instructions"
-                            id="instructions" oninput="instructionsOutput.value = instructions.value">
+                            id="instructions-filter" oninput="instructionsOutput.value = instructions.value">
                         <output name="instructionsOutput" id="instructionsOutput" for="instructions"></output>
                     </div>
                     <div class="form-group">
                         <label for="ingredient">Ingredient:</label>
-                        <input class="form-control" id="ingredient" name="ingredient">
+                        <input type="text" id="ingredient-filter" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">

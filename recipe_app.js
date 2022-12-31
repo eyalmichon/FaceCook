@@ -57,15 +57,19 @@ app.get('/myRecipes', (req, res) => {
 app.get('/search', (req, res) => {
   const type = req.query.type;
   const searchTerm = req.query.searchTerm;
+  const toggle = req.query.isFilter;
+  const filter = req.query.filter;
 
-  switch (type) {
-    case 'recipe':
+  console.log(toggle, filter)
+
+  switch (toggle) {
+    case 'false':
       db.getRecipesByTerm(searchTerm, (results) => {
         res.send(results.map((result) => result.name));
       });
       break;
-    case 'ingredient':
-      db.getIngredientsByTerm(searchTerm, (results) => {
+    case 'true':
+      db.getRecipesByTermWithFilter(filter, searchTerm, (results) => {
         res.send(results.map((result) => result.food_name));
       });
       break;
