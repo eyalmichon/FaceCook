@@ -56,10 +56,10 @@ async function addRecipe(user, recipe, ingredients, callback) {
             const sqlInsert = "INSERT INTO recipes (name, contributor_id) VALUES (?, ?)"
             const insert_query = mysql.format(sqlInsert, [recipe, result[0].user_id])
             dbConnection.query(insert_query, async (err, result) => {
-                    if (err) throw (err)
-                    console.log("---------> Recipe added")
-                    callback({ message: "Recipe added", status: 200 })
-                })
+                if (err) throw (err)
+                console.log("---------> Recipe added")
+                callback({ message: "Recipe added", status: 200 })
+            })
         }
     })
 }
@@ -83,14 +83,13 @@ function getUserRecipes(username, callback) {
     JOIN recipesdb.users u ON r.contributor_id = u.user_id
     LEFT JOIN recipesdb.reviews rv ON r.recipe_id = rv.recipe_id
     LEFT JOIN recipesdb.recipe_info ri ON r.recipe_id = ri.recipe_id
-    WHERE u.user_id = ?
+    WHERE u.username = ?
     GROUP BY r.recipe_id
     `;
-    const params = [1533];
+    const params = [username];
 
     dbConnection.query(query, params, (error, results) => {
         if (error) throw error;
-        console.log(results);
         callback(results);
     });
 }

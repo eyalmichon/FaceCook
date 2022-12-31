@@ -35,6 +35,12 @@
         }
 
         .picture-container {
+            /* Style the container as a button */
+            cursor: pointer;
+            background-color: transparent;
+            /* Style the hover and active effects */
+            transition: all 0.2s ease-in-out;
+
             width: 25%;
             /* Adjust this value to control the number of elements per row */
             margin: 10px;
@@ -43,7 +49,19 @@
             overflow: hidden;
         }
 
+        .picture-container:hover {
+            /* Grow the container on hover */
+            transform: scale(1.1);
+        }
+
+        .picture-container:active {
+            /* Shrink the container on click */
+            transform: scale(0.9);
+        }
+
+
         .picture-container img {
+            margin-top: 10px;
             height: auto;
             max-width: 100%;
             object-fit: cover;
@@ -105,7 +123,7 @@
                         imagesList.classList.add('carousel-inner');
 
                         let images = [];
-                        if (recipe.image_url.startsWith('c'))
+                        if (recipe.image_url && recipe.image_url.startsWith('c'))
                             images = recipe.image_url.slice(2, -2).split(', ').map(image => image.replace(/"/g, ''));
                         else
                             images = [recipe.image_url.slice(1, -1)];
@@ -134,17 +152,13 @@
                         name.textContent = recipe.name;
                         const reviews = JSON.parse(recipe.reviews).reviews;
                         const reviewsElement = document.createElement('p');
-                        reviewsElement.textContent = `${reviews.length} reviews`;
+                        reviewsElement.textContent = reviews[0].rating ? `${reviews.length} reviews with ${((reviews.reduce((acc, review) => acc + review.rating, 0) / reviews.length).toFixed(2)).replace('.00', '')} ⭐` : 'No reviews yet';
 
-                        // create the button that will open the modal
-                        const button = document.createElement('button');
-                        button.classList.add('btn', 'btn-primary');
-                        button.textContent = 'View Recipe';
-                        button.setAttribute('data-toggle', 'modal');
-                        button.setAttribute('data-target', '#myModal');
+                        recipeDiv.setAttribute('data-toggle', 'modal');
+                        recipeDiv.setAttribute('data-target', '#myModal');
 
-                        // add the event listener to the button
-                        button.addEventListener('click', () => {
+                        // add the event listener to the recipe div
+                        recipeDiv.addEventListener('click', () => {
                             // get the modal title and body elements
                             const modalTitle = document.querySelector('.modal-title');
                             const modalBody = document.querySelector('.modal-body');
@@ -152,20 +166,21 @@
                             // set the title and body content
                             modalTitle.textContent = recipe.name;
                             modalBody.innerHTML = `
-                                <p><strong>Ingredients:</strong> ${recipe.ingredients}</p>
-                                <p><strong>Instructions:</strong> ${recipe.instructions}</p>
+                                ${carouselDiv.outerHTML}
+                                <p><strong>Description:</strong></p>
+                                ${recipe.description}
+                                <br>
+                                <br>
                                 <p><strong>Reviews:</strong></p>
-                                <ul>
-                                    ${recipe.reviews.map(review => `<li>${review}</li>`).join('')}
-                                </ul>
+                                ${reviews.map(review => `${'⭐'.repeat(review.rating)} ${review.review}`).join('<br><br>')}
                             `;
+                            $('.carousel').carousel();
                         });
 
                         // append the elements to the recipe div
                         recipeDiv.appendChild(carouselDiv);
                         recipeDiv.appendChild(name);
                         recipeDiv.appendChild(reviewsElement);
-                        recipeDiv.appendChild(button);
 
                         // append the recipe div to the recipes div
                         recipesDiv.appendChild(recipeDiv);
