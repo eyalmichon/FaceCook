@@ -5,10 +5,23 @@ $(document).ready(function () {
 
         // Clear the values of the inputs in the new row
         newIngredient.find("input").val("");
+        newIngredient.find("input").autocomplete({
+            source: getIngredientsByTerm,
+            minLength: 2
+        });
 
         // Add a click event to the new button
         newIngredient.find("button").click(ingredientsClickEvent);
 
+        // Add the minus button to the new tr element - have bugs
+        // if (!newIngredient.find(".remove-ingredient-btn").length) {
+        //     newIngredient.append('<td><button class="remove-ingredient-btn">-</button></td>');
+        //     newIngredient.find(".remove-ingredient-btn").click(function() {
+        //         $(this).closest('tr').remove();
+        //       });
+        // }
+
+        console.log(newIngredient);
         // Append the new row to the end of the table
         $("#ingredients-table").append(newIngredient);
     }
