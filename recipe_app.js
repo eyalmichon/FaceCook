@@ -23,7 +23,7 @@ app.use(cookieParser());
 
 ////////////// User Routes //////////////
 app.get('/', (req, res) => {
-  console.log("req.session.user", req.session.user);
+  // console.log("req.session.user", req.session.user);
   if (req.session.user)
     res.sendFile('home.html', { root: path.join(__dirname, 'public') });
   else
@@ -60,16 +60,14 @@ app.get('/search', (req, res) => {
   const toggle = req.query.isFilter;
   const filter = req.query.filter;
 
-  console.log(toggle, filter)
-
-  switch (toggle) {
-    case 'false':
-      db.getRecipesByTerm(searchTerm, (results) => {
+  switch (type) {
+    case 'recipe':
+      db.getRecipesByTerm(searchTerm, toggle, filter, (results) => {
         res.send(results.map((result) => result.name));
       });
       break;
-    case 'true':
-      db.getRecipesByTermWithFilter(filter, searchTerm, (results) => {
+    case 'ingredient':
+      db.getIngredientsByTerm(searchTerm, (results) => {
         res.send(results.map((result) => result.food_name));
       });
       break;
@@ -88,15 +86,16 @@ app.get('/getUserRecipes', (req, res) => {
 // FINISH THIS
 app.post('/addRecipe', (req, res) => {
   const user = req.session.user.username;
+  // console.log("user", user);
   if (!user)
     res.send({ status: 401, message: "You must be logged in to add a recipe." });
 
   // get the json object from the request body and parse it
   const recipe = req.body;
-
-  // db.addRecipe(user, recipe, ingredients, (data) => {
-  //   res.send(data);
-  // });
+  
+  db.addRecipe(user, recipe, (data) => {
+    res.send(data);
+  });
 });
 
 

@@ -43,7 +43,7 @@ function getRecipesResults(callback) {
     });
 }
 
-async function addRecipe(user, recipe, ingredients, callback) {
+async function addRecipe(user, recipe, callback) {
     const sqlSearch = "Select * from users where username = ?"
     const search_query = mysql.format(sqlSearch, [user])
     dbConnection.query(search_query, async (err, result) => {
@@ -53,8 +53,10 @@ async function addRecipe(user, recipe, ingredients, callback) {
             callback({ message: "User does not exist", status: 404 })
         }
         else {
-            const sqlInsert = "INSERT INTO recipes (name, contributor_id) VALUES (?, ?)"
-            const insert_query = mysql.format(sqlInsert, [recipe, result[0].user_id])
+            console.log(recipe.ingredients)
+            const sqlInsert = "INSERT INTO recipes (name, contributor_id, date_submitted) VALUES (?, ?, NOW())"
+            let insert_query = mysql.format(sqlInsert, [recipe.name, result[0].user_id])
+            // add ingredients to sql query here 
             dbConnection.query(insert_query, async (err, result) => {
                 if (err) throw (err)
                 console.log("---------> Recipe added")
@@ -100,43 +102,26 @@ function getUserRecipes(username, callback) {
  * @param {string} searchTerm The search term to match against the recipes.
  * @returns {Array} An array of recipes that match the search term.
 */
-function getRecipesByTermWithFilter(filter, searchTerm, callback) {
-    let query = `SELECT * FROM recipesdb.recipes WHERE name LIKE '%${searchTerm}%'`;
-    if (filter.rating) {
+function getRecipesByTerm(searchTerm, toggle, filter, callback) {
+    let query = `SELECT * FROM recipes WHERE name LIKE '%${searchTerm}%'`;
+    if (toggle === "true") {
         query += ` AND recipe_id IN (SELECT recipe_id 
-                                     FROM (SELECT recipe_id, AVG(rating) as avg_rating FROM recipesdb.reviews GROUP BY recipe_id) as ratings 
+                                     FROM (SELECT recipe_id, AVG(rating) as avg_rating FROM reviews GROUP BY recipe_id) as ratings 
                                      WHERE avg_rating >= ${filter.rating})`;
-    }
-    // if (filter.maxCalories) {
-    //     query += ` AND kcal <= ${filter.maxCalories}`;
-    // }
-    // if (filter.maxInstructions) {
-    //     query += ` AND id IN (SELECT recipe_id FROM instructions WHERE step <= ${filter.maxInstructions})`;
-    // }
-    // if (filter.ingredient !== "") {
-    //     query += ` AND id IN (SELECT recipe_id FROM recipestoingredients WHERE ingredient LIKE '%${filter.ingredient}%')`;
-    // }
-    console.log(query);
-    dbConnection.query(query, (error, results) => {
-      if (error) throw error;
-      callback(results);
-    });
-  }
-  
-
-
-/**
- * Get all recipes from the database that match the given search term or part of a search term.
- * @param {string} searchTerm The search term to match against the recipes.
- * @returns {Array} An array of recipes that match the search term.
-*/
-function getRecipesByTerm(searchTerm, callback) {
-    const query = `SELECT * FROM recipes WHERE name LIKE '${searchTerm}'`;
+        query += ` AND kcal <= ${filter.maxCalories}`;
+        // limit max instructions
+        query += ` AND recipe_id IN (SELECT recipe_id
+            FROM (SELECT recipe_id, max(step) as max_step FROM instructions group by recipe_id) as instructions
+            WHERE max_step <= ${filter.maxInstructions})`;
+    //  query += ` AND id IN (SELECT recipe_id FROM recipestoingredients WHERE ingredient LIKE '%${filter.ingredient}%')`;
+    // console.log(query)
+        }
     dbConnection.query(query, (error, results) => {
         if (error) throw error;
         callback(results);
     });
 }
+
 
 /**
  * Get all ingredients from the database that match the given search term or part of a search term.
@@ -150,7 +135,6 @@ function getIngredientsByTerm(searchTerm, callback) {
         callback(results);
     });
 }
-
 
 
 /**
@@ -185,6 +169,7 @@ async function login(user, password, callback) {
         }
     })
 }
+
 
 /**
  * Registers a new user with the given username and password.
@@ -221,6 +206,7 @@ async function register(user, password, callback) {
     })
 }
 
+
 /**
  * Helper function to get the maximum user id from the 'users' table in the database.
  *
@@ -243,7 +229,6 @@ function getMaxId() {
 module.exports = {
     getRecipesResults,
     getRecipesByTerm,
-    getRecipesByTermWithFilter,
     getIngredientsByTerm,
     login,
     register,
