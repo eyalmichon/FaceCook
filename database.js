@@ -18,6 +18,52 @@ dbConnection.connect((err) => {
 
 });
 
+function convertToKg(unit, value) {
+    switch (unit) {
+      case 'tablespoon':
+        return value * 0.0147868;
+      case 'teaspoon':
+        return value * 0.00492892;
+      case 'cup':
+        return value * 0.236588;
+      case 'ounce':
+        return value * 0.0283495;
+      case 'ml':
+        return value * 0.001;
+      case 'pint':
+        return value * 0.473176;
+      case 'pound':
+        return value * 0.453592;
+      case 'g':
+        return value * 0.001;
+      case 'fl.oz':
+        return value * 0.0283495;
+      case 'drop':
+        return value * 0.00005;
+      case 'liter':
+        return value * 1;
+      case 'quart':
+        return value * 0.946353;
+      case 'shot':
+        return value * 0.0408471;
+      case 'gallon':
+        return value * 3.78541;
+      case 'kg':
+        return value;
+      case 'dash':
+        return value * 0.00005;
+      case 'scoop':
+        return value * 0.0647989;
+      case 'pinch':
+        return value * 0.005;
+      case 'glass':
+        return value * 0.25;
+      case 'bushel':
+        return value * 35.2391;
+      default:
+        return 'Invalid unit';
+    }
+  }
 
 function getUsersWithRecipe(callback) {
     const query = 'SELECT nickname, cnt (SELECT users.nickname, count(recipe_id) as cnt \
@@ -54,6 +100,8 @@ async function addRecipe(user, recipe, callback) {
         }
         else {
             console.log(recipe.ingredients)
+            
+
             const sqlInsert = "INSERT INTO recipes (name, contributor_id, date_submitted) VALUES (?, ?, NOW())"
             let insert_query = mysql.format(sqlInsert, [recipe.name, result[0].user_id])
             // add ingredients to sql query here 
