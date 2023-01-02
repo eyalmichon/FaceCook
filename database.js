@@ -99,16 +99,61 @@ async function addRecipe(user, recipe, callback) {
             callback({ message: "User does not exist", status: 404 })
         }
         else {
-            console.log(recipe.ingredients)
-            
+            let query = ""
+            for (let i = 0; i < recipe.ingredients.length; i++) {
+                let ingredient = recipe.ingredients[i];
+                let food_name = ingredient.name;
+                let unit = ingredient.unit;
+                let quantity = ingredient.quantity;
 
-            const sqlInsert = "INSERT INTO recipes (name, contributor_id, date_submitted) VALUES (?, ?, NOW())"
-            let insert_query = mysql.format(sqlInsert, [recipe.name, result[0].user_id])
-            // add ingredients to sql query here 
-            dbConnection.query(insert_query, async (err, result) => {
+                let quantity_100g = 10 * convertToKg(unit, quantity);
+                quantity_100g.toFixed(3);
+                query += `SELECT ${quantity_100g} * kcal AS kcal, `
+                query += `${quantity_100g} * total_fat AS total_fat, `
+                query += `${quantity_100g} * protein AS protein, `
+                query += `${quantity_100g} * saturated_fat AS saturated_fat, `
+                query += `${quantity_100g} * sodium AS sodium, `
+                query += `${quantity_100g} * sugars AS sugars, `
+                query += `${quantity_100g} * carbohydrates AS carbohydrates `
+                query += `FROM recipesdb.ingredients WHERE food_name = '${food_name}'`
+                if (i < recipe.ingredients.length - 1) {
+                    query += ` UNION ALL `
+                }
+
+            }
+
+            console.log(recipe.ingredients)
+            console.log(query)
+            dbConnection.query(query, async (err, result) => {
                 if (err) throw (err)
-                console.log("---------> Recipe added")
-                callback({ message: "Recipe added", status: 200 })
+                console.log(result)
+                sum_kcal = 0;
+                sum_total_fat = 0;
+                sum_protein = 0;
+                sum_saturated_fat = 0;
+                sum_sodium = 0;
+                sum_sugars = 0;
+                sum_carbohydrates = 0;
+                for (let i = 0; i < result.length; i++) {
+                    sum_kcal += result[i].kcal;
+                    sum_total_fat += result[i].total_fat;
+                    sum_protein += result[i].protein;
+                    sum_saturated_fat += result[i].saturated_fat;
+                    sum_sodium += result[i].sodium;
+                    sum_sugars += result[i].sugars;
+                    sum_carbohydrates += result[i].carbohydrates;
+                }
+
+                let sqlInsert = "INSERT INTO recipes (name, contributor_id, date_submitted, kcal, total_fat, protein, saturated_fat, sodium, sugars, carbohydrates)"
+                sqlInsert += " VALUES (?, ?, NOW(), ?, ?, ?, ?, ?, ?, ?)"
+                let columns = [recipe.name, result[0].user_id, sum_kcal, sum_total_fat, sum_protein, sum_saturated_fat, sum_sodium, sum_sugars, sum_carbohydrates]
+                let insert_query = mysql.format(sqlInsert, columns)
+                // add ingredients to sql query here 
+                dbConnection.query(insert_query, async (err, result) => {
+                    if (err) throw (err)
+                    console.log("---------> Recipe added")
+                    callback({ message: "Recipe added", status: 200 })
+                })
             })
         }
     })
