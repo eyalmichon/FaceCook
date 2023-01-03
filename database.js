@@ -80,10 +80,11 @@ function getUsersWithRecipe(callback) {
 }
 
 
-function getRecipesResults(callback) {
-    const query = 'SELECT * FROM recipes';
+function getRecipeByName(name, callback) {
+    const query = 'SELECT * FROM recipes WHERE name = ?';
+    const formattedQuery = mysql.format(query, [name]);
 
-    dbConnection.query(query, (error, results) => {
+    dbConnection.query(formattedQuery, (error, results) => {
         if (error) throw error;
         callback(results);
     });
@@ -92,9 +93,9 @@ function getRecipesResults(callback) {
 async function addRecipe(user, recipe, callback) {
     const sqlSearch = "Select * from users where username = ?"
     const search_query = mysql.format(sqlSearch, [user])
-    dbConnection.query(search_query, async (err, result) => {
+    dbConnection.query(search_query, async (err, result2) => {
         if (err) throw (err)
-        if (result.length == 0) {
+        if (result2.length == 0) {
             console.log("--------> User does not exist")
             callback({ message: "User does not exist", status: 404 })
         }
@@ -122,8 +123,8 @@ async function addRecipe(user, recipe, callback) {
 
             }
 
-            console.log(recipe.ingredients)
-            console.log(query)
+            // console.log(recipe.ingredients)
+            // console.log(query)
             dbConnection.query(query, async (err, result) => {
                 if (err) throw (err)
                 console.log(result)
@@ -146,7 +147,7 @@ async function addRecipe(user, recipe, callback) {
 
                 let sqlInsert = "INSERT INTO recipes (name, contributor_id, date_submitted, kcal, total_fat, protein, saturated_fat, sodium, sugars, carbohydrates)"
                 sqlInsert += " VALUES (?, ?, NOW(), ?, ?, ?, ?, ?, ?, ?)"
-                let columns = [recipe.name, result[0].user_id, sum_kcal, sum_total_fat, sum_protein, sum_saturated_fat, sum_sodium, sum_sugars, sum_carbohydrates]
+                let columns = [recipe.name, result2[0].user_id, sum_kcal, sum_total_fat, sum_protein, sum_saturated_fat, sum_sodium, sum_sugars, sum_carbohydrates]
                 let insert_query = mysql.format(sqlInsert, columns)
                 // add ingredients to sql query here 
                 dbConnection.query(insert_query, async (err, result) => {
@@ -320,7 +321,7 @@ function getMaxId() {
 
 
 module.exports = {
-    getRecipesResults,
+    getRecipeByName,
     getRecipesByTerm,
     getIngredientsByTerm,
     login,
