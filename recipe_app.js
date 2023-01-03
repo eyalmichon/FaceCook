@@ -76,6 +76,14 @@ app.get('/search', (req, res) => {
   }
 });
 
+app.post('/getRecipeWithReviews', (req, res) => {
+  const search = req.body.search;
+
+  db.getRecipeByName(search, (results) => {
+    res.send(results);
+  });
+});
+
 app.get('/getUserRecipes', (req, res) => {
   const user = req.session.user.username;
   db.getUserRecipes(user, (results) => {
