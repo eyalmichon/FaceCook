@@ -112,3 +112,23 @@ button[type="submit"]:hover {
 #toggle-filters:checked~.filters {
     display: block;
 }
+
+.nutrition-label {
+    display: block;
+    border: 1px solid #ccc;
+    margin: 0 auto;
+    text-align: center;
+    width: 300px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+  
+.nutrition-label table td {
+    padding: 5px;
+    text-align: left;
+}
