@@ -65,19 +65,7 @@ function convertToKg(unit, value) {
   }
 }
 
-function getUsersWithRecipe(callback) {
-  const query = 'SELECT nickname, cnt (SELECT users.nickname, count(recipe_id) as cnt \
-    FROM recipes \
-    INNER JOIN users ON users.user_id = recipes.contributor_id \
-    GROUP BY nickname) \
-    WHERE cnt > 3 \
-    ORDER BY cnt DESC';
 
-  dbConnection.query(query, (error, results) => {
-    if (error) throw error;
-    callback(results);
-  });
-}
 
 function addReview(user, recipeName, review, rating, callback) {
   // add review to database by finding the user_id and recipe_id of the user and recipe
@@ -296,7 +284,6 @@ function getUserRecipes(username, callback) {
 
   dbConnection.query(query, params, (error, results) => {
     if (error) throw error;
-    console.log(results[0]);
     results = results.map((result) => {
       result.reviews = JSON.parse(result.reviews);
       result.instructions = JSON.parse(result.instructions);
@@ -341,9 +328,8 @@ function getHomeRecipes(callback) {
       ORDER BY num_reviews DESC
       LIMIT 100) as test)
     `;
-  const params = ['DancerIO'];
 
-  dbConnection.query(query, params, (error, results) => {
+  dbConnection.query(query, (error, results) => {
     if (error) throw error;
     results = results.map((result) => {
       result.reviews = JSON.parse(result.reviews);
