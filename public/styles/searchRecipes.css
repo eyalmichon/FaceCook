@@ -116,7 +116,7 @@ button[type="submit"]:hover {
 .nutrition-label {
     display: block;
     border: 1px solid #ccc;
-    margin: 0 auto;
+    margin: 0;
     text-align: center;
     width: 300px;
     padding: 20px;
@@ -125,6 +125,7 @@ button[type="submit"]:hover {
     background-color: #f8f8f8;
     border-radius: 5px;
     font-weight: bold;
+    margin-bottom: 5px;
 }
 
   
@@ -138,7 +139,8 @@ button[type="submit"]:hover {
 .nutrition-label-container {
     display: flex;
     flex-direction: row;
-    margin-bottom: 20px; /* Add space between the container and other elements */
+    justify-content: center;
+    margin-bottom: 20px;
   }
 
 
@@ -171,6 +173,15 @@ button[type="submit"]:hover {
     color:#fc0;
   }
   
+  .review {
+    word-wrap: break-word;
+    width: 100ch;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 15px 0;
+  }
+
   #review {
     flex: 1;
     margin-right: 20px;
@@ -181,3 +192,5 @@ button[type="submit"]:hover {
   #send {
     flex: 0 0 200px;
   }
+
+  

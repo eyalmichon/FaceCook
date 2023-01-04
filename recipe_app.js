@@ -91,9 +91,9 @@ app.get('/getUserRecipes', (req, res) => {
   });
 });
 app.get('/getHomeRecipes', (req, res) => {
-  db.getHomeRecipes((results) => {
-    res.send(results);
-  });
+  // db.getHomeRecipes((results) => {
+  //   res.send(results);
+  // });
 });
 
 // FINISH THIS
