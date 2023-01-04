@@ -55,7 +55,7 @@ function getUserRecipes() {
                 name.textContent = recipe.name;
                 const reviews = JSON.parse(recipe.reviews).reviews;
                 const reviewsElement = document.createElement('p');
-                reviewsElement.textContent = reviews[0].rating ? `${reviews.length} reviews with ${((reviews.reduce((acc, review) => acc + review.rating, 0) / reviews.length).toFixed(2)).replace('.00', '')} ⭐` : 'No reviews yet';
+                reviewsElement.textContent = reviews.length ? `${reviews.length} reviews with ${((reviews.reduce((acc, review) => acc + review.rating, 0) / reviews.length).toFixed(2)).replace('.00', '')} ⭐` : 'No reviews yet';
 
                 recipeDiv.setAttribute('data-toggle', 'modal');
                 recipeDiv.setAttribute('data-target', '#myModal');

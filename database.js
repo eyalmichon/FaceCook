@@ -245,20 +245,15 @@ function getUserRecipes(username, callback) {
 
 function getHomeRecipes(callback) {
   const query = `
-  SELECT r.recipe_id, r.name, COUNT(rr.user_id) as review_count, AVG(rr.rating) as avg_rating
-  FROM recipes r
-  JOIN reviews rr ON r.recipe_id = rr.recipe_id
-  GROUP BY r.recipe_id, r.name
-  ORDER BY avg_rating DESC, review_count DESC
-  LIMIT 100, 
+  SELECT r.*, 
   JSON_OBJECT(
-    'reviews', JSON_ARRAYAGG(
-        JSON_OBJECT(
-            'user_id', u.user_id, 
-            'date_submitted', rv.date_submitted, 
-            'date_modified', rv.date_modified, 
-            'rating', rv.rating, 
-            'review', rv.review
+      'reviews', JSON_ARRAYAGG(
+          JSON_OBJECT(
+              'user_id', u.user_id, 
+              'date_submitted', rv.date_submitted, 
+              'date_modified', rv.date_modified, 
+              'rating', rv.rating, 
+              'review', rv.review
           )
       )
   ) AS reviews,
@@ -267,10 +262,22 @@ function getHomeRecipes(callback) {
   JOIN recipesdb.users u ON r.contributor_id = u.user_id
   LEFT JOIN recipesdb.reviews rv ON r.recipe_id = rv.recipe_id
   LEFT JOIN recipesdb.recipe_info ri ON r.recipe_id = ri.recipe_id
-  GROUP BY r.recipe_id`;
+  WHERE r.recipe_id IN (SELECT test.recipe_id
+  FROM (SELECT recipe_id, COUNT(*) as num_reviews
+  FROM recipesdb.reviews
+  GROUP BY recipe_id
+  ORDER BY num_reviews DESC
+  LIMIT 100) as test)
+  GROUP BY r.recipe_id
+    `;
+  const params = ['DancerIO'];
 
-  dbConnection.query(query, (error, results) => {
+  dbConnection.query(query, params, (error, results) => {
     if (error) throw error;
+    // sort the results by the number of reviews
+    results.sort((a, b) => {
+      return b.reviews.length - a.reviews.length;
+    });
     callback(results);
   });
 }
