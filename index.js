@@ -13,7 +13,7 @@ const connection = mysql.createConnection({
 function createSQLDB() {
     createSchema();
     createTable();
-    batchInsert('users', ['user_id', 'username', 'password'], users, false);
+    batchInsert('users', ['user_id', 'username', 'password'], users, true);
     batchInsert('recipes', ['recipe_id', 'name', 'contributor_id', 'date_submitted', 'minutes', 'kcal', 'total_fat', 'protein', 'sodium', 'saturated_fat', 'sugars', 'carbohydrates', 'category'], recipes, true);
     batchInsert('reviews', ['recipe_id', 'user_id', 'date_submitted', 'date_modified', 'rating', 'review'], reviews, true);
     batchInsert('instructions', ['recipe_id', 'step', 'instruction'], instructions, true);
@@ -70,14 +70,6 @@ const recipeInfo = require('./raw_data/RecipeInfo.json');
 const ingredients = require('./raw_data/Ingredients.json');
 const recipesToIngredients = require('./raw_data/RecipesToIngredients.json');
 
-
-// batchInsert('users', ['user_id', 'username', 'password'], users, false);
-// batchInsert('recipes', ['recipe_id', 'name', 'contributor_id', 'date_submitted', 'minutes', 'kcal', 'fat', 'protein', 'sodium', 'saturated_fat', 'sugar', 'carbohydrates', 'category'], recipes, true);
-// batchInsert('reviews', ['recipe_id', 'user_id', 'date_submitted', 'date_modified', 'rating', 'review'], reviews, true);
-// batchInsert('instructions', ['recipe_id', 'step', 'instruction'], instructions, true);
-// batchInsert('recipe_info', ['recipe_id', 'description', 'image_url', 'recipe_yield'], recipeInfo, true);
-// batchInsert('ingredients', ['food_name', 'kcal', 'total_fat', 'protein', 'sodium', 'saturated_fat', 'sugars', 'carbohydrates'], ingredients, true);
-// batchInsert('recipestoingredients', ['recipe_id', 'food_name', 'quantity', 'unit'], recipesToIngredients, true);
 
 // function check
 // recipesToIngredients.forEach((rti) => {
@@ -175,37 +167,6 @@ function combineQuantities(rtis) {
 //     }
 // }
 // saveJsonFile(newRecipesArr, 'newRecipes');
-
-// users.forEach((user, i) => {
-// recipes.forEach((recipe, i) => {
-// reviews.forEach((review, i) => {
-// instructions.forEach((instruction, i) => {
-// recipeInfo.forEach((recipe, i) => {
-// ingredients.forEach((ingredient, i) => {
-// recipesToIngredients.forEach((rti, i) => {
-
-
-// let query = `INSERT INTO recipesdb.users (user_id, nick_name) VALUES ('${user.user_id}', '${user.nick_name}')`;
-// let query = `INSERT INTO recipesdb.recipes (recipe_id, name, contributor_id, date_submitted, minutes, kcal, fat, protein, sodium, saturated_fat, sugar, carbohydrates, category) VALUES ('${recipe.recipe_id}', '${recipe.name.includes('\'') ? recipe.name.replace(/\'/g, '\'\'') : recipe.name}', '${recipe.contributor_id}', '${recipe.date_submitted}', '${recipe.minutes}', '${recipe.kcal}', '${recipe.fat}', '${recipe.protein}', '${recipe.sodium}', '${recipe.saturated_fat}', '${recipe.sugar}', '${recipe.carbohydrates}', '${recipe.category.includes('\'') ? recipe.category.replace(/\'/g, '\'\'') : recipe.category}')`;
-// let query = `INSERT INTO recipesdb.reviews (recipe_id, user_id, date_submitted, date_modified, rating, review) VALUES ('${review.recipe_id}', '${review.user_id}', '${review.date_submitted.substring(0, 10)}', '${review.date_modified.substring(0, 10)}', '${review.rating}', '${review.review.includes('\'') ? review.review.replace(/\'/g, '\'\'') : review.review}')`;
-// let query = `INSERT INTO recipesdb.instructions (recipe_id, step, instruction) VALUES ('${instruction.recipeId}', '${instruction.step}', '${instruction.instruction.includes('\'') ? instruction.instruction.replace(/\'/g, '\'\'') : instruction.instruction}')`;
-// let query = `INSERT INTO recipesdb.recipe_info (recipe_id, description, image_url, recipe_yield) VALUES ('${recipe.recipe_id}', '${recipe.description.includes('\'') ? recipe.description.replace(/\'/g, '\'\'') : recipe.description}', '${recipe.image_url}', '${recipe.recipe_yield.includes('\'') ? recipe.recipe_yield.replace(/\'/g, '\'\'') : recipe.recipe_yield}')`;
-// let query = `INSERT INTO recipesdb.ingredients (food_name, quantity, unit, nutr_per_ingredient) VALUES ('${ingredient.food_name.includes('\'') ? ingredient.food_name.replace(/\'/g, '\'\'') : ingredient.food_name}', '${ingredient.quantity}', '${ingredient.unit}', '${ingredient.nutr_per_ingredient.replace(/\'/g, '\"')}')`;
-// let query = `INSERT INTO recipesdb.recipestoingredients (recipe_id, food_name, quantity, unit) VALUES ('${rti.recipe_id}', '${rti.food_name.includes('\'') ? rti.food_name.replace(/\'/g, '\'\'') : rti.food_name}', '${rti.quantity}', '${rti.unit}')`;
-
-
-// connection.query(query, (err, result) => {
-//     if (err) {
-//         if (err.code === 'ER_DUP_ENTRY') {
-//             console.log(`duplicate entry: ${i}`)
-//             return
-//         };
-//         console.log(err);
-//         throw err;
-//     }
-//     console.log(i);
-// });
-// });
 
 
 function createUserDatabase() {
@@ -337,6 +298,6 @@ function updateUsernames() {
 
 }
 
-// createSQLDB();
+createSQLDB();
 
 
