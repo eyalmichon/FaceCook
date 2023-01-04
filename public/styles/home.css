@@ -1,0 +1,39 @@
+#gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.picture-container {
+    /* Style the container as a button */
+    cursor: pointer;
+    background-color: transparent;
+    /* Style the hover and active effects */
+    transition: all 0.2s ease-in-out;
+
+    width: 25%;
+    /* Adjust this value to control the number of elements per row */
+    margin: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.picture-container:hover {
+    /* Grow the container on hover */
+    transform: scale(1.1);
+}
+
+.picture-container:active {
+    /* Shrink the container on click */
+    transform: scale(0.9);
+}
+
+
+.picture-container img {
+    margin-top: 10px;
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+}
