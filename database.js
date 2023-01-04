@@ -265,19 +265,26 @@ async function addRecipe(user, recipe, callback) {
 
 function getUserRecipes(username, callback) {
   const query = `
-    SELECT r.*, 
-    JSON_OBJECT(
-        'reviews', JSON_ARRAYAGG(
-            JSON_OBJECT(
-                'user_id', u.user_id, 
-                'date_submitted', rv.date_submitted, 
-                'date_modified', rv.date_modified, 
-                'rating', rv.rating, 
-                'review', rv.review
-            )
+      SELECT r.*,
+      (SELECT JSON_ARRAYAGG(
+        JSON_OBJECT(
+            'user_id', u.user_id, 
+            'date_submitted', rv.date_submitted, 
+            'date_modified', rv.date_modified, 
+            'rating', rv.rating, 
+            'review', rv.review
         )
-    ) AS reviews,
-    ri.description, ri.image_url, ri.recipe_yield
+    )) AS reviews,
+    ri.description, ri.image_url, ri.recipe_yield,
+    (SELECT JSON_ARRAYAGG(
+      JSON_OBJECT(
+          'step', ins.step, 
+          'instruction', ins.instruction
+          )
+      )
+    FROM recipesdb.instructions ins
+    WHERE r.recipe_id = ins.recipe_id
+    GROUP BY ins.recipe_id) AS instructions
     FROM recipesdb.recipes r
     JOIN recipesdb.users u ON r.contributor_id = u.user_id
     LEFT JOIN recipesdb.reviews rv ON r.recipe_id = rv.recipe_id
@@ -289,6 +296,12 @@ function getUserRecipes(username, callback) {
 
   dbConnection.query(query, params, (error, results) => {
     if (error) throw error;
+    console.log(results[0]);
+    results = results.map((result) => {
+      result.reviews = JSON.parse(result.reviews);
+      result.instructions = JSON.parse(result.instructions);
+      return result;
+    });
     callback(results);
   });
 }
@@ -296,34 +309,47 @@ function getUserRecipes(username, callback) {
 function getHomeRecipes(callback) {
   const query = `
   SELECT r.*, 
-  JSON_OBJECT(
-      'reviews', JSON_ARRAYAGG(
-          JSON_OBJECT(
-              'user_id', u.user_id, 
-              'date_submitted', rv.date_submitted, 
-              'date_modified', rv.date_modified, 
-              'rating', rv.rating, 
-              'review', rv.review
+  (SELECT JSON_ARRAYAGG(
+            JSON_OBJECT(
+                'user_id', u.user_id, 
+                'date_submitted', rv.date_submitted, 
+                'date_modified', rv.date_modified, 
+                'rating', rv.rating, 
+                'review', rv.review
+            )
+        ) 
+     FROM recipesdb.reviews rv
+     WHERE r.recipe_id = rv.recipe_id
+     GROUP BY rv.recipe_id) AS reviews,
+    ri.description, ri.image_url, ri.recipe_yield,
+    (SELECT JSON_ARRAYAGG(
+              JSON_OBJECT(
+                  'step', ins.step, 
+                  'instruction', ins.instruction
+              )
           )
-      )
-  ) AS reviews,
-  ri.description, ri.image_url, ri.recipe_yield
-  FROM recipesdb.recipes r
-  JOIN recipesdb.users u ON r.contributor_id = u.user_id
-  LEFT JOIN recipesdb.reviews rv ON r.recipe_id = rv.recipe_id
-  LEFT JOIN recipesdb.recipe_info ri ON r.recipe_id = ri.recipe_id
-  WHERE r.recipe_id IN (SELECT test.recipe_id
-  FROM (SELECT recipe_id, COUNT(*) as num_reviews
-  FROM recipesdb.reviews
-  GROUP BY recipe_id
-  ORDER BY num_reviews DESC
-  LIMIT 100) as test)
-  GROUP BY r.recipe_id
+      FROM recipesdb.instructions ins
+      WHERE r.recipe_id = ins.recipe_id
+      GROUP BY ins.recipe_id) AS instructions
+      FROM recipesdb.recipes r
+      JOIN recipesdb.users u ON r.contributor_id = u.user_id
+      LEFT JOIN recipesdb.recipe_info ri ON r.recipe_id = ri.recipe_id
+      WHERE r.recipe_id IN (SELECT test.recipe_id
+      FROM (SELECT recipe_id, COUNT(*) as num_reviews
+      FROM recipesdb.reviews
+      GROUP BY recipe_id
+      ORDER BY num_reviews DESC
+      LIMIT 100) as test)
     `;
   const params = ['DancerIO'];
 
   dbConnection.query(query, params, (error, results) => {
     if (error) throw error;
+    results = results.map((result) => {
+      result.reviews = JSON.parse(result.reviews);
+      result.instructions = JSON.parse(result.instructions);
+      return result;
+    });
     // sort the results by the number of reviews
     results.sort((a, b) => {
       return b.reviews.length - a.reviews.length;

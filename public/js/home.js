@@ -4,12 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function getHomeRecipes() {
+    // get the recipes div
+    const recipesDiv = document.getElementById('gallery');
     fetch('/getHomeRecipes')
         .then(response => response.json())
         .then(results => {
             console.log(results);
-            // get the recipes div
-            const recipesDiv = document.getElementById('gallery');
 
             // loop through the results and create HTML elements for each recipe
             results.forEach(recipe => {
@@ -54,7 +54,8 @@ function getHomeRecipes() {
                 // create the elements for the recipe name and number of reviews
                 const name = document.createElement('h3');
                 name.textContent = recipe.name;
-                const reviews = JSON.parse(recipe.reviews).reviews;
+                const reviews = recipe.reviews;
+                const instructions = recipe.instructions;
                 const reviewsElement = document.createElement('p');
                 reviewsElement.textContent = reviews.length ? `${reviews.length} reviews with ${((reviews.reduce((acc, review) => acc + review.rating, 0) / reviews.length).toFixed(2)).replace('.00', '')} ⭐` : 'No reviews yet';
 
@@ -73,6 +74,10 @@ function getHomeRecipes() {
                         ${carouselDiv.outerHTML}
                         <p><strong>Description:</strong></p>
                         ${recipe.description}
+                        <br>
+                        <br>
+                        <p><strong>Instructions:</strong></p>
+                        ${instructions ? instructions.map(instruction => instruction.step + '. ' + instruction.instruction).join('<br><br>') : 'No instructions yet'}
                         <br>
                         <br>
                         <p><strong>Reviews:</strong></p>
