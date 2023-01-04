@@ -29,6 +29,8 @@ function getHomeRecipes() {
                 let images = [];
                 if (recipe.image_url && recipe.image_url.startsWith('c'))
                     images = recipe.image_url.slice(2, -2).split(', ').map(image => image.replace(/"/g, ''));
+                else if (recipe.image_url == undefined || recipe.image_url == 'undefined' || recipe.image_url == null || recipe.image_url == 'null')
+                    images = [];
                 else
                     images = [recipe.image_url.slice(1, -1)];
 
@@ -57,7 +59,7 @@ function getHomeRecipes() {
                 const reviews = recipe.reviews;
                 const instructions = recipe.instructions;
                 const reviewsElement = document.createElement('p');
-                reviewsElement.textContent = reviews.length ? `${reviews.length} reviews with ${((reviews.reduce((acc, review) => acc + review.rating, 0) / reviews.length).toFixed(2)).replace('.00', '')} ⭐` : 'No reviews yet';
+                reviewsElement.textContent = reviews.length && reviews[0].rating ? `${reviews.length} reviews with ${((reviews.reduce((acc, review) => acc + review.rating, 0) / reviews.length).toFixed(2)).replace('.00', '')} ⭐` : 'No reviews yet';
 
                 recipeDiv.setAttribute('data-toggle', 'modal');
                 recipeDiv.setAttribute('data-target', '#myModal');
@@ -81,7 +83,7 @@ function getHomeRecipes() {
                         <br>
                         <br>
                         <p><strong>Reviews:</strong></p>
-                        ${reviews.map(review => `${'⭐'.repeat(review.rating)} ${review.review}`).join('<br><br>')}
+                        ${reviews.length && reviews[0].rating ? reviews.map(review => `${'⭐'.repeat(review.rating)} ${review.review}`).join('<br><br>') : 'No reviews yet'}
                     `;
                     $('.carousel').carousel();
                 });
