@@ -98,16 +98,18 @@ app.get('/getHomeRecipes', (req, res) => {
 
 // FINISH THIS
 app.post('/addRecipe', (req, res) => {
-  const user = req.session.user.username;
-  // console.log("user", user);
-  if (!user)
+  if(!req.session.user)
     res.send({ status: 401, message: "You must be logged in to add a recipe." });
+
+  const user = req.session.user.username;
 
   // get the json object from the request body and parse it
   const recipe = req.body;
-
   db.addRecipe(user, recipe, (data) => {
-    res.send(data);
+    if (data.status == 200)
+      res.send({ status: 200, message: "Recipe added successfully." });
+    else
+      res.send({ status: 500, message: "Error adding recipe." });
   });
 });
 

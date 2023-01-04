@@ -59,10 +59,11 @@
                 <label for="description">Description:</label>
                 <textarea class="form-control" id="description" name="description"></textarea>
             </div>
-            <!-- Add category and recipe_yield-->
+            <!-- Add category, minutes and recipe_yield-->
             <table id="recipeInfoTable" name="recipeInfo">
                 <tr>
                     <th>Category</th>
+                    <th>Minutes</th>
                     <th>Recipe Yield</th>
                 </tr>
                 <tr>
@@ -73,6 +74,10 @@
                             </select>
                         </div>
                     </td>
+                    <td>
+                        <div class="input-group-append">
+                            <input type="number" class="form-control" id="recipeInfoMinutes" name="minutes" min="0" step="any">
+                        </div>
                     <td>
                         <div class="input-group-append">
                             <input type="text" class="form-control" id="recipeInfoYield" name="recipeYield" min="0" step="any">

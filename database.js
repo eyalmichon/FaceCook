@@ -176,11 +176,12 @@ async function addRecipe(user, recipe, callback) {
 
       }
 
-      // console.log(recipe.ingredients)
-      // console.log(query)
       dbConnection.query(query, async (err, result) => {
-        if (err) throw (err)
-        console.log(result)
+        if (err) {
+          console.log(err)
+          callback({ message: 'Unknown error', status: 404 })
+          return
+        }
         sum_kcal = 0;
         sum_total_fat = 0;
         sum_protein = 0;
@@ -198,15 +199,64 @@ async function addRecipe(user, recipe, callback) {
           sum_carbohydrates += result[i].carbohydrates;
         }
 
-        let sqlInsert = "INSERT INTO recipes (name, contributor_id, date_submitted, kcal, total_fat, protein, saturated_fat, sodium, sugars, carbohydrates)"
-        sqlInsert += " VALUES (?, ?, NOW(), ?, ?, ?, ?, ?, ?, ?)"
-        let columns = [recipe.name, result2[0].user_id, sum_kcal, sum_total_fat, sum_protein, sum_saturated_fat, sum_sodium, sum_sugars, sum_carbohydrates]
-        let insert_query = mysql.format(sqlInsert, columns)
+        let addRecipeQuery = "INSERT INTO recipes (name, contributor_id, date_submitted, minutes, kcal, total_fat, protein, saturated_fat, sodium, sugars, carbohydrates, category)"
+        addRecipeQuery += " VALUES (?, ?, NOW(), ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+        let columns = [recipe.name, result2[0].user_id, recipe.minutes, sum_kcal, sum_total_fat, sum_protein, sum_saturated_fat, sum_sodium, sum_sugars, sum_carbohydrates, recipe.category]
+        let insert_query = mysql.format(addRecipeQuery, columns)
         // add ingredients to sql query here 
         dbConnection.query(insert_query, async (err, result) => {
-          if (err) throw (err)
+          const recipeId = result.insertId;
+          if (err) {
+            console.log(err)
+            callback({ message: 'Unknown error', status: 404 })
+            return
+          }
           console.log("---------> Recipe added")
-          callback({ message: "Recipe added", status: 200 })
+          // add ingredients to recipeToIngredients table
+          let addRecipeToIngredientsQuery = "INSERT INTO recipestoingredients (recipe_id, food_name, quantity, unit) VALUES "
+          recipe.ingredients.forEach((ingredient) => {
+            addRecipeToIngredientsQuery += `(${recipeId}, '${ingredient.name}', ${ingredient.quantity}, '${ingredient.unit}'), `
+          })
+          addRecipeToIngredientsQuery = addRecipeToIngredientsQuery.slice(0, -2)
+
+          dbConnection.query(addRecipeToIngredientsQuery, async (err, result) => {
+            if (err) {
+              console.log(err)
+              callback({ message: 'Unknown error', status: 404 })
+              return
+            }
+            console.log("---------> Ingredients added")
+
+            // add instructions to instructions table
+            let addInstructionsQuery = "INSERT INTO instructions (recipe_id, step, instruction) VALUES "
+            recipe.instructions.forEach((instruction, index) => {
+              addInstructionsQuery += `(${recipeId}, ${index + 1}, '${instruction}'), `
+            })
+            addInstructionsQuery = addInstructionsQuery.slice(0, -2)
+
+            dbConnection.query(addInstructionsQuery, async (err, result) => {
+              if (err) {
+                console.log(err)
+                callback({ message: 'Unknown error', status: 404 })
+                return
+              }
+              console.log("---------> Instructions added")
+
+              // add recipeInfo to recipeInfo table
+              let addRecipeInfoQuery = "INSERT INTO recipe_info (recipe_id, description, image_url, recipe_yield) VALUES "
+              addRecipeInfoQuery += `(${recipeId}, '${recipe.description}', '${recipe.image_url}', '${recipe.recipe_yield}')`
+
+              dbConnection.query(addRecipeInfoQuery, async (err, result) => {
+                if (err) {
+                  console.log(err)
+                  callback({ message: 'Unknown error', status: 404 })
+                  return
+                }
+                console.log("---------> RecipeInfo added")
+                callback({ message: "Recipe added", status: 200 })
+              })
+            })
+          })
         })
       })
     }

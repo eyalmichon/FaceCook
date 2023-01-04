@@ -90,13 +90,22 @@ $(document).ready(function () {
             });
     }
 
-    function errorMsg(msg) {
+    function showError(msg) {
         Swal.fire({
             icon: 'error',
             title: 'Error',
             text: msg
         });
     }
+
+    function showSuccess(msg) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: msg
+        });
+    }
+
 
     /////////////////////// Event Handlers ///////////////////////
     $("#add-ingredient-button").click(ingredientsClickEvent);
@@ -115,14 +124,30 @@ $(document).ready(function () {
         let recipeName = event.target.recipeName.value;
 
         if (!recipeName) {
-            errorMsg("Please enter a recipe name.");
+            showError("Please enter a recipe name.");
             return;
         }
 
         let description = event.target.description.value;
 
         if (!description) {
-            errorMsg("Please enter a description.");
+            showError("Please enter a description.");
+            return;
+        }
+
+        let category = event.target.category.value;
+        if(!category) {
+            showError("Please enter a category.");
+            return;
+        }
+        let minutes = event.target.minutes.value;
+        if(!minutes) {
+            showError("Please enter the minutes.");
+            return;
+        }
+        let recipeYield = event.target.recipeYield.value;
+        if(!recipeYield) {
+            showError("Please enter the recipe yield.");
             return;
         }
 
@@ -151,7 +176,7 @@ $(document).ready(function () {
                 }
             });
         } catch (error) {
-            errorMsg(error.message);
+            showError(error.message);
             return;
         }
 
@@ -169,7 +194,7 @@ $(document).ready(function () {
         });
 
         if (!instructions.length) {
-            errorMsg("Please enter at least one instruction.");
+            showError("Please enter at least one instruction.");
             return;
         }
 
@@ -202,7 +227,7 @@ $(document).ready(function () {
                     throw new Error(error);
                 });
         } catch (error) {
-            errorMsg(error.message);
+            showError(error.message);
             return;
         }
 
@@ -230,13 +255,16 @@ $(document).ready(function () {
                 });
         }
         catch (error) {
-            errorMsg(error);
+            showError(error);
         }
 
         // Create the recipe object
         let recipe = {
             name: recipeName,
             description: description,
+            category: category,
+            minutes: minutes,
+            recipeYield: recipeYield,
             ingredients: ingredients,
             instructions: instructions,
             images: images
@@ -253,15 +281,17 @@ $(document).ready(function () {
             })
                 .then(res => res.json())
                 .then(data => {
-                    if (data.error) {
-                        throw new Error(data.error);
+                    if(data.status === 200) {
+                        showSuccess(data.message);
+                    } else {
+                        showError(data.message);
                     }
                 })
                 .catch(error => {
                     throw new Error(error);
                 });
         } catch (error) {
-            errorMsg(error.message);
+            showError(error.message);
             return;
         }
 
