@@ -9,6 +9,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="js/searchRecipes.js"></script>
 </head>
 
@@ -42,7 +43,7 @@
     <div class="container mt-5">
         <h2 class="mt-5">Search a Recipe</h2>
         <div class="container ui-widget">
-            <form method="GET" action="/search">
+            <form id="searchForm" method="GET" action="/search">
                 <!-- Checkbox input for the toggle button -->
                 <input type="checkbox" id="toggle-filters" class="d-none">
 

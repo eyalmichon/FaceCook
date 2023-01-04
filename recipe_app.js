@@ -105,9 +105,36 @@ app.post('/addRecipe', (req, res) => {
 
   // get the json object from the request body and parse it
   const recipe = req.body;
-  
+
   db.addRecipe(user, recipe, (data) => {
     res.send(data);
+  });
+});
+
+
+/**
+ * Handles a POST request to add a review for a recipe.
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Object} An object with a status code and message.
+ */
+app.post('/addReview', (req, res) => {
+  // console.log("user", user);
+  if (!req.session.user)
+    res.send({ status: 401, message: "You must be logged in to add a recipe." });
+
+  const user = req.session.user.username;
+  // get the json object from the request body and parse it
+  const recipeName = req.body.recipeName;
+  const review = req.body.review;
+  const rating = req.body.rating;
+  console.log(recipeName, review, rating);
+
+  db.addReview(user, recipeName, review, rating, (data) => {
+    if (data.status == 200)
+      res.send({ status: 200, message: "Review added successfully." });
+    else
+      res.send({ status: 500, message: "Error adding review." });
   });
 });
 
