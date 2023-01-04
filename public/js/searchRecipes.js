@@ -86,23 +86,12 @@ $(document).ready(function () {
         for (var i = 0; i < data.length; i++) {
             var review = data[i].review;
 
-            // create a new element for the review
+            // create a new element for the review and ratings system
             var reviewElement = $(`<div class="review">
-              <p>${review}</p>
-              <div class="star-rating">
-                <!-- display the review's rating using radio buttons -->
-                <input type="radio" id="5-stars-${i}" name="rating-${i}" value="5" ${data[i].rating === 5 ? 'checked' : ''} />
-                <label for="5-stars-${i}" class="star">&#9733;</label>
-                <input type="radio" id="4-stars-${i}" name="rating-${i}" value="4" ${data[i].rating === 4 ? 'checked' : ''} />
-                <label for="4-stars-${i}" class="star">&#9733;</label>
-                <input type="radio" id="3-stars-${i}" name="rating-${i}" value="3" ${data[i].rating === 3 ? 'checked' : ''} />
-                <label for="3-stars-${i}" class="star">&#9733;</label>
-                <input type="radio" id="2-stars-${i}" name="rating-${i}" value="2" ${data[i].rating === 2 ? 'checked' : ''} />
-                <label for="2-stars-${i}" class="star">&#9733;</label>
-                <input type="radio" id="1-star-${i}" name="rating-${i}" value="1" ${data[i].rating === 1 ? 'checked' : ''} />
-                <label for="1-star-${i}" class="star">&#9733;</label>
-              </div>
-              <button class="edit-review" data-index="${i}">Edit</button>
+            <p>${review}</p>
+            <div class="star-rating">
+              <!-- display the review's rating using text characters -->
+              ${'&#9733;'.repeat(data[i].rating)}
             </div>`);
 
           // handle the edit functionality for the review
