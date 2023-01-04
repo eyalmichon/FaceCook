@@ -90,6 +90,11 @@ app.get('/getUserRecipes', (req, res) => {
     res.send(results);
   });
 });
+app.get('/getHomeRecipes', (req, res) => {
+  db.getHomeRecipes((results) => {
+    res.send(results);
+  });
+});
 
 // FINISH THIS
 app.post('/addRecipe', (req, res) => {

@@ -191,6 +191,38 @@ function getUserRecipes(username, callback) {
     });
 }
 
+function getHomeRecipes(callback) {
+  const query = `
+  SELECT r.recipe_id, r.name, COUNT(rr.user_id) as review_count, AVG(rr.rating) as avg_rating
+  FROM recipes r
+  JOIN reviews rr ON r.recipe_id = rr.recipe_id
+  GROUP BY r.recipe_id, r.name
+  ORDER BY avg_rating DESC, review_count DESC
+  LIMIT 100, 
+  JSON_OBJECT(
+    'reviews', JSON_ARRAYAGG(
+        JSON_OBJECT(
+            'user_id', u.user_id, 
+            'date_submitted', rv.date_submitted, 
+            'date_modified', rv.date_modified, 
+            'rating', rv.rating, 
+            'review', rv.review
+          )
+      )
+  ) AS reviews,
+  ri.description, ri.food_standards, ri.image_url, ri.recipe_yield
+  FROM recipesdb.recipes r
+  JOIN recipesdb.users u ON r.contributor_id = u.user_id
+  LEFT JOIN recipesdb.reviews rv ON r.recipe_id = rv.recipe_id
+  LEFT JOIN recipesdb.recipe_info ri ON r.recipe_id = ri.recipe_id
+  GROUP BY r.recipe_id`;
+
+  dbConnection.query(query, (error, results) => {
+      if (error) throw error;
+      callback(results);
+  });
+}
+
 
 /**
  * Get all recipes from the database that match the given search term or part of a search term.
@@ -328,5 +360,6 @@ module.exports = {
     login,
     register,
     getUserRecipes,
+    getHomeRecipes,
     addRecipe
 };
