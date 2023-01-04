@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-    getUserRecipes();
+    getHomeRecipes();
 
 });
 
-function getUserRecipes() {
+function getHomeRecipes() {
     fetch('/getHomeRecipes')
         .then(response => response.json())
         .then(results => {
