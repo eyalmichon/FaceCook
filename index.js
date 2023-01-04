@@ -17,7 +17,7 @@ function createSQLDB() {
     batchInsert('recipes', ['recipe_id', 'name', 'contributor_id', 'date_submitted', 'minutes', 'kcal', 'total_fat', 'protein', 'sodium', 'saturated_fat', 'sugars', 'carbohydrates', 'category'], recipes, true);
     batchInsert('reviews', ['recipe_id', 'user_id', 'date_submitted', 'date_modified', 'rating', 'review'], reviews, true);
     batchInsert('instructions', ['recipe_id', 'step', 'instruction'], instructions, true);
-    batchInsert('recipe_info', ['recipe_id', 'description', 'food_standards', 'image_url', 'recipe_yield'], recipeInfo, true);
+    batchInsert('recipe_info', ['recipe_id', 'description', 'image_url', 'recipe_yield'], recipeInfo, true);
     batchInsert('ingredients', ['food_name', 'kcal', 'total_fat', 'protein', 'sodium', 'saturated_fat', 'sugars', 'carbohydrates'], ingredients, true);
     batchInsert('recipestoingredients', ['recipe_id', 'food_name', 'quantity', 'unit'], recipesToIngredients, true);
 }
@@ -49,7 +49,7 @@ function createTable() {
     var sqlInstructions = "CREATE TABLE IF NOT EXISTS recipesdb.instructions (recipe_id int NOT NULL, step int NOT NULL,instruction varchar(5000) DEFAULT NULL, PRIMARY KEY (recipe_id,step),CONSTRAINT inst_recipe_id FOREIGN KEY (recipe_id) REFERENCES recipes (recipe_id) )"
     connection.query(sqlInstructions, (err, result) => { if (err) throw err; console.log(result); });
 
-    var sqlRecipeInfo = "CREATE TABLE IF NOT EXISTS recipesdb.recipe_info (`recipe_id` int NOT NULL,`description` text,`food_standards` json DEFAULT NULL,`image_url` text,`recipe_yield` varchar(5000) DEFAULT NULL,PRIMARY KEY (`recipe_id`), CONSTRAINT `info_recipe_id` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`recipe_id`))"
+    var sqlRecipeInfo = "CREATE TABLE IF NOT EXISTS recipesdb.recipe_info (`recipe_id` int NOT NULL,`description` text,`image_url` text,`recipe_yield` varchar(5000) DEFAULT NULL,PRIMARY KEY (`recipe_id`), CONSTRAINT `info_recipe_id` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`recipe_id`))"
     connection.query(sqlRecipeInfo, (err, result) => { if (err) throw err; console.log(result); });
 
     var sqlRecipestoIngredients = "CREATE TABLE IF NOT EXISTS recipesdb.recipestoingredients ( `recipe_id` int NOT NULL, `food_name` varchar(500) NOT NULL, `quantity` float DEFAULT NULL,`unit` varchar(20) NOT NULL, PRIMARY KEY (`recipe_id`,`food_name`,`unit`), KEY `fk_food_name` (`food_name`), CONSTRAINT `fk_food_name` FOREIGN KEY (`food_name`) REFERENCES `ingredients` (`food_name`), CONSTRAINT `mix_recipe_id` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`recipe_id`))"
@@ -75,7 +75,7 @@ const recipesToIngredients = require('./raw_data/RecipesToIngredients.json');
 // batchInsert('recipes', ['recipe_id', 'name', 'contributor_id', 'date_submitted', 'minutes', 'kcal', 'fat', 'protein', 'sodium', 'saturated_fat', 'sugar', 'carbohydrates', 'category'], recipes, true);
 // batchInsert('reviews', ['recipe_id', 'user_id', 'date_submitted', 'date_modified', 'rating', 'review'], reviews, true);
 // batchInsert('instructions', ['recipe_id', 'step', 'instruction'], instructions, true);
-// batchInsert('recipe_info', ['recipe_id', 'description', 'food_standards', 'image_url', 'recipe_yield'], recipeInfo, true);
+// batchInsert('recipe_info', ['recipe_id', 'description', 'image_url', 'recipe_yield'], recipeInfo, true);
 // batchInsert('ingredients', ['food_name', 'kcal', 'total_fat', 'protein', 'sodium', 'saturated_fat', 'sugars', 'carbohydrates'], ingredients, true);
 // batchInsert('recipestoingredients', ['recipe_id', 'food_name', 'quantity', 'unit'], recipesToIngredients, true);
 
@@ -189,7 +189,7 @@ function combineQuantities(rtis) {
 // let query = `INSERT INTO recipesdb.recipes (recipe_id, name, contributor_id, date_submitted, minutes, kcal, fat, protein, sodium, saturated_fat, sugar, carbohydrates, category) VALUES ('${recipe.recipe_id}', '${recipe.name.includes('\'') ? recipe.name.replace(/\'/g, '\'\'') : recipe.name}', '${recipe.contributor_id}', '${recipe.date_submitted}', '${recipe.minutes}', '${recipe.kcal}', '${recipe.fat}', '${recipe.protein}', '${recipe.sodium}', '${recipe.saturated_fat}', '${recipe.sugar}', '${recipe.carbohydrates}', '${recipe.category.includes('\'') ? recipe.category.replace(/\'/g, '\'\'') : recipe.category}')`;
 // let query = `INSERT INTO recipesdb.reviews (recipe_id, user_id, date_submitted, date_modified, rating, review) VALUES ('${review.recipe_id}', '${review.user_id}', '${review.date_submitted.substring(0, 10)}', '${review.date_modified.substring(0, 10)}', '${review.rating}', '${review.review.includes('\'') ? review.review.replace(/\'/g, '\'\'') : review.review}')`;
 // let query = `INSERT INTO recipesdb.instructions (recipe_id, step, instruction) VALUES ('${instruction.recipeId}', '${instruction.step}', '${instruction.instruction.includes('\'') ? instruction.instruction.replace(/\'/g, '\'\'') : instruction.instruction}')`;
-// let query = `INSERT INTO recipesdb.recipe_info (recipe_id, description, food_standards, image_url, recipe_yield) VALUES ('${recipe.recipe_id}', '${recipe.description.includes('\'') ? recipe.description.replace(/\'/g, '\'\'') : recipe.description}', '${recipe.food_standards.replace(/\'/g, '\"')}', '${recipe.image_url}', '${recipe.recipe_yield.includes('\'') ? recipe.recipe_yield.replace(/\'/g, '\'\'') : recipe.recipe_yield}')`;
+// let query = `INSERT INTO recipesdb.recipe_info (recipe_id, description, image_url, recipe_yield) VALUES ('${recipe.recipe_id}', '${recipe.description.includes('\'') ? recipe.description.replace(/\'/g, '\'\'') : recipe.description}', '${recipe.image_url}', '${recipe.recipe_yield.includes('\'') ? recipe.recipe_yield.replace(/\'/g, '\'\'') : recipe.recipe_yield}')`;
 // let query = `INSERT INTO recipesdb.ingredients (food_name, quantity, unit, nutr_per_ingredient) VALUES ('${ingredient.food_name.includes('\'') ? ingredient.food_name.replace(/\'/g, '\'\'') : ingredient.food_name}', '${ingredient.quantity}', '${ingredient.unit}', '${ingredient.nutr_per_ingredient.replace(/\'/g, '\"')}')`;
 // let query = `INSERT INTO recipesdb.recipestoingredients (recipe_id, food_name, quantity, unit) VALUES ('${rti.recipe_id}', '${rti.food_name.includes('\'') ? rti.food_name.replace(/\'/g, '\'\'') : rti.food_name}', '${rti.quantity}', '${rti.unit}')`;
 

@@ -27,7 +27,6 @@ DROP TABLE IF EXISTS `recipe_info`;
 CREATE TABLE `recipe_info` (
   `recipe_id` int NOT NULL,
   `description` text,
-  `food_standards` json DEFAULT NULL,
   `image_url` text,
   `recipe_yield` varchar(5000) DEFAULT NULL,
   PRIMARY KEY (`recipe_id`),

@@ -227,7 +227,7 @@ function getUserRecipes(username, callback) {
             )
         )
     ) AS reviews,
-    ri.description, ri.food_standards, ri.image_url, ri.recipe_yield
+    ri.description, ri.image_url, ri.recipe_yield
     FROM recipesdb.recipes r
     JOIN recipesdb.users u ON r.contributor_id = u.user_id
     LEFT JOIN recipesdb.reviews rv ON r.recipe_id = rv.recipe_id
@@ -257,7 +257,7 @@ function getHomeRecipes(callback) {
           )
       )
   ) AS reviews,
-  ri.description, ri.food_standards, ri.image_url, ri.recipe_yield
+  ri.description, ri.image_url, ri.recipe_yield
   FROM recipesdb.recipes r
   JOIN recipesdb.users u ON r.contributor_id = u.user_id
   LEFT JOIN recipesdb.reviews rv ON r.recipe_id = rv.recipe_id

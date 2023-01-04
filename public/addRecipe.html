@@ -59,7 +59,28 @@
                 <label for="description">Description:</label>
                 <textarea class="form-control" id="description" name="description"></textarea>
             </div>
-            <!-- Add the ingredient list -->
+            <!-- Add category and recipe_yield-->
+            <table id="recipeInfoTable" name="recipeInfo">
+                <tr>
+                    <th>Category</th>
+                    <th>Recipe Yield</th>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="input-group-append">
+                            <select class="form-control" id="recipeInfoCategory" name="category">
+                                
+                            </select>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="input-group-append">
+                            <input type="text" class="form-control" id="recipeInfoYield" name="recipeYield" min="0" step="any">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+                        <!-- Add the ingredient list -->
             <table id="ingredients-table" name="ingredients">
                 <tr>
                     <th>Ingredient</th>
