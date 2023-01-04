@@ -232,7 +232,7 @@ async function addRecipe(user, recipe, callback) {
 
               // add recipeInfo to recipeInfo table
               let addRecipeInfoQuery = "INSERT INTO recipe_info (recipe_id, description, image_url, recipe_yield) VALUES "
-              addRecipeInfoQuery += `(${recipeId}, '${recipe.description}', '${recipe.image_url}', '${recipe.recipe_yield}')`
+              addRecipeInfoQuery += `(${recipeId}, '${recipe.description}', '${recipe.images}', '${recipe.recipeYield}')`
 
               dbConnection.query(addRecipeInfoQuery, async (err, result) => {
                 if (err) {

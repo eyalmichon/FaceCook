@@ -136,17 +136,17 @@ $(document).ready(function () {
         }
 
         let category = event.target.category.value;
-        if(!category) {
+        if (!category) {
             showError("Please enter a category.");
             return;
         }
         let minutes = event.target.minutes.value;
-        if(!minutes) {
+        if (!minutes) {
             showError("Please enter the minutes.");
             return;
         }
         let recipeYield = event.target.recipeYield.value;
-        if(!recipeYield) {
+        if (!recipeYield) {
             showError("Please enter the recipe yield.");
             return;
         }
@@ -281,7 +281,7 @@ $(document).ready(function () {
             })
                 .then(res => res.json())
                 .then(data => {
-                    if(data.status === 200) {
+                    if (data.status === 200) {
                         showSuccess(data.message);
                     } else {
                         showError(data.message);
