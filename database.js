@@ -81,7 +81,8 @@ function getUsersWithRecipe(callback) {
 
 
 function getRecipeByName(name, callback) {
-    const query = 'SELECT * FROM recipes WHERE name = ?';
+    let query = 'SELECT * FROM (SELECT * FROM recipesdb.recipes WHERE name = ? LIMIT 1) AS test';
+    query += ' LEFT JOIN recipesdb.reviews on test.recipe_id = reviews.recipe_id';
     const formattedQuery = mysql.format(query, [name]);
 
     dbConnection.query(formattedQuery, (error, results) => {
