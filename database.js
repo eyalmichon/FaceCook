@@ -284,7 +284,7 @@ async function addRecipe(user, recipe, callback) {
 
 function getUserRecipes(username, callback) {
   const query = `
-      SELECT
+      SELECT r.name,
       (SELECT JSON_ARRAYAGG(
         JSON_OBJECT(
             'user_id', u.user_id, 
@@ -326,7 +326,7 @@ function getUserRecipes(username, callback) {
 
 function getHomeRecipes(callback) {
   const query = `
-  SELECT  
+  SELECT r.name,
   (SELECT JSON_ARRAYAGG(
             JSON_OBJECT(
                 'user_id', u.user_id, 
