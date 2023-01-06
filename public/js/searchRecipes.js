@@ -20,16 +20,45 @@ $(document).ready(function () {
 
   function showNutritionLabel(data) {
     let nutritionLabelContainer = $('<div class="nutrition-label-container"></div>');
+    let ing_ins_container = $('<div class="ing-ins-container"></div>');
+
 
     // remove the nutrition label if it already exists
     $('.nutrition-label-container').remove();
+    $('.ing-ins-container').remove();
+
+
+    let ingredientsContainer = $('<div class="ingredients-container"></div>');
+    let instructionsContainer = $('<div class="instructions-container"></div>');
+
+
+
+    // create ingredients container
+    ingredientsContainer.append('<p><strong>Ingredients:</strong></p>');
+    let ingredientsList = $('<ol class="ingredients-list"></ol>');
+    JSON.parse(data[0].ingredients).forEach(ingredient => {
+      console.log(ingredient);
+      ingredientsList.append(`<li>${ingredient.food_name} - ${ingredient.quantity.toFixed(3)} ${ingredient.unit} </li>`);
+    });
+    ingredientsContainer.append(ingredientsList);
+
+    // create instructions container
+    instructionsContainer.append('<p><strong>Instructions:</strong></p>');
+    let instructionsList = $('<ol class="instructions-list"></ol>');
+    JSON.parse(data[0].instructions).forEach(instruction => {
+      instructionsList.append(`<li>(${instruction.step}) ${instruction.instruction}</li>`);
+    });
+    instructionsContainer.append(instructionsList);
+    // create instructions and ingredients container
+    ing_ins_container.append(instructionsContainer);
+    ing_ins_container.append(ingredientsContainer);
 
     // create a new element for the nutrition label
     let nutritionLabel = $('<div class="nutrition-label">\
         <h3>Nutrition Facts</h3>\
         <hr>\
         <p>Category: <span class="category"></span></p>\
-        <p>Serving Size: <span class="serving-size"></span></p>\
+        <p>Description: <span class="description"></span></p>\
         <hr>\
         <table>\
             <tr>\
@@ -88,7 +117,9 @@ $(document).ready(function () {
     nutritionLabelContainer.append(reviewAndRatings);
 
     // append the nutrition label container to the body
+    $("body").append(ing_ins_container);
     $("body").append(nutritionLabelContainer);
+
     // Add event listener to the form on submit
     $('#addReviewForm').submit(function (event) {
       event.preventDefault();
@@ -136,25 +167,27 @@ $(document).ready(function () {
 
     // set the nutrition label values
     $('.category').text(data[0].category);
-    $('.sodium').text(data[0].sodium);
-    $('.total_fat').text(data[0].total_fat);
-    $('.carbohydrates').text(data[0].carbohydrates);
-    $('.protein').text(data[0].protein);
-    $('.calories').text(data[0].kcal);
-    $('.sugars').text(data[0].sugars);
-    $('.saturated_fat').text(data[0].saturated_fat);
+    $('.description').text(data[0].description);
+    $('.sodium').text(data[0].sodium.toFixed(2));
+    $('.total_fat').text(data[0].total_fat.toFixed(2));
+    $('.carbohydrates').text(data[0].carbohydrates.toFixed(2));
+    $('.protein').text(data[0].protein.toFixed(2));
+    $('.calories').text(data[0].kcal.toFixed(2));
+    $('.sugars').text(data[0].sugars.toFixed(2));
+    $('.saturated_fat').text(data[0].saturated_fat.toFixed(2));
 
 
+    reviews = JSON.parse(data[0].reviews);
     // loop through the reviews array
-    for (let i = 0; i < data.length; i++) {
-      let review = data[i].review;
+    for (let i = 0; i < reviews.length; i++) {
+      let review = reviews[i].review;
 
       // create a new element for the review and ratings system
       let reviewElement = $(`<div class="review">
             <p>${review}</p>
             <div class="star-rating">
               <!-- display the review's rating using text characters -->
-              ${'&#9733;'.repeat(data[i].rating)}
+              ${'&#9733;'.repeat(reviews[i].rating)}
             </div>`);
 
       // handle the edit functionality for the review
@@ -171,6 +204,8 @@ $(document).ready(function () {
       $('.review-and-ratings').prepend(reviewElement);
     }
   }
+
+  // function to get the recipe with reviews
   function getRecipeWithReviews(searchTerm){
     return fetch('/getRecipeWithReviews', {
       method: 'POST',
@@ -183,6 +218,8 @@ $(document).ready(function () {
     })
       .then(response => response.json())
   }
+
+  // function to show the nutrition label
   $("#searchForm").submit(async function (event) {
     // prevent the form from submitting the default way
     event.preventDefault();
@@ -208,6 +245,7 @@ $(document).ready(function () {
 
   });
 
+  // function to show the nutrition label
   $("#searchTerm").autocomplete({
     source: function (request, response) {
       $.ajax({
