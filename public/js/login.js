@@ -92,6 +92,7 @@ $(document).ready(function () {
                     });
                 }
                 else {
+                    //bad login text
                     Swal.fire({
                         icon: 'error',
                         title: 'Error',

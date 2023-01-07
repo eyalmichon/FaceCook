@@ -29,7 +29,7 @@ function createSchema() {
         console.log(result);
     });
 }
-
+//create the tables of the schema
 function createTable() {
     var sqlUsers = "CREATE TABLE IF NOT EXISTS recipesdb.users (`user_id` int NOT NULL AUTO_INCREMENT,`username` varchar(100) NOT NULL,`password` varchar(150) NOT NULL,PRIMARY KEY (`user_id`,`username`))"
     connection.query(sqlUsers, (err, result) => { if (err) throw err; console.log(result); });

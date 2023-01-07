@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     getUserRecipes();
 
 });
-
+//gets the recipess writting by logged on user
 function getUserRecipes() {
     // get the recipes div
     const recipesDiv = document.getElementById('gallery');

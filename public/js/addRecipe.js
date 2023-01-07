@@ -90,6 +90,7 @@ $(document).ready(function () {
             });
     }
 
+    //handle errors
     function showError(msg) {
         Swal.fire({
             icon: 'error',
@@ -123,6 +124,8 @@ $(document).ready(function () {
         // get the values of the form fields from the event object
         let recipeName = event.target.recipeName.value;
 
+
+        // handle bad/missing inputs
         if (!recipeName) {
             showError("Please enter a recipe name.");
             return;

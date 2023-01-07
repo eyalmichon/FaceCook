@@ -31,21 +31,21 @@ app.get('/', (req, res) => {
 
 
 });
-
+//self explanatory
 app.get('/addRecipe', (req, res) => {
   if (req.session.user)
     res.sendFile('addRecipe.html', { root: path.join(__dirname, 'public') });
   else
     res.sendFile('login.html', { root: path.join(__dirname, 'public') });
 });
-
+//self explanatory
 app.get('/searchRecipes', (req, res) => {
   if (req.session.user)
     res.sendFile('searchRecipes.html', { root: path.join(__dirname, 'public') });
   else
     res.sendFile('login.html', { root: path.join(__dirname, 'public') });
 });
-
+//self explanatory
 app.get('/myRecipes', (req, res) => {
   if (req.session.user)
     res.sendFile('myRecipes.html', { root: path.join(__dirname, 'public') });
@@ -75,7 +75,7 @@ app.get('/search', (req, res) => {
       res.send([]);
   }
 });
-
+//self explanatory
 app.post('/getRecipeWithReviews', (req, res) => {
   const search = req.body.search;
 
@@ -83,7 +83,7 @@ app.post('/getRecipeWithReviews', (req, res) => {
     res.send(results);
   });
 });
-
+//self explanatory
 app.get('/getUserRecipes', (req, res) => {
   const user = req.session.user.username;
   db.getUserRecipes(user, (results) => {

@@ -1,3 +1,4 @@
+//Through this js file architect the home page after logging in
 document.addEventListener('DOMContentLoaded', () => {
     getHomeRecipes();
 

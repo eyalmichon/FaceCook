@@ -143,7 +143,7 @@ $(document).ready(function () {
           review: review,
           rating: rating
         })
-      })
+      }) //handle errors
         .then(response => response.json())
         .then(async response => {
           if (response.error) {
