@@ -116,7 +116,7 @@ function addReview(user, recipeName, review, rating, callback) {
     }
   });
 }
-
+// This function gets a name, and returns all the recipes that contain said name
 function getRecipeByName(name, callback) {
   let query = `SELECT r.*,
                   (SELECT JSON_ARRAYAGG(JSON_OBJECT('food_name', food_name, 'quantity', quantity, 'unit', unit))
@@ -139,7 +139,7 @@ function getRecipeByName(name, callback) {
     callback(results);
   });
 }
-
+//This function adds a given recipe to the database, and connects it to given user
 async function addRecipe(user, recipe, callback) {
   const sqlSearch = "Select * from users where username = ?";
   const search_query = mysql.format(sqlSearch, [user]);
