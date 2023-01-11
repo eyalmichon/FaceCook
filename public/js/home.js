@@ -10,7 +10,7 @@ function getHomeRecipes() {
     fetch('/getHomeRecipes')
         .then(response => response.json())
         .then(results => {
-            console.log(results);
+            // console.log(results);
 
             // loop through the results and create HTML elements for each recipe
             results.forEach(recipe => {

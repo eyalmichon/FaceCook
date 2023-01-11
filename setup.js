@@ -49,7 +49,7 @@ function createTable() {
     var sqlInstructions = "CREATE TABLE IF NOT EXISTS recipesdb.instructions (recipe_id int NOT NULL, step int NOT NULL,instruction varchar(5000) DEFAULT NULL, PRIMARY KEY (recipe_id,step),CONSTRAINT inst_recipe_id FOREIGN KEY (recipe_id) REFERENCES recipes (recipe_id) )"
     connection.query(sqlInstructions, (err, result) => { if (err) throw err; console.log(result); });
 
-    var sqlRecipeInfo = "CREATE TABLE IF NOT EXISTS recipesdb.recipe_info (`recipe_id` int NOT NULL,`description` text,`image_url` text,`recipe_yield` varchar(5000) DEFAULT NULL,PRIMARY KEY (`recipe_id`), CONSTRAINT `info_recipe_id` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`recipe_id`))"
+    var sqlRecipeInfo = "CREATE TABLE IF NOT EXISTS recipesdb.recipe_info (`recipe_id` int NOT NULL,`description` text,`image_url` mediumtext,`recipe_yield` varchar(5000) DEFAULT NULL,PRIMARY KEY (`recipe_id`), CONSTRAINT `info_recipe_id` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`recipe_id`))"
     connection.query(sqlRecipeInfo, (err, result) => { if (err) throw err; console.log(result); });
 
     var sqlRecipestoIngredients = "CREATE TABLE IF NOT EXISTS recipesdb.recipestoingredients ( `recipe_id` int NOT NULL, `food_name` varchar(500) NOT NULL, `quantity` float DEFAULT NULL,`unit` varchar(20) NOT NULL, PRIMARY KEY (`recipe_id`,`food_name`,`unit`), KEY `fk_food_name` (`food_name`), CONSTRAINT `fk_food_name` FOREIGN KEY (`food_name`) REFERENCES `ingredients` (`food_name`), CONSTRAINT `mix_recipe_id` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`recipe_id`))"
