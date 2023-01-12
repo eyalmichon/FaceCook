@@ -282,6 +282,7 @@ async function addRecipe(user, recipe, callback) {
   });
 }
 
+// get user recipes
 function getUserRecipes(username, callback) {
   const query = `
       SELECT r.name,
