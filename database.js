@@ -11,7 +11,7 @@ const dbConnection = mysql.createConnection({
 });
 
 dbConnection.connect((err) => {
-  if (err) throw err;
+  if (err) console.log(err);
   console.log("Connected to recipesdb!");
 });
 
@@ -135,7 +135,7 @@ function getRecipeByName(name, callback) {
   const formattedQuery = mysql.format(query, [name]);
 
   dbConnection.query(formattedQuery, (error, results) => {
-    if (error) throw error;
+    if (error) console.log(err);
     callback(results);
   });
 }
@@ -144,7 +144,7 @@ async function addRecipe(user, recipe, callback) {
   const sqlSearch = "Select * from users where username = ?";
   const search_query = mysql.format(sqlSearch, [user]);
   dbConnection.query(search_query, async (err, result2) => {
-    if (err) throw err;
+    if (err) console.log(err);
     if (result2.length == 0) {
       console.log("--------> User does not exist");
       callback({ message: "User does not exist", status: 404 });
@@ -314,7 +314,7 @@ function getUserRecipes(username, callback) {
   const params = [username];
 
   dbConnection.query(query, params, (error, results) => {
-    if (error) throw error;
+    if (error) console.log(error);
     results = results.map((result) => {
       result.reviews = JSON.parse(result.reviews);
       result.instructions = JSON.parse(result.instructions);
@@ -361,7 +361,7 @@ function getHomeRecipes(callback) {
     `;
 
   dbConnection.query(query, (error, results) => {
-    if (error) throw error;
+    if (error) console.log(err);
     results = results.map((result) => {
       result.reviews = JSON.parse(result.reviews);
       result.instructions = JSON.parse(result.instructions);
@@ -397,7 +397,7 @@ function getRecipesByTerm(searchTerm, toggle, filter, callback) {
     // console.log(query)
   }
   dbConnection.query(query, (error, results) => {
-    if (error) throw error;
+    if (error) console.log(err);
     callback(results);
   });
 }
@@ -410,7 +410,7 @@ function getRecipesByTerm(searchTerm, toggle, filter, callback) {
 function getIngredientsByTerm(searchTerm, callback) {
   const query = `SELECT * FROM ingredients WHERE food_name LIKE '%${searchTerm}%'`;
   dbConnection.query(query, (error, results) => {
-    if (error) throw error;
+    if (error) console.log(err);
     callback(results);
   });
 }
@@ -426,7 +426,7 @@ async function login(user, password, callback) {
   const sqlSearch = "Select * from users where username = ?";
   const search_query = mysql.format(sqlSearch, [user]);
   dbConnection.query(search_query, async (err, result) => {
-    if (err) throw err;
+    if (err) console.log(err);
     if (result.length == 0) {
       console.log("--------> User does not exist");
       callback({ message: "User does not exist", status: 404 });
@@ -464,7 +464,7 @@ async function register(user, password, callback) {
   // ?? will be replaced by string
   const insert_query = mysql.format(sqlInsert, [user, hashedPassword]);
   dbConnection.query(search_query, async (err, result) => {
-    if (err) throw err;
+    if (err) console.log(err);
     console.log("------> Search Results");
     console.log(`Result: ${result}`);
     if (result.length != 0) {
@@ -472,7 +472,7 @@ async function register(user, password, callback) {
       callback({ message: `User: ${user} already exists!`, status: 409 });
     } else {
       dbConnection.query(insert_query, (err, result) => {
-        if (err) throw err;
+        if (err) console.log(err);
         console.log("--------> Created new User");
         callback({
           message: `Created new user with id: ${result.insertId}`,
