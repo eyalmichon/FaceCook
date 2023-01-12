@@ -55,7 +55,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 Welcome to a brand new social network, solely dedicated for food! 
 Preapring an exquisite, well timed meal has never been so easy. 
