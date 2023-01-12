@@ -37,7 +37,6 @@ $(document).ready(function () {
     ingredientsContainer.append('<p><strong>Ingredients:</strong></p>');
     let ingredientsList = $('<ol class="ingredients-list"></ol>');
     JSON.parse(data[0].ingredients).forEach(ingredient => {
-      console.log(ingredient);
       ingredientsList.append(`<li>${ingredient.food_name} - ${ingredient.quantity.toFixed(3)} ${ingredient.unit} </li>`);
     });
     ingredientsContainer.append(ingredientsList);
@@ -59,6 +58,9 @@ $(document).ready(function () {
         <hr>\
         <p>Category: <span class="category"></span></p>\
         <p>Description: <span class="description"></span></p>\
+        <p>Minutes: <span class="minutes"></span></p>\
+        <p>Date Sumbitted: <span class="date"></span></p>\
+        <p>Recipe Yield: <span class="yield"></span></p>\
         <hr>\
         <table>\
             <tr>\
@@ -91,6 +93,10 @@ $(document).ready(function () {
             </tr>\
         </table>\
         </div>');
+
+    if (data[0].recipe_yield == "") {
+      nutritionLabel.find('p:contains("Recipe Yield")').remove();
+    }
 
     // create a new element for the review and ratings system
     let reviewAndRatings = $('<form id="addReviewForm" action="/addReview" method="POST">\
@@ -165,8 +171,15 @@ $(document).ready(function () {
         });
     });
 
+    console.log(data[0])
     // set the nutrition label values
     $('.category').text(data[0].category);
+    $('.minutes').text(data[0].minutes);
+    if (data[0].recipe_yield !== "") {
+      $('.yield').text(data[0].recipe_yield);
+    }
+    const date = new Date(data[0].date_submitted).toISOString().slice(0, 10);
+    $('.date').text(date);
     $('.description').text(data[0].description);
     $('.sodium').text(data[0].sodium.toFixed(2));
     $('.total_fat').text(data[0].total_fat.toFixed(2));

@@ -118,18 +118,18 @@ function addReview(user, recipeName, review, rating, callback) {
 }
 // This function gets a name, and returns all the recipes that contain said name
 function getRecipeByName(name, callback) {
-  let query = `SELECT r.*,
+  let query = `SELECT r.*,recipe_yield,
                   (SELECT JSON_ARRAYAGG(JSON_OBJECT('food_name', food_name, 'quantity', quantity, 'unit', unit))
-                  FROM recipesdb.recipestoingredients
+                  FROM recipestoingredients
                   WHERE recipe_id = r.recipe_id) AS ingredients,
                   (SELECT JSON_ARRAYAGG(JSON_OBJECT('step', step, 'instruction', instruction))
-                  FROM recipesdb.instructions
+                  FROM instructions
                   WHERE recipe_id = r.recipe_id) AS instructions,
                   (SELECT JSON_ARRAYAGG(JSON_OBJECT('rating', rating, 'review', review))
-                  FROM recipesdb.reviews
+                  FROM reviews
                   WHERE recipe_id = r.recipe_id) AS reviews, description 
-                FROM recipesdb.recipes AS r
-                LEFT JOIN recipesdb.recipe_info AS info ON r.recipe_id = info.recipe_id
+                FROM recipes AS r
+                LEFT JOIN recipe_info AS info ON r.recipe_id = info.recipe_id
                 WHERE r.name = ?
                 LIMIT 1`
   const formattedQuery = mysql.format(query, [name]);
@@ -165,7 +165,7 @@ async function addRecipe(user, recipe, callback) {
         query += `${quantity_100g} * sodium AS sodium, `;
         query += `${quantity_100g} * sugars AS sugars, `;
         query += `${quantity_100g} * carbohydrates AS carbohydrates `;
-        query += `FROM recipesdb.ingredients WHERE food_name = '${food_name}'`;
+        query += `FROM ingredients WHERE food_name = '${food_name}'`;
         if (i < recipe.ingredients.length - 1) {
           query += ` UNION ALL `;
         }
@@ -285,33 +285,16 @@ async function addRecipe(user, recipe, callback) {
 // get user recipes
 function getUserRecipes(username, callback) {
   const query = `
-      SELECT r.name,
-      (SELECT JSON_ARRAYAGG(
-        JSON_OBJECT(
-            'user_id', u.user_id, 
-            'date_submitted', rv.date_submitted, 
-            'date_modified', rv.date_modified, 
-            'rating', rv.rating, 
-            'review', rv.review
-        )
-    )) AS reviews,
-    ri.description, ri.image_url,
-    (SELECT JSON_ARRAYAGG(
-      JSON_OBJECT(
-          'step', ins.step, 
-          'instruction', ins.instruction
-          )
-      )
-    FROM recipesdb.instructions ins
-    WHERE r.recipe_id = ins.recipe_id
-    GROUP BY ins.recipe_id) AS instructions
-    FROM recipesdb.recipes r
-    JOIN recipesdb.users u ON r.contributor_id = u.user_id
-    LEFT JOIN recipesdb.reviews rv ON r.recipe_id = rv.recipe_id
-    LEFT JOIN recipesdb.recipe_info ri ON r.recipe_id = ri.recipe_id
+    SELECT r.name, ri.description, ri.image_url,
+    (SELECT JSON_ARRAYAGG(JSON_OBJECT('rating', rv.rating, 'review', rv.review))) AS reviews,
+    (SELECT JSON_ARRAYAGG(JSON_OBJECT('step', ins.step,  'instruction', ins.instruction))
+    FROM instructions ins WHERE r.recipe_id = ins.recipe_id GROUP BY ins.recipe_id) AS instructions
+    FROM recipes r
+    JOIN users u ON r.contributor_id = u.user_id
+    LEFT JOIN reviews rv ON r.recipe_id = rv.recipe_id
+    LEFT JOIN recipe_info ri ON r.recipe_id = ri.recipe_id
     WHERE u.username = ?
-    GROUP BY r.recipe_id
-    `;
+    GROUP BY r.recipe_id`;
   const params = [username];
 
   dbConnection.query(query, params, (error, results) => {
@@ -327,39 +310,20 @@ function getUserRecipes(username, callback) {
 
 function getHomeRecipes(callback) {
   const query = `
-  SELECT r.name,
-  (SELECT JSON_ARRAYAGG(
-            JSON_OBJECT(
-                'user_id', u.user_id, 
-                'date_submitted', rv.date_submitted, 
-                'date_modified', rv.date_modified, 
-                'rating', rv.rating, 
-                'review', rv.review
-            )
-        ) 
-     FROM recipesdb.reviews rv
-     WHERE r.recipe_id = rv.recipe_id
-     GROUP BY rv.recipe_id) AS reviews,
-    ri.description, ri.image_url,
-    (SELECT JSON_ARRAYAGG(
-              JSON_OBJECT(
-                  'step', ins.step, 
-                  'instruction', ins.instruction
-              )
-          )
-      FROM recipesdb.instructions ins
-      WHERE r.recipe_id = ins.recipe_id
-      GROUP BY ins.recipe_id) AS instructions
-      FROM recipesdb.recipes r
-      JOIN recipesdb.users u ON r.contributor_id = u.user_id
-      LEFT JOIN recipesdb.recipe_info ri ON r.recipe_id = ri.recipe_id
-      WHERE r.recipe_id IN (SELECT test.recipe_id
-      FROM (SELECT recipe_id, COUNT(*) as num_reviews
-      FROM recipesdb.reviews
-      GROUP BY recipe_id
-      ORDER BY num_reviews DESC
-      LIMIT 100) as test)
-    `;
+    SELECT r.name, ri.description, ri.image_url,
+    (SELECT JSON_ARRAYAGG(JSON_OBJECT('rating', rv.rating, 'review', rv.review)) 
+    FROM reviews rv WHERE r.recipe_id = rv.recipe_id GROUP BY rv.recipe_id) AS reviews,
+    (SELECT JSON_ARRAYAGG(JSON_OBJECT('step', ins.step, 'instruction', ins.instruction))
+    FROM instructions ins WHERE r.recipe_id = ins.recipe_id GROUP BY ins.recipe_id) AS instructions
+    FROM recipes r
+    JOIN users u ON r.contributor_id = u.user_id
+    LEFT JOIN recipe_info ri ON r.recipe_id = ri.recipe_id
+    WHERE r.recipe_id IN (SELECT test.recipe_id
+    FROM (SELECT recipe_id, COUNT(*) as num_reviews
+    FROM reviews
+    GROUP BY recipe_id
+    ORDER BY num_reviews DESC
+    LIMIT 100) as test)`;
 
   dbConnection.query(query, (error, results) => {
     if (error) return console.log(error);
