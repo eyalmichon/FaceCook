@@ -103,6 +103,10 @@ npm start
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+### Using the website
+A throrough guidance can be found in the "User Guide" PDF file :)
+
+
 <!-- CONTACT -->
 ## Issues
 
