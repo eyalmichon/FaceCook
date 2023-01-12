@@ -12,6 +12,9 @@ const connection = mysql.createConnection({
 
 async function createSQLDB() {
     await createSchema();
+    connection.changeUser({database: 'recipesdb'}, function(err) {
+        if (err) throw err;
+    });
     await createTable();
     await batchInsert('users', ['user_id', 'username', 'password'], users, true);
     await batchInsert('recipes', ['recipe_id', 'name', 'contributor_id', 'date_submitted', 'minutes', 'kcal', 'total_fat', 'protein', 'sodium', 'saturated_fat', 'sugars', 'carbohydrates', 'category'], recipes, true);
@@ -32,31 +35,31 @@ async function createSchema() {
 }
 //create the tables of the schema
 async function createTable() {
-    var sqlUsers = "CREATE TABLE IF NOT EXISTS recipesdb.users (`user_id` int NOT NULL AUTO_INCREMENT,`username` varchar(100) NOT NULL,`password` varchar(150) NOT NULL,PRIMARY KEY (`user_id`,`username`))"
+    var sqlUsers = "CREATE TABLE IF NOT EXISTS users (`user_id` int NOT NULL AUTO_INCREMENT,`username` varchar(100) NOT NULL,`password` varchar(150) NOT NULL,PRIMARY KEY (`user_id`,`username`))"
     await connection.query(sqlUsers, (err, result) => { if (err) throw err; console.log(result); });
     // alter auto increment
-    var alter = 'ALTER TABLE recipesdb.users AUTO_INCREMENT=2002901500';
+    var alter = 'ALTER TABLE users AUTO_INCREMENT=2002901500';
     await connection.query(alter, (err, result) => { if (err) throw err; console.log(result); });
 
-    var sqlRecipes = "CREATE TABLE IF NOT EXISTS recipesdb.recipes ( `recipe_id` int NOT NULL AUTO_INCREMENT, `name` varchar(100) DEFAULT NULL,`contributor_id` int DEFAULT NULL,`date_submitted` date DEFAULT NULL, `minutes` int DEFAULT NULL,`kcal` double DEFAULT NULL, `total_fat` double DEFAULT NULL,`protein` double DEFAULT NULL,`saturated_fat` double DEFAULT NULL,`sodium` double DEFAULT NULL,`sugars` double DEFAULT NULL,`carbohydrates` double DEFAULT NULL,`category` varchar(50) DEFAULT NULL,PRIMARY KEY (`recipe_id`),KEY `contributer_id_idx` (`contributor_id`),CONSTRAINT `contributer_id` FOREIGN KEY (`contributor_id`) REFERENCES `users` (`user_id`))"
+    var sqlRecipes = "CREATE TABLE IF NOT EXISTS recipes ( `recipe_id` int NOT NULL AUTO_INCREMENT, `name` varchar(100) DEFAULT NULL,`contributor_id` int DEFAULT NULL,`date_submitted` date DEFAULT NULL, `minutes` int DEFAULT NULL,`kcal` double DEFAULT NULL, `total_fat` double DEFAULT NULL,`protein` double DEFAULT NULL,`saturated_fat` double DEFAULT NULL,`sodium` double DEFAULT NULL,`sugars` double DEFAULT NULL,`carbohydrates` double DEFAULT NULL,`category` varchar(50) DEFAULT NULL,PRIMARY KEY (`recipe_id`),KEY `contributer_id_idx` (`contributor_id`),CONSTRAINT `contributer_id` FOREIGN KEY (`contributor_id`) REFERENCES `users` (`user_id`))"
     await connection.query(sqlRecipes, (err, result) => { if (err) throw err; console.log(result); });
     // alter auto increment
-    alter = 'ALTER TABLE recipesdb.recipes AUTO_INCREMENT=526000';
+    alter = 'ALTER TABLE recipes AUTO_INCREMENT=526000';
     await connection.query(alter, (err, result) => { if (err) throw err; console.log(result); });
 
-    var sqlIngredients = "CREATE TABLE IF NOT EXISTS recipesdb.ingredients (food_name VARCHAR(500) PRIMARY KEY NOT NULL,kcal float DEFAULT NULL, total_fat float DEFAULT NULL, protein float DEFAULT NULL,saturated_fat float DEFAULT NULL, sodium float DEFAULT NULL,sugars float DEFAULT NULL,carbohydrates float DEFAULT NULL)"
+    var sqlIngredients = "CREATE TABLE IF NOT EXISTS ingredients (food_name VARCHAR(500) PRIMARY KEY NOT NULL,kcal float DEFAULT NULL, total_fat float DEFAULT NULL, protein float DEFAULT NULL,saturated_fat float DEFAULT NULL, sodium float DEFAULT NULL,sugars float DEFAULT NULL,carbohydrates float DEFAULT NULL)"
     await connection.query(sqlIngredients, (err, result) => { if (err) throw err; console.log(result); });
 
-    var sqlInstructions = "CREATE TABLE IF NOT EXISTS recipesdb.instructions (recipe_id int NOT NULL, step int NOT NULL,instruction varchar(5000) DEFAULT NULL, PRIMARY KEY (recipe_id,step),CONSTRAINT inst_recipe_id FOREIGN KEY (recipe_id) REFERENCES recipes (recipe_id) )"
+    var sqlInstructions = "CREATE TABLE IF NOT EXISTS instructions (recipe_id int NOT NULL, step int NOT NULL,instruction varchar(5000) DEFAULT NULL, PRIMARY KEY (recipe_id,step),CONSTRAINT inst_recipe_id FOREIGN KEY (recipe_id) REFERENCES recipes (recipe_id) )"
     await connection.query(sqlInstructions, (err, result) => { if (err) throw err; console.log(result); });
 
-    var sqlRecipeInfo = "CREATE TABLE IF NOT EXISTS recipesdb.recipe_info (`recipe_id` int NOT NULL,`description` text,`image_url` mediumtext,`recipe_yield` varchar(5000) DEFAULT NULL,PRIMARY KEY (`recipe_id`), CONSTRAINT `info_recipe_id` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`recipe_id`))"
+    var sqlRecipeInfo = "CREATE TABLE IF NOT EXISTS recipe_info (`recipe_id` int NOT NULL,`description` text,`image_url` mediumtext,`recipe_yield` varchar(5000) DEFAULT NULL,PRIMARY KEY (`recipe_id`), CONSTRAINT `info_recipe_id` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`recipe_id`))"
     await connection.query(sqlRecipeInfo, (err, result) => { if (err) throw err; console.log(result); });
 
-    var sqlRecipestoIngredients = "CREATE TABLE IF NOT EXISTS recipesdb.recipestoingredients ( `recipe_id` int NOT NULL, `food_name` varchar(500) NOT NULL, `quantity` float DEFAULT NULL,`unit` varchar(20) NOT NULL, PRIMARY KEY (`recipe_id`,`food_name`,`unit`), KEY `fk_food_name` (`food_name`), CONSTRAINT `fk_food_name` FOREIGN KEY (`food_name`) REFERENCES `ingredients` (`food_name`), CONSTRAINT `mix_recipe_id` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`recipe_id`))"
+    var sqlRecipestoIngredients = "CREATE TABLE IF NOT EXISTS recipestoingredients ( `recipe_id` int NOT NULL, `food_name` varchar(500) NOT NULL, `quantity` float DEFAULT NULL,`unit` varchar(20) NOT NULL, PRIMARY KEY (`recipe_id`,`food_name`,`unit`), KEY `fk_food_name` (`food_name`), CONSTRAINT `fk_food_name` FOREIGN KEY (`food_name`) REFERENCES `ingredients` (`food_name`), CONSTRAINT `mix_recipe_id` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`recipe_id`))"
     await connection.query(sqlRecipestoIngredients, (err, result) => { if (err) throw err; console.log(result); });
 
-    var sqlReviews = "CREATE TABLE IF NOT EXISTS recipesdb.reviews ( `recipe_id` int NOT NULL,`user_id` int NOT NULL, `date_submitted` datetime DEFAULT NULL,`date_modified` datetime DEFAULT NULL,`rating` tinyint DEFAULT NULL, `review` text, PRIMARY KEY (`recipe_id`,`user_id`), KEY `rev_user_id_idx` (`user_id`) , CONSTRAINT `rev_recipe_id` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`recipe_id`), CONSTRAINT `rev_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`))"
+    var sqlReviews = "CREATE TABLE IF NOT EXISTS reviews ( `recipe_id` int NOT NULL,`user_id` int NOT NULL, `date_submitted` datetime DEFAULT NULL,`date_modified` datetime DEFAULT NULL,`rating` tinyint DEFAULT NULL, `review` text, PRIMARY KEY (`recipe_id`,`user_id`), KEY `rev_user_id_idx` (`user_id`) , CONSTRAINT `rev_recipe_id` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`recipe_id`), CONSTRAINT `rev_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`))"
     await connection.query(sqlReviews, (err, result) => { if (err) throw err; console.log(result); });
 }
 
@@ -87,7 +90,7 @@ const recipesToIngredients = require('./raw_data/RecipesToIngredients.json');
 // update password value in users table for all users in the users json
 function updatePassword() {
     users.forEach((user, i) => {
-        connection.query(`UPDATE recipesdb.users SET password = '${user.password}' WHERE user_id = ${user.user_id}`, (err, result) => {
+        connection.query(`UPDATE users SET password = '${user.password}' WHERE user_id = ${user.user_id}`, (err, result) => {
             if (err) throw err;
 
             console.log(`user ${i} updated`);
@@ -98,7 +101,7 @@ function updatePassword() {
 // update the image_url value in recipe_info table for all recipes in the recipeInfo json
 function updateImageUrl() {
     recipeInfo.forEach((recipe, i) => {
-        connection.query(`UPDATE recipesdb.recipe_info SET image_url = '${recipe.image_url}' WHERE recipe_id = ${recipe.recipe_id}`, (err, result) => {
+        connection.query(`UPDATE recipe_info SET image_url = '${recipe.image_url}' WHERE recipe_id = ${recipe.recipe_id}`, (err, result) => {
             if (err) throw err;
 
             console.log(`recipe ${i} updated`);
@@ -182,14 +185,14 @@ function createUserDatabase() {
 
 
 function deleteAllRows(table) {
-    connection.query(`DELETE FROM recipesdb.${table}`, (err, result) => {
+    connection.query(`DELETE FROM ${table}`, (err, result) => {
         if (err) throw err;
         console.log(result);
     });
 }
 
 async function batchInsert(table, columns, json, skipDups = false) {
-    let query = `INSERT INTO recipesdb.${table} (${columns}) VALUES `;
+    let query = `INSERT INTO ${table} (${columns}) VALUES `;
     let allValues = [];
     json.forEach((obj) => {
         let values = [];
@@ -289,7 +292,7 @@ function makeDistinctJson(json) {
 // update users username in users table for all users
 function updateUsernames() {
     users.forEach((user) => {
-        let query = `UPDATE recipesdb.users SET username = '${user.username}' WHERE user_id = ${user.user_id}`;
+        let query = `UPDATE users SET username = '${user.username}' WHERE user_id = ${user.user_id}`;
         connection.query(query
             , (err, result) => {
                 if (err) throw err;
