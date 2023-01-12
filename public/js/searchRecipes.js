@@ -245,6 +245,34 @@ $(document).ready(function () {
 
   });
 
+
+    // function to show the nutrition label
+    function getIngredientsByTerm(request, response, slice = true) {
+      new Promise((resolve, reject) => {
+          fetch('/search?type=ingredient&searchTerm=' + encodeURIComponent(request.term), {
+              method: 'GET'
+          })
+              .then(res => res.json())
+              .then(data => {
+                  resolve(slice ? data.slice(0, 100) : data);
+              })
+              .catch(error => {
+                  reject(error);
+              });
+      })
+          .then(data => {
+              response(data);
+          })
+          .catch(error => {
+              console.log(error);
+          });
+  }
+
+  $("#ingredient-filter").autocomplete({
+    source: getIngredientsByTerm,
+    minLength: 2
+});
+
   // function to show the nutrition label
   $("#searchTerm").autocomplete({
     source: function (request, response) {

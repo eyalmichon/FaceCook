@@ -391,7 +391,9 @@ function getRecipesByTerm(searchTerm, toggle, filter, callback) {
     query += ` AND recipe_id IN (SELECT recipe_id
             FROM (SELECT recipe_id, max(step) as max_step FROM instructions group by recipe_id) as instructions
             WHERE max_step <= ${filter.maxInstructions})`;
-    //  query += ` AND id IN (SELECT recipe_id FROM recipestoingredients WHERE ingredient LIKE '%${filter.ingredient}%')`;
+    if (filter.ingredient !== "") {
+      query += ` AND recipe_id IN (SELECT recipe_id FROM recipestoingredients WHERE food_name LIKE '%${filter.ingredient}%')`;
+    }
     // console.log(query)
   }
   dbConnection.query(query, (error, results) => {
