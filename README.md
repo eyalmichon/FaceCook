@@ -107,7 +107,7 @@ npm start
 A throrough guidance can be found in the "User Guide" PDF file :)
 
 
-Login The Website - http://localhost:3000/
+Login The Website - localhost:3000
 
 <!-- CONTACT -->
 ## Issues
