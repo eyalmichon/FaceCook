@@ -41,25 +41,25 @@ async function createTable() {
     var alter = 'ALTER TABLE users AUTO_INCREMENT=2002901500';
     await connection.query(alter, (err, result) => { if (err) throw err; console.log(result); });
 
-    var sqlRecipes = "CREATE TABLE IF NOT EXISTS recipes ( `recipe_id` int NOT NULL AUTO_INCREMENT, `name` varchar(100) DEFAULT NULL,`contributor_id` int DEFAULT NULL,`date_submitted` date DEFAULT NULL, `minutes` int DEFAULT NULL,`kcal` double DEFAULT NULL, `total_fat` double DEFAULT NULL,`protein` double DEFAULT NULL,`saturated_fat` double DEFAULT NULL,`sodium` double DEFAULT NULL,`sugars` double DEFAULT NULL,`carbohydrates` double DEFAULT NULL,`category` varchar(50) DEFAULT NULL,PRIMARY KEY (`recipe_id`),KEY `contributer_id_idx` (`contributor_id`),CONSTRAINT `contributer_id` FOREIGN KEY (`contributor_id`) REFERENCES `users` (`user_id`))"
+    var sqlRecipes = "CREATE TABLE IF NOT EXISTS recipes ( `recipe_id` int NOT NULL AUTO_INCREMENT, `name` varchar(100) NOT NULL,`contributor_id` int NOT NULL,`date_submitted` date NOT NULL, `minutes` int NOT NULL,`kcal` double NOT NULL, `total_fat` double NOT NULL,`protein` double NOT NULL,`saturated_fat` double NOT NULL,`sodium` double NOT NULL,`sugars` double NOT NULL,`carbohydrates` double NOT NULL,`category` varchar(50) NOT NULL,PRIMARY KEY (`recipe_id`),KEY `contributer_id_idx` (`contributor_id`),CONSTRAINT `contributer_id` FOREIGN KEY (`contributor_id`) REFERENCES `users` (`user_id`))"
     await connection.query(sqlRecipes, (err, result) => { if (err) throw err; console.log(result); });
     // alter auto increment
     alter = 'ALTER TABLE recipes AUTO_INCREMENT=526000';
     await connection.query(alter, (err, result) => { if (err) throw err; console.log(result); });
 
-    var sqlIngredients = "CREATE TABLE IF NOT EXISTS ingredients (food_name VARCHAR(500) PRIMARY KEY NOT NULL,kcal float DEFAULT NULL, total_fat float DEFAULT NULL, protein float DEFAULT NULL,saturated_fat float DEFAULT NULL, sodium float DEFAULT NULL,sugars float DEFAULT NULL,carbohydrates float DEFAULT NULL)"
+    var sqlIngredients = "CREATE TABLE IF NOT EXISTS ingredients (food_name VARCHAR(500) PRIMARY KEY NOT NULL,kcal float NOT NULL, total_fat float NOT NULL, protein float NOT NULL,saturated_fat float NOT NULL, sodium float NOT NULL,sugars float NOT NULL,carbohydrates float NOT NULL)"
     await connection.query(sqlIngredients, (err, result) => { if (err) throw err; console.log(result); });
 
-    var sqlInstructions = "CREATE TABLE IF NOT EXISTS instructions (recipe_id int NOT NULL, step int NOT NULL,instruction varchar(5000) DEFAULT NULL, PRIMARY KEY (recipe_id,step),CONSTRAINT inst_recipe_id FOREIGN KEY (recipe_id) REFERENCES recipes (recipe_id) )"
+    var sqlInstructions = "CREATE TABLE IF NOT EXISTS instructions (recipe_id int NOT NULL, step int NOT NULL,instruction varchar(5000) NOT NULL, PRIMARY KEY (recipe_id,step),CONSTRAINT inst_recipe_id FOREIGN KEY (recipe_id) REFERENCES recipes (recipe_id) )"
     await connection.query(sqlInstructions, (err, result) => { if (err) throw err; console.log(result); });
 
-    var sqlRecipeInfo = "CREATE TABLE IF NOT EXISTS recipe_info (`recipe_id` int NOT NULL,`description` text,`image_url` mediumtext,`recipe_yield` varchar(5000) DEFAULT NULL,PRIMARY KEY (`recipe_id`), CONSTRAINT `info_recipe_id` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`recipe_id`))"
+    var sqlRecipeInfo = "CREATE TABLE IF NOT EXISTS recipe_info (`recipe_id` int NOT NULL,`description` text,`image_url` mediumtext,`recipe_yield` varchar(5000) NOT NULL,PRIMARY KEY (`recipe_id`), CONSTRAINT `info_recipe_id` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`recipe_id`))"
     await connection.query(sqlRecipeInfo, (err, result) => { if (err) throw err; console.log(result); });
 
-    var sqlRecipestoIngredients = "CREATE TABLE IF NOT EXISTS recipestoingredients ( `recipe_id` int NOT NULL, `food_name` varchar(500) NOT NULL, `quantity` float DEFAULT NULL,`unit` varchar(20) NOT NULL, PRIMARY KEY (`recipe_id`,`food_name`,`unit`), KEY `fk_food_name` (`food_name`), CONSTRAINT `fk_food_name` FOREIGN KEY (`food_name`) REFERENCES `ingredients` (`food_name`), CONSTRAINT `mix_recipe_id` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`recipe_id`))"
+    var sqlRecipestoIngredients = "CREATE TABLE IF NOT EXISTS recipestoingredients ( `recipe_id` int NOT NULL, `food_name` varchar(500) NOT NULL, `quantity` float NOT NULL,`unit` varchar(20) NOT NULL, PRIMARY KEY (`recipe_id`,`food_name`,`unit`), KEY `fk_food_name` (`food_name`), CONSTRAINT `fk_food_name` FOREIGN KEY (`food_name`) REFERENCES `ingredients` (`food_name`), CONSTRAINT `mix_recipe_id` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`recipe_id`))"
     await connection.query(sqlRecipestoIngredients, (err, result) => { if (err) throw err; console.log(result); });
 
-    var sqlReviews = "CREATE TABLE IF NOT EXISTS reviews ( `recipe_id` int NOT NULL,`user_id` int NOT NULL, `date_submitted` datetime DEFAULT NULL,`date_modified` datetime DEFAULT NULL,`rating` tinyint DEFAULT NULL, `review` text, PRIMARY KEY (`recipe_id`,`user_id`), KEY `rev_user_id_idx` (`user_id`) , CONSTRAINT `rev_recipe_id` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`recipe_id`), CONSTRAINT `rev_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`))"
+    var sqlReviews = "CREATE TABLE IF NOT EXISTS reviews ( `recipe_id` int NOT NULL,`user_id` int NOT NULL, `date_submitted` datetime NOT NULL,`date_modified` datetime NOT NULL,`rating` tinyint NOT NULL, `review` text, PRIMARY KEY (`recipe_id`,`user_id`), KEY `rev_user_id_idx` (`user_id`) , CONSTRAINT `rev_recipe_id` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`recipe_id`), CONSTRAINT `rev_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`))"
     await connection.query(sqlReviews, (err, result) => { if (err) throw err; console.log(result); });
 }
 
