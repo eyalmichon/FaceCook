@@ -340,6 +340,37 @@ function getHomeRecipes(callback) {
   });
 }
 
+// get random recipes above a certain rating
+function getRandomRecipes(callback) {
+  const query = `
+    SELECT r.name, ri.description, ri.image_url,
+    (SELECT JSON_ARRAYAGG(JSON_OBJECT('rating', rv.rating, 'review', rv.review))
+    FROM reviews rv WHERE r.recipe_id = rv.recipe_id GROUP BY rv.recipe_id) AS reviews,
+    (SELECT JSON_ARRAYAGG(JSON_OBJECT('step', ins.step, 'instruction', ins.instruction))
+    FROM instructions ins WHERE r.recipe_id = ins.recipe_id GROUP BY ins.recipe_id) AS instructions
+    FROM recipes r
+    JOIN users u ON r.contributor_id = u.user_id
+    JOIN recipe_info ri ON r.recipe_id = ri.recipe_id
+    WHERE r.recipe_id IN (SELECT recipe_id FROM (SELECT recipe_id, AVG(rating) as avg_rating FROM reviews GROUP BY recipe_id)
+    as avg_ratings WHERE avg_rating > (SELECT AVG(rating) FROM reviews))
+    ORDER BY RAND()
+    LIMIT 10`;
+
+  dbConnection.query(query, (error, results) => {
+    if (error) return console.log(error);
+    results = results.map((result) => {
+      result.reviews = JSON.parse(result.reviews);
+      result.instructions = JSON.parse(result.instructions);
+      return result;
+    });
+    // sort the results by the number of reviews
+    results.sort((a, b) => {
+      return b.reviews.length - a.reviews.length;
+    });
+    callback(results);
+  });
+}
+
 /**
  * Get all recipes from the database that match the given search term or part of a search term.
  * @param {string} searchTerm The search term to match against the recipes.
@@ -459,4 +490,5 @@ module.exports = {
   getHomeRecipes,
   addRecipe,
   addReview,
+  getRandomRecipes
 };

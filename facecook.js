@@ -31,24 +31,35 @@ app.get('/', (req, res) => {
 
 
 });
-//self explanatory
+
+// add recipe page
 app.get('/addRecipe', (req, res) => {
   if (req.session.user)
     res.sendFile('addRecipe.html', { root: path.join(__dirname, 'public') });
   else
     res.sendFile('login.html', { root: path.join(__dirname, 'public') });
 });
-//self explanatory
+
+// search recipes page
 app.get('/searchRecipes', (req, res) => {
   if (req.session.user)
     res.sendFile('searchRecipes.html', { root: path.join(__dirname, 'public') });
   else
     res.sendFile('login.html', { root: path.join(__dirname, 'public') });
 });
-//self explanatory
+
+// my recipes page
 app.get('/myRecipes', (req, res) => {
   if (req.session.user)
     res.sendFile('myRecipes.html', { root: path.join(__dirname, 'public') });
+  else
+    res.sendFile('login.html', { root: path.join(__dirname, 'public') });
+});
+
+// random recipes page
+app.get('/randomRecipes', (req, res) => {
+  if (req.session.user)
+    res.sendFile('randomRecipes.html', { root: path.join(__dirname, 'public') });
   else
     res.sendFile('login.html', { root: path.join(__dirname, 'public') });
 });
@@ -75,7 +86,8 @@ app.get('/search', (req, res) => {
       res.send([]);
   }
 });
-//self explanatory
+
+// bring recipe by name with reviews
 app.post('/getRecipeWithReviews', (req, res) => {
   const search = req.body.search;
 
@@ -83,20 +95,31 @@ app.post('/getRecipeWithReviews', (req, res) => {
     res.send(results);
   });
 });
-//self explanatory
+
+// bring recipes of the user
 app.get('/getUserRecipes', (req, res) => {
   const user = req.session.user.username;
   db.getUserRecipes(user, (results) => {
     res.send(results);
   });
 });
+
+// bring 100 popular recipes
 app.get('/getHomeRecipes', (req, res) => {
   db.getHomeRecipes((results) => {
     res.send(results);
   });
 });
 
-// FINISH THIS
+// bring 10 random recipes above the average rating
+app.get('/getRandomRecipes', (req, res) => {
+  db.getRandomRecipes((results) => {
+    res.send(results);
+  });
+});
+
+
+// add a recipe
 app.post('/addRecipe', (req, res) => {
   if(!req.session.user)
     res.send({ status: 401, message: "You must be logged in to add a recipe." });
