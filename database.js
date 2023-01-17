@@ -318,12 +318,12 @@ function getHomeRecipes(callback) {
     FROM recipes r
     JOIN users u ON r.contributor_id = u.user_id
     LEFT JOIN recipe_info ri ON r.recipe_id = ri.recipe_id
-    WHERE r.recipe_id IN (SELECT test.recipe_id
+    WHERE r.recipe_id IN (SELECT home.recipe_id
     FROM (SELECT recipe_id, COUNT(*) as num_reviews
     FROM reviews
     GROUP BY recipe_id
     ORDER BY num_reviews DESC
-    LIMIT 100) as test)`;
+    LIMIT 100) as home)`;
 
   dbConnection.query(query, (error, results) => {
     if (error) return console.log(error);
@@ -351,8 +351,9 @@ function getRandomRecipes(callback) {
     FROM recipes r
     JOIN users u ON r.contributor_id = u.user_id
     JOIN recipe_info ri ON r.recipe_id = ri.recipe_id
-    WHERE r.recipe_id IN (SELECT recipe_id FROM (SELECT recipe_id, AVG(rating) as avg_rating FROM reviews GROUP BY recipe_id)
-    as avg_ratings WHERE avg_rating > (SELECT AVG(rating) FROM reviews))
+    JOIN (SELECT recipe_id FROM reviews GROUP BY recipe_id 
+    HAVING AVG(rating) > (SELECT AVG(rating) FROM reviews)) avg_ratings
+    ON r.recipe_id = avg_ratings.recipe_id
     ORDER BY RAND()
     LIMIT 10`;
 
