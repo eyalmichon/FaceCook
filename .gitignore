@@ -108,3 +108,6 @@ raw_data/*.csv
 
 # secret data
 secrets.json
+
+# zip file
+RecipeApp.zip
